@@ -102,9 +102,9 @@
     // BioCollect Home page
     homeVC = [[HomeTableViewController alloc] initWithNibName:@"HomeTableViewController" bundle:nil];
     UINavigationController *homeNC = [[UINavigationController alloc] initWithRootViewController: homeVC];
-    homeNC.tabBarItem.title = @"BioCollect";
+    homeNC.tabBarItem.title = @"Home";
     homeNC.tabBarItem.image = [UIImage imageNamed:@"home_filled-25"];
-    homeNC.navigationBar.topItem.title = @"BioCollect";
+    homeNC.navigationBar.topItem.title = @"Home";
 
     // Records view
     recordsVC = [[RecordsTableViewController alloc] initWithNibName:@"RecordsTableViewController" bundle:nil];
@@ -154,7 +154,7 @@
     
     //Tab bars
     tabBarController = [[UITabBarController alloc] init];
-    NSArray* controllers = [NSArray arrayWithObjects: aboutNC,contactNC, nil];
+    NSArray* controllers = [NSArray arrayWithObjects: homeNC, aboutNC,contactNC, nil];
     tabBarController.viewControllers = controllers;
 
     [self.window setRootViewController:tabBarController];

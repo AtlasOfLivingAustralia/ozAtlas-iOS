@@ -520,7 +520,7 @@
 		B839846B1DA5EFCA00551C67 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B839846E1DA5F49D00551C67 /* sightings */,
+				B839846E1DA5F49D00551C67 /* Sightings */,
 				E2E56A8D1920992E007AC38C /* Help */,
 				E2E3AAC418F4E0670005BB9E /* Split */,
 				E24E0B251CE40378006ECE0E /* Contact */,
@@ -550,11 +550,11 @@
 			name = Domain;
 			sourceTree = "<group>";
 		};
-		B839846E1DA5F49D00551C67 /* sightings */ = {
+		B839846E1DA5F49D00551C67 /* Sightings */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = sightings;
+			name = Sightings;
 			sourceTree = "<group>";
 		};
 		B8D551DF18F98B7800EDD006 /* Images */ = {
