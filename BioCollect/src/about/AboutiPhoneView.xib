@@ -2,8 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,29 +13,28 @@
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tBK-JT-HCp">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tBK-JT-HCp">
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nF2-0h-UuK">
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="BioCollect-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="qbk-NO-MeC">
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="116" id="yUc-wK-Yjx"/>
-                                    </constraints>
-                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="BioCollect-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="qbk-NO-MeC"/>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ala_logo1.png" translatesAutoresizingMaskIntoConstraints="NO" id="qsa-FI-gXc">
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="116" id="BMd-BO-gLn"/>
-                                        <constraint firstAttribute="width" secondItem="qsa-FI-gXc" secondAttribute="height" multiplier="125:111" id="u59-NR-fBg"/>
+                                        <constraint firstAttribute="height" constant="100" id="Pvk-Hg-YvV"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
-                        </stackView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EEa-rO-sXb">
                             <constraints>
-                                <constraint firstAttribute="width" constant="252" id="voN-Hg-zpR"/>
+                                <constraint firstItem="qsa-FI-gXc" firstAttribute="width" secondItem="qbk-NO-MeC" secondAttribute="width" id="sbS-GW-JIc"/>
+                                <constraint firstItem="qsa-FI-gXc" firstAttribute="height" secondItem="qbk-NO-MeC" secondAttribute="height" id="xxu-iK-oMd"/>
                             </constraints>
+                        </stackView>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="557" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EEa-rO-sXb">
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" notEnabled="YES"/>
+                            </accessibility>
                             <attributedString key="attributedText">
                                 <fragment content="OzAtlas Sightings">
                                     <attributes>
@@ -265,14 +262,17 @@ Cg
                             <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                         </textView>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="EEa-rO-sXb" firstAttribute="width" secondItem="nF2-0h-UuK" secondAttribute="width" id="JJo-eA-cfe"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottomMargin" secondItem="tBK-JT-HCp" secondAttribute="bottom" constant="60" id="8FQ-y6-jYJ"/>
-                <constraint firstItem="tBK-JT-HCp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="65" id="93F-dc-3Qq"/>
-                <constraint firstAttribute="trailingMargin" secondItem="tBK-JT-HCp" secondAttribute="trailing" id="KXi-8f-UA0"/>
-                <constraint firstItem="tBK-JT-HCp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="zoU-iL-g7P"/>
+                <constraint firstItem="tBK-JT-HCp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="67" id="MXV-iW-3Nf"/>
+                <constraint firstAttribute="trailing" secondItem="tBK-JT-HCp" secondAttribute="trailing" id="Mif-Jz-qd2"/>
+                <constraint firstItem="tBK-JT-HCp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rP2-k6-0Lk"/>
+                <constraint firstAttribute="bottom" secondItem="tBK-JT-HCp" secondAttribute="bottom" constant="49" id="sJ4-4Z-ABO"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

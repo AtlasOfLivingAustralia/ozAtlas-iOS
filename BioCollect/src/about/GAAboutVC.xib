@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,20 +20,18 @@
                     <frame key="frameInset" minX="-130" minY="186" width="1028" height="652"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wI3-xr-Urj">
-                            <frame key="frameInset" minX="8" minY="117" width="765" height="480"/>
+                            <frame key="frameInset" minX="8" minY="118" width="765" height="495"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BioCollect-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="YrH-Fs-Bk9">
                                     <constraints>
                                         <constraint firstAttribute="width" constant="250" id="csg-tM-UuN"/>
-                                        <constraint firstAttribute="width" secondItem="YrH-Fs-Bk9" secondAttribute="height" multiplier="128:111" id="xxC-gX-mcS"/>
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="W1n-qg-CNo">
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ala_logo1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rlc-03-JPM">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="ltE-tM-4SU"/>
-                                                <constraint firstAttribute="width" secondItem="Rlc-03-JPM" secondAttribute="height" multiplier="250:213" id="nMG-Gj-NRM"/>
+                                                <constraint firstAttribute="height" constant="100" id="vAw-Nw-os2"/>
                                             </constraints>
                                         </imageView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="msl-HR-m3F">
@@ -278,34 +275,38 @@ Cg
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                                         </textView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BioCollect app version 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLF-tA-Vrz">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BioCollect app version 1.0" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLF-tA-Vrz">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="msl-HR-m3F" firstAttribute="top" secondItem="Rlc-03-JPM" secondAttribute="bottom" id="Cpq-O0-h4z"/>
+                                        <constraint firstAttribute="width" constant="500" id="9GY-8c-ftV"/>
+                                        <constraint firstItem="YLF-tA-Vrz" firstAttribute="width" secondItem="Rlc-03-JPM" secondAttribute="width" id="D8q-Eg-phg"/>
+                                        <constraint firstItem="msl-HR-m3F" firstAttribute="width" secondItem="Rlc-03-JPM" secondAttribute="width" id="TOo-VV-zB1"/>
                                         <constraint firstAttribute="trailing" secondItem="msl-HR-m3F" secondAttribute="trailing" id="UOO-Xg-tJg"/>
                                         <constraint firstItem="msl-HR-m3F" firstAttribute="leading" secondItem="W1n-qg-CNo" secondAttribute="leading" id="g9s-sc-SxQ"/>
-                                        <constraint firstItem="YLF-tA-Vrz" firstAttribute="top" secondItem="msl-HR-m3F" secondAttribute="bottom" id="hsd-A1-MRF"/>
                                     </constraints>
                                 </stackView>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="W1n-qg-CNo" firstAttribute="height" secondItem="YrH-Fs-Bk9" secondAttribute="height" id="YmM-fu-wdX"/>
+                            </constraints>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="wI3-xr-Urj" firstAttribute="top" secondItem="zbc-Qh-V6R" secondAttribute="topMargin" constant="109" id="2gF-N8-pl0"/>
-                        <constraint firstItem="wI3-xr-Urj" firstAttribute="leading" secondItem="zbc-Qh-V6R" secondAttribute="leadingMargin" id="Lbj-gn-aos"/>
-                        <constraint firstAttribute="bottomMargin" secondItem="wI3-xr-Urj" secondAttribute="bottom" constant="80" id="bWz-Zg-Tiq"/>
-                        <constraint firstAttribute="trailingMargin" secondItem="wI3-xr-Urj" secondAttribute="trailing" id="wVk-9Y-1E5"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="wI3-xr-Urj" secondAttribute="trailing" id="Edh-9v-vSr"/>
+                        <constraint firstAttribute="bottomMargin" secondItem="wI3-xr-Urj" secondAttribute="bottom" id="J4z-96-0mB"/>
+                        <constraint firstItem="wI3-xr-Urj" firstAttribute="top" secondItem="zbc-Qh-V6R" secondAttribute="topMargin" id="LUd-It-9WI"/>
+                        <constraint firstItem="wI3-xr-Urj" firstAttribute="leading" secondItem="zbc-Qh-V6R" secondAttribute="leadingMargin" id="sTy-ss-tbv"/>
                     </constraints>
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="zbc-Qh-V6R" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="L4b-t9-apZ"/>
-                <constraint firstItem="zbc-Qh-V6R" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Pah-EN-GKQ"/>
+                <constraint firstItem="zbc-Qh-V6R" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ST2-a8-Ley"/>
+                <constraint firstItem="zbc-Qh-V6R" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="YvU-MQ-4GJ"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
