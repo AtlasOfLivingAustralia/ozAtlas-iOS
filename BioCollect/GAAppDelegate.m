@@ -17,6 +17,7 @@
 #import "HomeTableViewController.h"
 #import "MRProgressOverlayView.h"
 #import "ContactVC.h"
+#import "SightingsViewController.h"
 
 #define IDIOM    UI_USER_INTERFACE_IDIOM()
 #define IPAD     UIUserInterfaceIdiomPad
@@ -27,6 +28,7 @@
 @property (strong, nonatomic) RecordsTableViewController *recordsVC;
 @property (strong, nonatomic) HomeTableViewController *myProjectsVC;
 @property (strong, nonatomic) RecordsTableViewController *myRecordsVC;
+@property (strong, nonatomic) SightingsViewController *mySightingsVC;
 
 @property (strong, nonatomic) GADetailActivitiesTableViewController *detailVC;
 @property (nonatomic, retain) GAActivity *updatedActivity;
@@ -36,7 +38,7 @@
 @end
 @implementation GAAppDelegate
 
-@synthesize splitViewController, projects,masterProjectVC, detailVC, restCall, sqlLite, loginViewController, eulaVC, homeVC, recordsVC, myProjectsVC, myRecordsVC, bioProjectService,tabBarController;
+@synthesize splitViewController, projects,masterProjectVC, detailVC, restCall, sqlLite, loginViewController, eulaVC, homeVC, recordsVC, myProjectsVC, myRecordsVC, mySightingsVC, bioProjectService,tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -105,6 +107,14 @@
     homeNC.tabBarItem.title = @"Home";
     homeNC.tabBarItem.image = [UIImage imageNamed:@"home_filled-25"];
     homeNC.navigationBar.topItem.title = @"Home";
+    
+    // BioCollect Home page
+    mySightingsVC = [[SightingsViewController alloc] initWithNibName:@"SightingsVC" bundle:nil];
+    UINavigationController *sightingsNC = [[UINavigationController alloc] initWithRootViewController: mySightingsVC];
+    sightingsNC.tabBarItem.title = @"Sighting";
+    sightingsNC.tabBarItem.image = [UIImage imageNamed:@"pad"];
+    sightingsNC.navigationBar.topItem.title = @"Add a Sighting";
+
 
     // Records view
     recordsVC = [[RecordsTableViewController alloc] initWithNibName:@"RecordsTableViewController" bundle:nil];
@@ -154,7 +164,7 @@
     
     //Tab bars
     tabBarController = [[UITabBarController alloc] init];
-    NSArray* controllers = [NSArray arrayWithObjects: homeNC, aboutNC,contactNC, nil];
+    NSArray* controllers = [NSArray arrayWithObjects: homeNC, sightingsNC, aboutNC,contactNC, nil];
     tabBarController.viewControllers = controllers;
 
     [self.window setRootViewController:tabBarController];

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SightingsViewController">
+            <connections>
+                <outlet property="individualsLabel" destination="5VH-t3-Ho7" id="UO7-ls-PLJ"/>
+                <outlet property="individualsStepper" destination="kcT-DG-pnC" id="Gam-4K-Ys8"/>
+                <outlet property="noteTextField" destination="Q9v-nz-DxG" id="wdm-Bf-d4H"/>
+                <outlet property="view" destination="iN0-l3-epB" id="dGb-hB-Ogv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lGl-Fd-WNs">
+                    <frame key="frameInset" minX="16" minY="55" width="359" height="160"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="CSZ-cL-8Ng">
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Inidividuals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fr-Rb-6Bq">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mCw-YE-N7U">
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VH-t3-Ho7">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="kcT-DG-pnC">
+                                            <connections>
+                                                <action selector="stepperValueChanged:" destination="-1" eventType="valueChanged" id="CVV-hO-SYO"/>
+                                            </connections>
+                                        </stepper>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="mCw-YE-N7U" firstAttribute="width" secondItem="0Fr-Rb-6Bq" secondAttribute="width" id="UWI-wj-tvE"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="mCw-YE-N7U" secondAttribute="trailing" id="YKp-k8-GHo"/>
+                                <constraint firstItem="mCw-YE-N7U" firstAttribute="leading" secondItem="CSZ-cL-8Ng" secondAttribute="leadingMargin" id="fZW-zO-Ct8"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="lid-ce-TGG">
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P94-TU-Blb">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="r2E-kJ-OG8">
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q9v-nz-DxG">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="YrZ-s7-sGI"/>
+                                            </constraints>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="saveRecord:" destination="-1" eventType="editingDidEnd" id="13C-Fg-2Wt"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="r2E-kJ-OG8" firstAttribute="width" secondItem="P94-TU-Blb" secondAttribute="width" id="2HW-Xn-ubp"/>
+                                <constraint firstItem="r2E-kJ-OG8" firstAttribute="leading" secondItem="lid-ce-TGG" secondAttribute="leadingMargin" id="B4b-35-F32"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="r2E-kJ-OG8" secondAttribute="trailing" id="IGp-gr-AEG"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="CSZ-cL-8Ng" firstAttribute="top" secondItem="lGl-Fd-WNs" secondAttribute="top" id="5NV-hy-uir"/>
+                        <constraint firstItem="CSZ-cL-8Ng" firstAttribute="leading" secondItem="lGl-Fd-WNs" secondAttribute="leading" id="AJv-J6-9Y1"/>
+                        <constraint firstAttribute="trailing" secondItem="CSZ-cL-8Ng" secondAttribute="trailingMargin" id="BJ8-ui-wGj"/>
+                    </constraints>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exr-aP-Lhf">
+                    <frame key="frameInset" minX="8" minY="318" width="359" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Save"/>
+                    <connections>
+                        <action selector="saveRecord:" destination="-1" eventType="touchUpInside" id="oWy-52-pP5"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="lGl-Fd-WNs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="70" id="0Km-6h-23h"/>
+                <constraint firstItem="lGl-Fd-WNs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="CnJ-fX-PAn"/>
+                <constraint firstAttribute="trailingMargin" secondItem="lGl-Fd-WNs" secondAttribute="trailing" id="y2i-HX-BSO"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
