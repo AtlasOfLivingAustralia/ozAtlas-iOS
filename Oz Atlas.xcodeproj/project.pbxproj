@@ -528,6 +528,7 @@
 		B839846B1DA5EFCA00551C67 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B83984761DB063FD00551C67 /* OzHome */,
 				B839846E1DA5F49D00551C67 /* Sightings */,
 				E2E56A8D1920992E007AC38C /* Help */,
 				E2E3AAC418F4E0670005BB9E /* Split */,
@@ -568,6 +569,13 @@
 				872DE1811DAC98CE006FB6C9 /* SightingsViewController.m */,
 			);
 			name = Sightings;
+			sourceTree = "<group>";
+		};
+		B83984761DB063FD00551C67 /* OzHome */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = OzHome;
 			sourceTree = "<group>";
 		};
 		B8D551DF18F98B7800EDD006 /* Images */ = {
