@@ -12,7 +12,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *individualsLabel;
 @property (weak, nonatomic) IBOutlet UIStepper *individualsStepper;
 @property (strong, nonatomic) Record *record;
-@property (weak, nonatomic) IBOutlet UITextField *noteTextField;
+@property (weak, nonatomic) IBOutlet UITextView *noteTextField;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchSpecies;
 @end
 
 @implementation SightingsViewController
