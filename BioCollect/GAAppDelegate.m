@@ -162,10 +162,18 @@
     aboutNC.tabBarItem.image = [UIImage imageNamed:@"about_filled-25"];
     aboutNC.navigationBar.topItem.title = @"About";
     
+    //ozHome page
+    OzHomeVC *ozHomeVC = [[OzHomeVC alloc] initWithMainImage:[UIImage imageNamed:@"OzHome"]];
+    UINavigationController *ozHomeNC = [[UINavigationController alloc] initWithRootViewController: ozHomeVC];
+    ozHomeNC.tabBarItem.title = @"Home";
+    ozHomeNC.tabBarItem.image = [UIImage imageNamed:@"home_filled-25"];
+    ozHomeNC.navigationBar.topItem.title = @"Home";
 
+    
+    
     //Tab bars
     tabBarController = [[UITabBarController alloc] init];
-    NSArray* controllers = [NSArray arrayWithObjects: homeNC, sightingsNC, aboutNC,contactNC, nil];
+    NSArray* controllers = [NSArray arrayWithObjects: ozHomeNC, aboutNC,contactNC, nil];
     tabBarController.viewControllers = controllers;
 
     [self.window setRootViewController:tabBarController];

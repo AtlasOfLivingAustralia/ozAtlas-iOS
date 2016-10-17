@@ -22,6 +22,13 @@
 		B83825FF1A0C666B00690383 /* MRMessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825F01A0C666B00690383 /* MRMessageInterceptor.m */; };
 		B83826001A0C666B00690383 /* MRMethodCopier.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825F21A0C666B00690383 /* MRMethodCopier.m */; };
 		B83826011A0C666B00690383 /* MRWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825F51A0C666B00690383 /* MRWeakProxy.m */; };
+		B87373A51DB085540057027E /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B873739C1DB085540057027E /* UIImage+ImageEffects.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B87373A61DB085540057027E /* UIImageView+LBBlurredImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B873739E1DB085540057027E /* UIImageView+LBBlurredImage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B87373A71DB085540057027E /* MGSpotyView.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373A01DB085540057027E /* MGSpotyView.m */; };
+		B87373A81DB085540057027E /* MGSpotyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373A21DB085540057027E /* MGSpotyViewController.m */; };
+		B87373AB1DB089110057027E /* OzHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373AA1DB089110057027E /* OzHomeVC.m */; };
+		B87373AE1DB08CF90057027E /* OzHomeVCDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373AD1DB08CF90057027E /* OzHomeVCDelegate.m */; };
+		B87373B11DB08D560057027E /* OzHomeVCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373B01DB08D560057027E /* OzHomeVCDataSource.m */; };
 		B89441FB18FA38F500BB5928 /* GAProjectsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B89441FA18FA38F500BB5928 /* GAProjectsUtil.m */; };
 		B8BFD2C61919C3AC0063DA78 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BFD2C51919C3AC0063DA78 /* QuartzCore.framework */; };
 		B8BFD2C81919C3BC0063DA78 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BFD2C71919C3BC0063DA78 /* Accelerate.framework */; };
@@ -112,8 +119,6 @@
 		E27BDFD918F7AA07001EE2F8 /* GAActivitiesJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E27BDFD818F7AA07001EE2F8 /* GAActivitiesJSON.m */; };
 		E291220F1CDAC425005D9638 /* LaunchScreen~ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E291220E1CDAC425005D9638 /* LaunchScreen~ipad.storyboard */; };
 		E29122111CDAD093005D9638 /* LoginiPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E29122101CDAD093005D9638 /* LoginiPhoneView.xib */; };
-		E29122131CDADDEE005D9638 /* BioCollect-logo-01.png in Resources */ = {isa = PBXBuildFile; fileRef = E29122121CDADDEE005D9638 /* BioCollect-logo-01.png */; };
-		E29122151CDADE25005D9638 /* BioCollect-logo-01.png in Resources */ = {isa = PBXBuildFile; fileRef = E29122141CDADE25005D9638 /* BioCollect-logo-01.png */; };
 		E291221B1CDB3BEC005D9638 /* background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E291221A1CDB3BEC005D9638 /* background~ipad.png */; };
 		E29A353F19667675003D025D /* GAHelpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E29A353D19667675003D025D /* GAHelpVC.m */; };
 		E29A354019667675003D025D /* GAHelpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E29A353E19667675003D025D /* GAHelpVC.xib */; };
@@ -224,6 +229,22 @@
 		B83825F31A0C666B00690383 /* MRProgressHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRProgressHelper.h; sourceTree = "<group>"; };
 		B83825F41A0C666B00690383 /* MRWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRWeakProxy.h; sourceTree = "<group>"; };
 		B83825F51A0C666B00690383 /* MRWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRWeakProxy.m; sourceTree = "<group>"; };
+		B873739B1DB085540057027E /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		B873739C1DB085540057027E /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		B873739D1DB085540057027E /* UIImageView+LBBlurredImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LBBlurredImage.h"; sourceTree = "<group>"; };
+		B873739E1DB085540057027E /* UIImageView+LBBlurredImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LBBlurredImage.m"; sourceTree = "<group>"; };
+		B873739F1DB085540057027E /* MGSpotyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSpotyView.h; sourceTree = "<group>"; };
+		B87373A01DB085540057027E /* MGSpotyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSpotyView.m; sourceTree = "<group>"; };
+		B87373A11DB085540057027E /* MGSpotyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSpotyViewController.h; sourceTree = "<group>"; };
+		B87373A21DB085540057027E /* MGSpotyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSpotyViewController.m; sourceTree = "<group>"; };
+		B87373A31DB085540057027E /* MGSpotyViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSpotyViewControllerDataSource.h; sourceTree = "<group>"; };
+		B87373A41DB085540057027E /* MGSpotyViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSpotyViewControllerDelegate.h; sourceTree = "<group>"; };
+		B87373A91DB088EF0057027E /* OzHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OzHomeVC.h; path = src/ozhome/OzHomeVC.h; sourceTree = "<group>"; };
+		B87373AA1DB089110057027E /* OzHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OzHomeVC.m; path = src/ozhome/OzHomeVC.m; sourceTree = "<group>"; };
+		B87373AC1DB08CE30057027E /* OzHomeVCDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OzHomeVCDelegate.h; path = src/ozhome/OzHomeVCDelegate.h; sourceTree = "<group>"; };
+		B87373AD1DB08CF90057027E /* OzHomeVCDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OzHomeVCDelegate.m; path = src/ozhome/OzHomeVCDelegate.m; sourceTree = "<group>"; };
+		B87373AF1DB08D2E0057027E /* OzHomeVCDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OzHomeVCDataSource.h; path = src/ozhome/OzHomeVCDataSource.h; sourceTree = "<group>"; };
+		B87373B01DB08D560057027E /* OzHomeVCDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OzHomeVCDataSource.m; path = src/ozhome/OzHomeVCDataSource.m; sourceTree = "<group>"; };
 		B89441F918FA38F500BB5928 /* GAProjectsUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAProjectsUtil.h; path = src/model/GAProjectsUtil.h; sourceTree = "<group>"; };
 		B89441FA18FA38F500BB5928 /* GAProjectsUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GAProjectsUtil.m; path = src/model/GAProjectsUtil.m; sourceTree = "<group>"; };
 		B8BFD2C51919C3AC0063DA78 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -349,8 +370,6 @@
 		E27BDFD818F7AA07001EE2F8 /* GAActivitiesJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GAActivitiesJSON.m; path = src/model/GAActivitiesJSON.m; sourceTree = "<group>"; };
 		E291220E1CDAC425005D9638 /* LaunchScreen~ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "LaunchScreen~ipad.storyboard"; path = "src/LaunchScreen~ipad.storyboard"; sourceTree = "<group>"; };
 		E29122101CDAD093005D9638 /* LoginiPhoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginiPhoneView.xib; path = src/LoginiPhoneView.xib; sourceTree = "<group>"; };
-		E29122121CDADDEE005D9638 /* BioCollect-logo-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BioCollect-logo-01.png"; path = "src/images/BioCollect-logo-01.png"; sourceTree = "<group>"; };
-		E29122141CDADE25005D9638 /* BioCollect-logo-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BioCollect-logo-01.png"; path = "src/images/BioCollect-logo-01.png"; sourceTree = "<group>"; };
 		E291221A1CDB3BEC005D9638 /* background~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background~ipad.png"; path = "src/images/background~ipad.png"; sourceTree = "<group>"; };
 		E29A353C19667675003D025D /* GAHelpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAHelpVC.h; path = src/help/GAHelpVC.h; sourceTree = "<group>"; };
 		E29A353D19667675003D025D /* GAHelpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GAHelpVC.m; path = src/help/GAHelpVC.m; sourceTree = "<group>"; };
@@ -574,8 +593,40 @@
 		B83984761DB063FD00551C67 /* OzHome */ = {
 			isa = PBXGroup;
 			children = (
+				B87373A91DB088EF0057027E /* OzHomeVC.h */,
+				B87373AA1DB089110057027E /* OzHomeVC.m */,
+				B87373AF1DB08D2E0057027E /* OzHomeVCDataSource.h */,
+				B87373B01DB08D560057027E /* OzHomeVCDataSource.m */,
+				B87373AC1DB08CE30057027E /* OzHomeVCDelegate.h */,
+				B87373AD1DB08CF90057027E /* OzHomeVCDelegate.m */,
 			);
 			name = OzHome;
+			sourceTree = "<group>";
+		};
+		B87373991DB085540057027E /* MGSpotyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B873739A1DB085540057027E /* ImageEffects */,
+				B873739F1DB085540057027E /* MGSpotyView.h */,
+				B87373A01DB085540057027E /* MGSpotyView.m */,
+				B87373A11DB085540057027E /* MGSpotyViewController.h */,
+				B87373A21DB085540057027E /* MGSpotyViewController.m */,
+				B87373A31DB085540057027E /* MGSpotyViewControllerDataSource.h */,
+				B87373A41DB085540057027E /* MGSpotyViewControllerDelegate.h */,
+			);
+			name = MGSpotyViewController;
+			path = src/MGSpotyViewController;
+			sourceTree = "<group>";
+		};
+		B873739A1DB085540057027E /* ImageEffects */ = {
+			isa = PBXGroup;
+			children = (
+				B873739B1DB085540057027E /* UIImage+ImageEffects.h */,
+				B873739C1DB085540057027E /* UIImage+ImageEffects.m */,
+				B873739D1DB085540057027E /* UIImageView+LBBlurredImage.h */,
+				B873739E1DB085540057027E /* UIImageView+LBBlurredImage.m */,
+			);
+			path = ImageEffects;
 			sourceTree = "<group>";
 		};
 		B8D551DF18F98B7800EDD006 /* Images */ = {
@@ -592,7 +643,6 @@
 				E211B04B1CE18BC500DBC1AF /* BioCollect-logo.png */,
 				E20D1B591CDC72BA00A3607B /* background.png */,
 				E291221A1CDB3BEC005D9638 /* background~ipad.png */,
-				E29122141CDADE25005D9638 /* BioCollect-logo-01.png */,
 				E2B627501CE4119A00A89179 /* BioCollect-text-small.png */,
 				E20026381C926F250045C130 /* csiro-logo.png */,
 				E211B0491CE18A3E00DBC1AF /* 512x512.png */,
@@ -701,7 +751,6 @@
 		E23586D318FBB27900EE6D13 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				E29122121CDADDEE005D9638 /* BioCollect-logo-01.png */,
 				E23586D418FBB6FE00EE6D13 /* database */,
 			);
 			name = Persistence;
@@ -944,6 +993,7 @@
 		E2E56A8619209128007AC38C /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				B87373991DB085540057027E /* MGSpotyViewController */,
 				E21CD1801CEAF89F0021536B /* JGActionSheet */,
 				E201898B1C895E5A0031435D /* SDWebImage */,
 				B83825D71A0C666B00690383 /* MRActivityUI */,
@@ -1111,7 +1161,6 @@
 				E2E3AA9718F4D2940005BB9E /* InfoPlist.strings in Resources */,
 				E2E24AC21CED4DDF00F6D4CA /* table-place-holder.png in Resources */,
 				E2636DDD1CF2E68500000371 /* home_filled-25@2x.png in Resources */,
-				E29122151CDADE25005D9638 /* BioCollect-logo-01.png in Resources */,
 				E241C687196A33B6002302D7 /* js in Resources */,
 				E2F8E56619108A640093A3D3 /* Icon-40.png in Resources */,
 				E2BB4EF31C855A0F0075F8BF /* BioCollect-logo 2.png in Resources */,
@@ -1143,7 +1192,6 @@
 				E2F8E56C19108A640093A3D3 /* Icon-Small.png in Resources */,
 				E2E43395190FAE5700A3FAB2 /* cancelled@2x.png in Resources */,
 				E2CCED01190F82E6003655B7 /* planned@2x.png in Resources */,
-				E29122131CDADDEE005D9638 /* BioCollect-logo-01.png in Resources */,
 				E2A2FFD11C854EDD008B63A8 /* BioCollect-logo 1.png in Resources */,
 				E29A35421966781C003D025D /* searchbar_bk@2x.png in Resources */,
 				E2F471C41C86827B00594DAB /* HomeTableViewController.xib in Resources */,
@@ -1177,6 +1225,7 @@
 				E2E3AAC818F4E1FA0005BB9E /* GAMasterProjectTableViewController.m in Sources */,
 				E2636E431CF43C4100000371 /* UIImageView+HighlightedWebCache.m in Sources */,
 				B83826001A0C666B00690383 /* MRMethodCopier.m in Sources */,
+				B87373B11DB08D560057027E /* OzHomeVCDataSource.m in Sources */,
 				E23586D718FBB73D00EE6D13 /* GASqlLiteDatabase.m in Sources */,
 				E2E3AAC218F4D9070005BB9E /* GALogin.m in Sources */,
 				E2E3AAE018F514470005BB9E /* GAActivity.m in Sources */,
@@ -1194,20 +1243,24 @@
 				B8D551DE18F952DF00EDD006 /* GARestCall.m in Sources */,
 				E21CD1831CEAF8E10021536B /* JGActionSheet.m in Sources */,
 				E2B4BEEE1C896E270054F117 /* HomeCustomCell.m in Sources */,
+				B87373A71DB085540057027E /* MGSpotyView.m in Sources */,
 				E27BDFD918F7AA07001EE2F8 /* GAActivitiesJSON.m in Sources */,
 				E27BDFD518F78D97001EE2F8 /* GASettings.m in Sources */,
 				E2E56A7F1920857C007AC38C /* GASiteJSON.m in Sources */,
 				E2636E361CF43C4100000371 /* MKAnnotationView+WebCache.m in Sources */,
+				B87373A51DB085540057027E /* UIImage+ImageEffects.m in Sources */,
 				E23586E718FCFF4900EE6D13 /* GAFormJSInterface.m in Sources */,
 				E23AF50A1C8F8C48002501F3 /* HomeWebView.m in Sources */,
 				B83825FE1A0C666B00690383 /* MRStopButton.m in Sources */,
 				B83825FC1A0C666B00690383 /* MRProgressOverlayView.m in Sources */,
+				B87373AB1DB089110057027E /* OzHomeVC.m in Sources */,
 				E2E3AA9D18F4D2940005BB9E /* GAAppDelegate.m in Sources */,
 				E23AF5131C910F93002501F3 /* ProjectActivityJSON.m in Sources */,
 				E2E3AAD718F4E65E0005BB9E /* GADetailActivitiesTableViewController.m in Sources */,
 				E23586E318FCFED600EE6D13 /* EasyJSWebView.m in Sources */,
 				E23AF5211C9187E3002501F3 /* RecordWebView.m in Sources */,
 				E2636E3F1CF43C4100000371 /* UIButton+WebCache.m in Sources */,
+				B87373A81DB085540057027E /* MGSpotyViewController.m in Sources */,
 				872DE1821DAC98CE006FB6C9 /* SightingsViewController.m in Sources */,
 				E2636E391CF43C4100000371 /* SDWebImageCompat.m in Sources */,
 				B83825F81A0C666B00690383 /* MRActivityIndicatorView.m in Sources */,
@@ -1218,6 +1271,8 @@
 				E2E56A7C192084D2007AC38C /* GASite.m in Sources */,
 				E2636E3B1CF43C4100000371 /* SDWebImageDownloader.m in Sources */,
 				B83825FB1A0C666B00690383 /* MRNavigationBarProgressView.m in Sources */,
+				B87373AE1DB08CF90057027E /* OzHomeVCDelegate.m in Sources */,
+				B87373A61DB085540057027E /* UIImageView+LBBlurredImage.m in Sources */,
 				E23586E118FCFED600EE6D13 /* easyjs-inject.js in Sources */,
 				E2636E401CF43C4100000371 /* UIImage+GIF.m in Sources */,
 				E24E0B281CE40402006ECE0E /* ContactVC.m in Sources */,
