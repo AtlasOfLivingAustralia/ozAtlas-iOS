@@ -12,5 +12,7 @@
 #define REST_SERVER @"https://fieldcapture-test.ala.org.au"
 #define ECODATA_SERVER @"https://ecodata-test.ala.org.au"
 #define BIOCOLLECT_SERVER @"https://biocollect-test.ala.org.au"
+#define AUTH_SERVER  @"https://auth.ala.org.au"
+#define AUTH_REGISTER @"/userdetails/registration/createAccount"
 
 #endif

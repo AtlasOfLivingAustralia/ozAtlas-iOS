@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="loginButton" destination="8Vz-Kd-TvP" id="JZX-wi-oiX"/>
                 <outlet property="passwordTextField" destination="vQW-p6-QBI" id="Qe1-CN-zDI"/>
+                <outlet property="registerButton" destination="WKW-kF-Zxv" id="8wl-l7-4vz"/>
                 <outlet property="usernameTextField" destination="kxv-VP-IOl" id="gTc-Md-v7H"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -77,6 +78,15 @@
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="onClickLogin:" destination="-1" eventType="touchUpInside" id="G1F-sN-s5k"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKW-kF-Zxv">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <state key="normal" title="Not registered?">
+                                                <color key="titleColor" red="0.94509803920000002" green="0.34901960780000002" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onClickRegister:" destination="-1" eventType="touchUpInside" id="ZFo-Xc-2FL"/>
                                             </connections>
                                         </button>
                                     </subviews>
