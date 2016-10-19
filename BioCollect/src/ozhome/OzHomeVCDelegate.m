@@ -8,7 +8,7 @@
 
 #import "OzHomeVCDelegate.h"
 #import "MGSpotyViewController.h"
-
+#import "RecordViewController.h"
 
 @implementation OzHomeVCDelegate
 
@@ -40,6 +40,14 @@
 
 - (void)spotyViewController:(MGSpotyViewController *)spotyViewController didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    RecordViewController *recordViewController = [[RecordViewController alloc] init];
+    
+    
+    recordViewController.title = @"Record a sightings";
+    
+    [spotyViewController.navigationController pushViewController:recordViewController animated:TRUE];
+    
     NSLog(@"selected row");
     [spotyViewController.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

@@ -42,6 +42,9 @@
 		B87373DC1DB6DFE90057027E /* SVWebViewControllerActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373CC1DB6DFE90057027E /* SVWebViewControllerActivitySafari.m */; };
 		B87373DD1DB6DFE90057027E /* SVWebViewControllerActivitySafari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B87373CD1DB6DFE90057027E /* SVWebViewControllerActivitySafari@2x.png */; };
 		B87373DE1DB6DFE90057027E /* SVWebViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373CF1DB6DFE90057027E /* SVWebViewControllerActivity.m */; };
+		B87373E21DB7021B0057027E /* FXForms.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373E11DB7021B0057027E /* FXForms.m */; };
+		B87373E51DB7027F0057027E /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373E41DB7027F0057027E /* RecordViewController.m */; };
+		B87373E91DB703280057027E /* RecordForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373E81DB703280057027E /* RecordForm.m */; };
 		B89441FB18FA38F500BB5928 /* GAProjectsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B89441FA18FA38F500BB5928 /* GAProjectsUtil.m */; };
 		B8BFD2C61919C3AC0063DA78 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BFD2C51919C3AC0063DA78 /* QuartzCore.framework */; };
 		B8BFD2C81919C3BC0063DA78 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BFD2C71919C3BC0063DA78 /* Accelerate.framework */; };
@@ -285,6 +288,12 @@
 		B87373CF1DB6DFE90057027E /* SVWebViewControllerActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivity.m; sourceTree = "<group>"; };
 		B87373D01DB6DFE90057027E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
 		B87373D11DB6DFE90057027E /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
+		B87373E01DB7021B0057027E /* FXForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXForms.h; sourceTree = "<group>"; };
+		B87373E11DB7021B0057027E /* FXForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXForms.m; sourceTree = "<group>"; };
+		B87373E41DB7027F0057027E /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordViewController.m; path = src/record/RecordViewController.m; sourceTree = "<group>"; };
+		B87373E61DB702980057027E /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordViewController.h; path = src/record/RecordViewController.h; sourceTree = "<group>"; };
+		B87373E71DB703110057027E /* RecordForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordForm.h; path = src/record/RecordForm.h; sourceTree = "<group>"; };
+		B87373E81DB703280057027E /* RecordForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordForm.m; path = src/record/RecordForm.m; sourceTree = "<group>"; };
 		B89441F918FA38F500BB5928 /* GAProjectsUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAProjectsUtil.h; path = src/model/GAProjectsUtil.h; sourceTree = "<group>"; };
 		B89441FA18FA38F500BB5928 /* GAProjectsUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GAProjectsUtil.m; path = src/model/GAProjectsUtil.m; sourceTree = "<group>"; };
 		B8BFD2C51919C3AC0063DA78 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -587,6 +596,7 @@
 		B839846B1DA5EFCA00551C67 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B87373E31DB702280057027E /* Record */,
 				B83984761DB063FD00551C67 /* OzHome */,
 				B839846E1DA5F49D00551C67 /* Sightings */,
 				E2E56A8D1920992E007AC38C /* Help */,
@@ -717,6 +727,27 @@
 				B87373CD1DB6DFE90057027E /* SVWebViewControllerActivitySafari@2x.png */,
 			);
 			path = Safari;
+			sourceTree = "<group>";
+		};
+		B87373DF1DB7021B0057027E /* FXForms */ = {
+			isa = PBXGroup;
+			children = (
+				B87373E01DB7021B0057027E /* FXForms.h */,
+				B87373E11DB7021B0057027E /* FXForms.m */,
+			);
+			name = FXForms;
+			path = src/FXForms;
+			sourceTree = "<group>";
+		};
+		B87373E31DB702280057027E /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				B87373E61DB702980057027E /* RecordViewController.h */,
+				B87373E41DB7027F0057027E /* RecordViewController.m */,
+				B87373E71DB703110057027E /* RecordForm.h */,
+				B87373E81DB703280057027E /* RecordForm.m */,
+			);
+			name = Record;
 			sourceTree = "<group>";
 		};
 		B8D551DF18F98B7800EDD006 /* Images */ = {
@@ -1083,6 +1114,7 @@
 		E2E56A8619209128007AC38C /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				B87373DF1DB7021B0057027E /* FXForms */,
 				B87373B21DB6DFE90057027E /* SVWebViewController */,
 				B87373991DB085540057027E /* MGSpotyViewController */,
 				E21CD1801CEAF89F0021536B /* JGActionSheet */,
@@ -1328,6 +1360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B87373E51DB7027F0057027E /* RecordViewController.m in Sources */,
 				E2636E3A1CF43C4100000371 /* SDWebImageDecoder.m in Sources */,
 				E2636E3E1CF43C4100000371 /* SDWebImagePrefetcher.m in Sources */,
 				E2E3AAC818F4E1FA0005BB9E /* GAMasterProjectTableViewController.m in Sources */,
@@ -1353,12 +1386,14 @@
 				B8D551DE18F952DF00EDD006 /* GARestCall.m in Sources */,
 				E21CD1831CEAF8E10021536B /* JGActionSheet.m in Sources */,
 				E2B4BEEE1C896E270054F117 /* HomeCustomCell.m in Sources */,
+				B87373E91DB703280057027E /* RecordForm.m in Sources */,
 				B87373A71DB085540057027E /* MGSpotyView.m in Sources */,
 				E27BDFD918F7AA07001EE2F8 /* GAActivitiesJSON.m in Sources */,
 				E27BDFD518F78D97001EE2F8 /* GASettings.m in Sources */,
 				E2E56A7F1920857C007AC38C /* GASiteJSON.m in Sources */,
 				B87373DE1DB6DFE90057027E /* SVWebViewControllerActivity.m in Sources */,
 				E2636E361CF43C4100000371 /* MKAnnotationView+WebCache.m in Sources */,
+				B87373E21DB7021B0057027E /* FXForms.m in Sources */,
 				B87373A51DB085540057027E /* UIImage+ImageEffects.m in Sources */,
 				E23586E718FCFF4900EE6D13 /* GAFormJSInterface.m in Sources */,
 				E23AF50A1C8F8C48002501F3 /* HomeWebView.m in Sources */,
