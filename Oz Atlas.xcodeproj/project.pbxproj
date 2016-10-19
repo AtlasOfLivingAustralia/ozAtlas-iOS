@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		872DE17F1DAC929D006FB6C9 /* SightingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872DE17E1DAC929D006FB6C9 /* SightingsVC.xib */; };
-		872DE1821DAC98CE006FB6C9 /* SightingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 872DE1811DAC98CE006FB6C9 /* SightingsViewController.m */; };
-		872DE1861DADB304006FB6C9 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 872DE1851DADB304006FB6C9 /* Record.m */; };
+		8709E9B01DB5A0FF00D04585 /* SightingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8709E9AA1DB5A0FF00D04585 /* SightingsVC.xib */; };
+		8709E9B11DB5A0FF00D04585 /* SightingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709E9AC1DB5A0FF00D04585 /* SightingsViewController.m */; };
+		8709E9B21DB5A0FF00D04585 /* SpeciesSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709E9AE1DB5A0FF00D04585 /* SpeciesSearchTableViewController.m */; };
+		8709E9B31DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8709E9AF1DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib */; };
+		8709E9B61DB5A11700D04585 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709E9B51DB5A11700D04585 /* Record.m */; };
 		B83825F61A0C666B00690383 /* MRBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825DA1A0C666B00690383 /* MRBlurView.m */; };
 		B83825F71A0C666B00690383 /* UIImage+MRImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825DC1A0C666B00690383 /* UIImage+MRImageEffects.m */; };
 		B83825F81A0C666B00690383 /* MRActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825DF1A0C666B00690383 /* MRActivityIndicatorView.m */; };
@@ -192,11 +194,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		872DE17E1DAC929D006FB6C9 /* SightingsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SightingsVC.xib; sourceTree = "<group>"; };
-		872DE1801DAC98CE006FB6C9 /* SightingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SightingsViewController.h; sourceTree = "<group>"; };
-		872DE1811DAC98CE006FB6C9 /* SightingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SightingsViewController.m; sourceTree = "<group>"; };
-		872DE1831DADAD13006FB6C9 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
-		872DE1851DADB304006FB6C9 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
+		8709E9AA1DB5A0FF00D04585 /* SightingsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SightingsVC.xib; path = src/SightingsVC.xib; sourceTree = "<group>"; };
+		8709E9AB1DB5A0FF00D04585 /* SightingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SightingsViewController.h; path = src/SightingsViewController.h; sourceTree = "<group>"; };
+		8709E9AC1DB5A0FF00D04585 /* SightingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SightingsViewController.m; path = src/SightingsViewController.m; sourceTree = "<group>"; };
+		8709E9AD1DB5A0FF00D04585 /* SpeciesSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeciesSearchTableViewController.h; path = src/SpeciesSearchTableViewController.h; sourceTree = "<group>"; };
+		8709E9AE1DB5A0FF00D04585 /* SpeciesSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeciesSearchTableViewController.m; path = src/SpeciesSearchTableViewController.m; sourceTree = "<group>"; };
+		8709E9AF1DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpeciesSearchTableViewController.xib; path = src/SpeciesSearchTableViewController.xib; sourceTree = "<group>"; };
+		8709E9B41DB5A11700D04585 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Record.h; path = src/Record.h; sourceTree = "<group>"; };
+		8709E9B51DB5A11700D04585 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Record.m; path = src/Record.m; sourceTree = "<group>"; };
 		B83825D91A0C666B00690383 /* MRBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBlurView.h; sourceTree = "<group>"; };
 		B83825DA1A0C666B00690383 /* MRBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBlurView.m; sourceTree = "<group>"; };
 		B83825DB1A0C666B00690383 /* UIImage+MRImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MRImageEffects.h"; sourceTree = "<group>"; };
@@ -554,8 +559,8 @@
 				E2E56A7B192084D2007AC38C /* GASite.m */,
 				E23AF50D1C8FEE21002501F3 /* ProjectActivity.h */,
 				E23AF50E1C8FEEB7002501F3 /* ProjectActivity.m */,
-				872DE1831DADAD13006FB6C9 /* Record.h */,
-				872DE1851DADB304006FB6C9 /* Record.m */,
+				8709E9B41DB5A11700D04585 /* Record.h */,
+				8709E9B51DB5A11700D04585 /* Record.m */,
 				E2E3AADD18F513E90005BB9E /* JSON */,
 			);
 			name = Domain;
@@ -564,9 +569,12 @@
 		B839846E1DA5F49D00551C67 /* Sightings */ = {
 			isa = PBXGroup;
 			children = (
-				872DE17E1DAC929D006FB6C9 /* SightingsVC.xib */,
-				872DE1801DAC98CE006FB6C9 /* SightingsViewController.h */,
-				872DE1811DAC98CE006FB6C9 /* SightingsViewController.m */,
+				8709E9AA1DB5A0FF00D04585 /* SightingsVC.xib */,
+				8709E9AB1DB5A0FF00D04585 /* SightingsViewController.h */,
+				8709E9AC1DB5A0FF00D04585 /* SightingsViewController.m */,
+				8709E9AD1DB5A0FF00D04585 /* SpeciesSearchTableViewController.h */,
+				8709E9AE1DB5A0FF00D04585 /* SpeciesSearchTableViewController.m */,
+				8709E9AF1DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib */,
 			);
 			name = Sightings;
 			sourceTree = "<group>";
@@ -1068,13 +1076,13 @@
 				E23AF5181C911E45002501F3 /* RecordsTableViewController.xib in Resources */,
 				E20D1B561CDC145100A3607B /* AboutiPhoneView.xib in Resources */,
 				E22045C4192D7D0B00531116 /* help_filled-25@2x.png in Resources */,
+				8709E9B31DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib in Resources */,
 				E2CCED00190F82E6003655B7 /* finished@2x.png in Resources */,
 				E22045D1192D9EEC00531116 /* action-25@2x.png in Resources */,
 				E24E0B2A1CE40464006ECE0E /* ContactVC.xib in Resources */,
 				E22045CE192D8F4800531116 /* loc1_changed@2x.png in Resources */,
 				E211B04A1CE18A3E00DBC1AF /* 512x512.png in Resources */,
 				E22045D2192D9EEC00531116 /* sync-25@2x.png in Resources */,
-				872DE17F1DAC929D006FB6C9 /* SightingsVC.xib in Resources */,
 				E23AF5231C918862002501F3 /* RecordWebView.xib in Resources */,
 				E2F8E56D19108A640093A3D3 /* Icon-Small@2x.png in Resources */,
 				E2636DD91CF2E57C00000371 /* brief_filled-25@2x.png in Resources */,
@@ -1143,6 +1151,7 @@
 				E2F8E56C19108A640093A3D3 /* Icon-Small.png in Resources */,
 				E2E43395190FAE5700A3FAB2 /* cancelled@2x.png in Resources */,
 				E2CCED01190F82E6003655B7 /* planned@2x.png in Resources */,
+				8709E9B01DB5A0FF00D04585 /* SightingsVC.xib in Resources */,
 				E29122131CDADDEE005D9638 /* BioCollect-logo-01.png in Resources */,
 				E2A2FFD11C854EDD008B63A8 /* BioCollect-logo 1.png in Resources */,
 				E29A35421966781C003D025D /* searchbar_bk@2x.png in Resources */,
@@ -1172,6 +1181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8709E9B11DB5A0FF00D04585 /* SightingsViewController.m in Sources */,
 				E2636E3A1CF43C4100000371 /* SDWebImageDecoder.m in Sources */,
 				E2636E3E1CF43C4100000371 /* SDWebImagePrefetcher.m in Sources */,
 				E2E3AAC818F4E1FA0005BB9E /* GAMasterProjectTableViewController.m in Sources */,
@@ -1187,7 +1197,6 @@
 				B83825F61A0C666B00690383 /* MRBlurView.m in Sources */,
 				E2E56B2C1925CB7F007AC38C /* GACreateSiteModalViewController.m in Sources */,
 				E2636E441CF43C4100000371 /* UIImageView+WebCache.m in Sources */,
-				872DE1861DADB304006FB6C9 /* Record.m in Sources */,
 				E29A354719667925003D025D /* GAAboutVC.m in Sources */,
 				E2636E3D1CF43C4100000371 /* SDWebImageManager.m in Sources */,
 				E2636E371CF43C4100000371 /* NSData+ImageContentType.m in Sources */,
@@ -1208,10 +1217,10 @@
 				E23586E318FCFED600EE6D13 /* EasyJSWebView.m in Sources */,
 				E23AF5211C9187E3002501F3 /* RecordWebView.m in Sources */,
 				E2636E3F1CF43C4100000371 /* UIButton+WebCache.m in Sources */,
-				872DE1821DAC98CE006FB6C9 /* SightingsViewController.m in Sources */,
 				E2636E391CF43C4100000371 /* SDWebImageCompat.m in Sources */,
 				B83825F81A0C666B00690383 /* MRActivityIndicatorView.m in Sources */,
 				E27BDFB618F78221001EE2F8 /* GAProjectJSON.m in Sources */,
+				8709E9B61DB5A11700D04585 /* Record.m in Sources */,
 				E24D527918F57662002A4F64 /* GADetailFormVIewController.m in Sources */,
 				E29A353F19667675003D025D /* GAHelpVC.m in Sources */,
 				B83826011A0C666B00690383 /* MRWeakProxy.m in Sources */,
@@ -1236,6 +1245,7 @@
 				B89441FB18FA38F500BB5928 /* GAProjectsUtil.m in Sources */,
 				E20189891C8922DD0031435D /* BioProjectService.m in Sources */,
 				E23586E418FCFED600EE6D13 /* EasyJSWebViewProxyDelegate.m in Sources */,
+				8709E9B21DB5A0FF00D04585 /* SpeciesSearchTableViewController.m in Sources */,
 				E2636E381CF43C4100000371 /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

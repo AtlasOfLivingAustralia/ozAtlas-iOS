@@ -210,6 +210,33 @@
     }
     return nil;
 }
+/**
+ * Search BIE to autocomplete a species.
+ */
+-(NSArray *) autoCompleteSpecies : (NSString *) searchText  addSearchText:(BOOL)addUnmatchedTaxon {
+    NSMutableArray *results = nil;
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    NSString *url = [[NSString alloc] initWithFormat:@"%@%@", AUTOCOMPLETE_URL, [searchText stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    NSURLResponse *response;
+    NSError *e;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error: &e];
+    NSDictionary* respDict =  [NSJSONSerialization JSONObjectWithData:data
+                                                              options:kNilOptions error:&e];
+    results = [[NSMutableArray alloc] initWithArray:[respDict mutableArrayValueForKey:@"autoCompleteList"] copyItems:NO];
+    
+    if(addUnmatchedTaxon){
+        NSDictionary *unmatchedTaxon = @{
+                                         @"name": searchText,
+                                         @"guid": [NSNull null],
+                                         @"commonName": [NSNull null]
+                                         };
+        [results insertObject: unmatchedTaxon atIndex:0];
+    }
+    
+    return [results copy];
+}
 
 
 -(NSString *) uploadSite : (GASite*) site :(NSError**) e{

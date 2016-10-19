@@ -9,5 +9,5 @@
 #import "Record.h"
 
 @implementation Record
-@synthesize _id, recordId, speciesDisplayName, scientificName, commonName, guid, lsid, numberOfInidividuals, notes, lastUpdated;
+@synthesize _id, recordId, speciesDisplayName, scientificName, commonName, guid, numberOfInidividuals, notes, lastUpdated, confidence, comments, dateRecorded;
 @end

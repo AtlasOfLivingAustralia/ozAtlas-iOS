@@ -334,7 +334,7 @@
     
     //Reached the max.
     if(self.totalProjects != 0 && [self.bioProjects count] != 0 && self.totalProjects  == [self.bioProjects count]) {
-        DebugLog(@"Downloaded all the projects (%ld)", [self.bioProjects count])
+        DebugLog(@"Downloaded all the projects (%ld)", [self.bioProjects count]);
     } else if(self.loadingFinished){
         self.loadingFinished = FALSE;
         NSError *error = nil;

@@ -17,4 +17,6 @@
 -(NSString *) uploadSite: (GASite*) site :(NSError**) e;
 -(void) authenticate : (NSString *)username password:(NSString *) p error:(NSError **) e;
 -(NSMutableArray *) downloadProjects : (NSError **) error;
+-(NSArray *) autoCompleteSpecies : (NSString *) searchText addSearchText:(BOOL)addUnmatchedTaxon;
 @end
+    

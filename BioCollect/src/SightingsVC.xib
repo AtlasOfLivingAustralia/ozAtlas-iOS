@@ -8,11 +8,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SightingsViewController">
             <connections>
+                <outlet property="commentsTextField" destination="kHJ-bs-QpK" id="8ar-k5-AXu"/>
+                <outlet property="confidenceSwitch" destination="gw1-wX-eWG" id="M0c-5P-Bz6"/>
                 <outlet property="individualsLabel" destination="5VH-t3-Ho7" id="UO7-ls-PLJ"/>
                 <outlet property="individualsStepper" destination="kcT-DG-pnC" id="Gam-4K-Ys8"/>
                 <outlet property="noteTextField" destination="pGb-YI-xM9" id="VJp-v9-uRC"/>
                 <outlet property="searchDisplayController" destination="Tai-Hj-1fx" id="Wch-iK-9Tq"/>
-                <outlet property="searchSpecies" destination="Zsz-Z8-oK5" id="yVd-7J-N8r"/>
+                <outlet property="speciesLabel" destination="W0e-9R-4Aq" id="HNz-aA-iTq"/>
                 <outlet property="view" destination="iN0-l3-epB" id="dGb-hB-Ogv"/>
             </connections>
         </placeholder>
@@ -22,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lGl-Fd-WNs">
-                    <frame key="frameInset" minX="16" minY="55" width="359" height="235"/>
+                    <frame key="frameInset" minX="16" minY="55" width="359" height="390"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="lDQ-oe-Xlx">
                             <subviews>
@@ -38,15 +40,16 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Zsz-Z8-oK5">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGr-jj-V9g">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="Jfp-iE-jkd"/>
+                                                <constraint firstAttribute="width" constant="80" id="wj5-Bj-trM"/>
                                             </constraints>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                            <state key="normal" title="Search"/>
                                             <connections>
-                                                <outlet property="delegate" destination="-1" id="RYs-Jv-php"/>
+                                                <action selector="searchForASpecies:" destination="-1" eventType="touchUpInside" id="QcL-d8-Ed3"/>
                                             </connections>
-                                        </searchBar>
+                                        </button>
                                     </subviews>
                                 </stackView>
                             </subviews>
@@ -54,6 +57,64 @@
                                 <constraint firstItem="ovJ-go-fsk" firstAttribute="width" secondItem="mji-dD-qKh" secondAttribute="width" id="Fap-4K-98P"/>
                                 <constraint firstItem="ovJ-go-fsk" firstAttribute="leading" secondItem="lDQ-oe-Xlx" secondAttribute="leadingMargin" id="UB0-6Z-rfN"/>
                                 <constraint firstAttribute="trailingMargin" secondItem="ovJ-go-fsk" secondAttribute="trailing" id="vwZ-hU-7Nh"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="7Rf-Qe-oae">
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confidence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1I-dN-BB7">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cHh-kH-AqF">
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gw1-wX-eWG">
+                                            <segments>
+                                                <segment title="Certain"/>
+                                                <segment title="Uncertain"/>
+                                            </segments>
+                                        </segmentedControl>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailingMargin" secondItem="cHh-kH-AqF" secondAttribute="trailing" id="eL6-ZT-fZ0"/>
+                                <constraint firstItem="cHh-kH-AqF" firstAttribute="leading" secondItem="7Rf-Qe-oae" secondAttribute="leadingMargin" id="wzY-Qb-Pel"/>
+                                <constraint firstItem="cHh-kH-AqF" firstAttribute="width" secondItem="T1I-dN-BB7" secondAttribute="width" id="yHg-2W-yoT"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="XBZ-rL-GvU">
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntj-Bp-Skd">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rnQ-X7-RSx">
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kHJ-bs-QpK">
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="ELC-5Y-vyz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                    <integer key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </textView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailingMargin" secondItem="rnQ-X7-RSx" secondAttribute="trailing" id="9cz-ZJ-2my"/>
+                                <constraint firstItem="rnQ-X7-RSx" firstAttribute="leading" secondItem="XBZ-rL-GvU" secondAttribute="leadingMargin" id="DjD-kX-mgY"/>
+                                <constraint firstItem="rnQ-X7-RSx" firstAttribute="width" secondItem="ntj-Bp-Skd" secondAttribute="width" id="Ib3-Ri-B4Q"/>
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="CSZ-cL-8Ng">
@@ -125,7 +186,7 @@
                     </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exr-aP-Lhf">
-                    <frame key="frameInset" minX="8" minY="318" width="359" height="30"/>
+                    <frame key="frameInset" minX="16" minY="458" width="359" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Save"/>
                     <connections>
@@ -143,7 +204,6 @@
         <searchDisplayController id="Tai-Hj-1fx">
             <connections>
                 <outlet property="delegate" destination="-1" id="9eV-VI-SwJ"/>
-                <outlet property="searchBar" destination="Zsz-Z8-oK5" id="9Pa-Ne-sC1"/>
                 <outlet property="searchContentsController" destination="-1" id="KS0-b9-dG6"/>
                 <outlet property="searchResultsDataSource" destination="-1" id="epC-t8-9qi"/>
                 <outlet property="searchResultsDelegate" destination="-1" id="Ck5-wY-DCM"/>
