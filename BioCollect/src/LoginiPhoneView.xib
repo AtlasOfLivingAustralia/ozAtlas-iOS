@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="loginButton" destination="NHI-xz-TYg" id="Ybs-hJ-wzj"/>
                 <outlet property="passwordTextField" destination="fNj-KQ-8ms" id="q0p-HL-CuC"/>
+                <outlet property="registerButton" destination="SeR-qP-PGa" id="TfV-Cq-fKT"/>
                 <outlet property="usernameTextField" destination="8Mr-es-5Kr" id="jfL-bE-BFQ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="rdg-uf-u6s"/>
             </connections>
@@ -56,22 +57,39 @@
                                         <outlet property="delegate" destination="-1" id="68A-Kc-Inx"/>
                                     </connections>
                                 </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHI-xz-TYg">
-                                    <color key="backgroundColor" red="0.94630175828933716" green="0.34607410430908203" blue="0.169730544090271" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="35" id="93R-9i-pEp"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                    <state key="normal" title="Submit">
-                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xvu-ej-yPe">
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IdA-ZH-7NL">
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHI-xz-TYg">
+                                                    <color key="backgroundColor" red="0.94630175828933716" green="0.34607410430908203" blue="0.169730544090271" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="93R-9i-pEp"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <state key="normal" title="Submit">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onClickLogin:" destination="-1" eventType="touchUpInside" id="8jJ-N0-cWo"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SeR-qP-PGa">
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="Not registered?">
+                                        <color key="titleColor" red="0.94509803920000002" green="0.34901960780000002" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="5"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="onClickLogin:" destination="-1" eventType="touchUpInside" id="8jJ-N0-cWo"/>
+                                        <action selector="onClickRegister:" destination="-1" eventType="touchUpInside" id="3Vg-UD-ihQ"/>
                                     </connections>
                                 </button>
                             </subviews>

@@ -13,6 +13,7 @@
 #import "GALogin.h"
 #import "BioProjectService.h"
 #import "GAEULAViewController.h"
+#import "OzHomeVC.h"
 
 @interface GAAppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
 
