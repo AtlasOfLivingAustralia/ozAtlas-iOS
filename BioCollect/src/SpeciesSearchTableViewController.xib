@@ -7,29 +7,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpeciesSearchTableViewController">
             <connections>
-                <outlet property="speciesTableView" destination="X93-F9-2jY" id="GsN-Fj-aDa"/>
-                <outlet property="view" destination="X93-F9-2jY" id="tt7-U9-Aev"/>
+                <outlet property="speciesTableView" destination="BAX-tE-1co" id="jVb-XP-a3k"/>
+                <outlet property="view" destination="BAX-tE-1co" id="Cft-aW-2Qo"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="X93-F9-2jY">
+        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BAX-tE-1co">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for species here" showsCancelButton="YES" id="xez-lG-udb">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <searchBar key="tableHeaderView" contentMode="redraw" id="4b9-6S-zAQ">
+                <rect key="frame" x="0.0" y="0.0" width="408" height="44"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 <textInputTraits key="textInputTraits"/>
                 <connections>
-                    <outlet property="delegate" destination="-1" id="ddG-Kq-trF"/>
+                    <outlet property="delegate" destination="-1" id="Y41-k5-lAB"/>
                 </connections>
             </searchBar>
             <connections>
-                <outlet property="dataSource" destination="-1" id="shc-9a-juy"/>
-                <outlet property="delegate" destination="-1" id="iYy-ZX-YKe"/>
+                <outlet property="dataSource" destination="-1" id="wJO-Ag-Ntc"/>
+                <outlet property="delegate" destination="-1" id="LoO-7Z-hlE"/>
             </connections>
-            <point key="canvasLocation" x="531" y="85"/>
         </tableView>
     </objects>
 </document>

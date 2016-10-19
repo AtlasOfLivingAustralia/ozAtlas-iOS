@@ -230,7 +230,8 @@
         NSDictionary *unmatchedTaxon = @{
                                          @"name": searchText,
                                          @"guid": [NSNull null],
-                                         @"commonName": [NSNull null]
+                                         @"commonName": [NSNull null],
+                                         @"rankString": [NSNull null]
                                          };
         [results insertObject: unmatchedTaxon atIndex:0];
     }

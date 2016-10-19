@@ -10,7 +10,7 @@
 #import "Record.h"
 #import "SpeciesSearchTableViewController.h"
 #import "GAAppDelegate.h"
-//#import "InputsFormViewController.h"
+
 @interface SightingsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *individualsLabel;
 @property (weak, nonatomic) IBOutlet UIStepper *individualsStepper;
@@ -23,7 +23,6 @@
 
 // singleton class
 @property (retain, nonatomic)  SpeciesSearchTableViewController *speciesSearchVC;
-//@property (retain, nonatomic)  InputsFormViewController *xlForm;
 @end
 
 @implementation SightingsViewController
@@ -33,7 +32,6 @@
     if(self){
         [self initialise];
         self.speciesSearchVC = [[SpeciesSearchTableViewController alloc] initWithNibName:@"SpeciesSearchTableViewController" bundle:nil];
-//        self.xlForm = [[InputsFormViewController alloc] init];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveSpeciesHandler:) name:@"SPECIESSEARCH DISMISS" object:nil];
     }
     return self;
@@ -105,7 +103,6 @@
 }
 
 - (IBAction)searchForASpecies:(id)sender {
-//    [self presentViewController:self.speciesSearchVC animated:YES completion:nil];
-//    [self presentViewController:self.xlForm animated:YES completion:nil];
+    [self presentViewController:self.speciesSearchVC animated:YES completion:nil];
 }
 @end

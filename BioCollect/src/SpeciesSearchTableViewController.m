@@ -9,27 +9,30 @@
 #import "SpeciesSearchTableViewController.h"
 #import "GAAppDelegate.h"
 @interface SpeciesSearchTableViewController ()
-@property (strong, nonatomic) NSMutableArray *displayItems;
-@property (strong, nonatomic) NSDictionary *selectedSpecies;
 @end
 
 @implementation SpeciesSearchTableViewController
 
-@synthesize speciesTableView;
+@synthesize speciesTableView, displayItems, selectedSpecies;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     displayItems = [[NSMutableArray alloc] initWithCapacity:0];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - init
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(self){
+        self.navigationItem.title = @"Search species";
+    }
+    
+    return  self;
 }
 
 #pragma mark - Table view data source
@@ -46,52 +49,35 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"    ];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" ];
     if(!cell){
-         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
                  
     // Configure the cell...
-    NSLog(@"%@",[displayItems objectAtIndex:indexPath.row]);
+    NSLog(@"%@", [displayItems objectAtIndex:indexPath.row]);
+    
     cell.textLabel.text = [[displayItems objectAtIndex:indexPath.row] objectForKey:@"name"];
+    if([displayItems objectAtIndex:indexPath.row][@"commonName"] != [NSNull null]){
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", [[displayItems objectAtIndex:indexPath.row] objectForKey:@"name"], [[displayItems objectAtIndex:indexPath.row] objectForKey:@"commonName"]];
+        if([displayItems objectAtIndex:indexPath.row][@"rankString"] != [NSNull null]){
+            cell.detailTextLabel.text = [displayItems objectAtIndex:indexPath.row][@"rankString"];
+        } else {
+            cell.detailTextLabel.text = @"Unmatched taxon";
+        }
+
+    } else {
+        cell.textLabel.text = [[displayItems objectAtIndex:indexPath.row] objectForKey:@"name"];
+        if([displayItems objectAtIndex:indexPath.row][@"rankString"] != [NSNull null]){
+            cell.detailTextLabel.text = [displayItems objectAtIndex:indexPath.row][@"rankString"];
+        } else {
+            cell.detailTextLabel.text = @"Unmatched taxon";
+        }
+    }
+    
     return cell;
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Table view delegate
 
@@ -105,16 +91,6 @@
     
     [[NSNotificationCenter defaultCenter]postNotificationName:@"SPECIESSEARCH DISMISS" object: self.selectedSpecies];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
