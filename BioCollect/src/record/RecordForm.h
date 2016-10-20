@@ -13,11 +13,12 @@
 
 @property (nonatomic, copy) NSString *speciesName;
 @property (nonatomic, strong) NSDate *surveyDate;
+@property (nonatomic, strong) NSDate *surveyTime;
 @property (nonatomic, assign) BOOL confident;
 @property (nonatomic, assign) NSUInteger howManySpecies;
 @property (nonatomic, copy) NSString *notes;
 @property (nonatomic, copy) NSString *recordedBy;
 @property (nonatomic, strong) UIImage *speciesPhoto;
 @property (nonatomic, copy) NSArray *identificationTags;
-
+@property (nonatomic, copy) NSString *locationNotes;
 @end

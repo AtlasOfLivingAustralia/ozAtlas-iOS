@@ -30,7 +30,7 @@
 - (void)submitLoginForm
 {
     //now we can display a form value in our alert
-    [[[UIAlertView alloc] initWithTitle:@"Login Form Submitted"
+    [[[UIAlertView alloc] initWithTitle:@"Successfully submitted."
                                 message:nil
                                delegate:nil
                       cancelButtonTitle:nil

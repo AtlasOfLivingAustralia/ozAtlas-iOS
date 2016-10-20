@@ -28,16 +28,19 @@
              @{FXFormFieldKey: @"speciesName", FXFormFieldHeader: @"Species Information"},
              @"speciesPhoto",
              @"confident",
-             
 
              @{FXFormFieldKey: @"surveyDate", FXFormFieldHeader: @"Sightings Information"},
-             @"notes",
+             @{FXFormFieldKey: @"surveyTime", FXFormFieldType: FXFormFieldTypeTime,FXFormFieldPlaceholder: @"", },
              @"recordedBy",
-             
              @{FXFormFieldKey: @"identificationTags",
                FXFormFieldOptions: @[@"Amphibians", @"Amphibians, Australian Ground Frogs", @"Birds"]},
-
+             @{FXFormFieldKey: @"notes", FXFormFieldType: FXFormFieldTypeLongText,FXFormFieldPlaceholder: @"", },
+             
+             @{FXFormFieldKey: @"locationNotes", FXFormFieldType: FXFormFieldTypeLongText, FXFormFieldPlaceholder: @"", FXFormFieldHeader: @"Location"},
+             
              ];
+    
+    
 }
 
 //we're happy with the layout and properties of our login form, but we
