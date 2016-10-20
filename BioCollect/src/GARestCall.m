@@ -105,6 +105,8 @@
                 DebugLog(@"[ERROR] GARest:authenticate Authentication failed. User=%@",username);
             }
         }
+        
+        [self updateUserDetails];
     }
 }
 
@@ -287,5 +289,25 @@
     return @"";
 }
 
+/**
+ * Call auth service to get detail of a user such as first name, last name and user id
+ */
+- (void) updateUserDetails {
+    NSString *url = [NSString stringWithFormat:@"%@%@%@", AUTH_SERVER, AUTH_USERDETAILS, [GASettings getEmailAddress]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+        NSError *error;
+        NSDictionary* respDict =  [NSJSONSerialization JSONObjectWithData:data
+                                                                  options:kNilOptions error:&error];
+        
+        [GASettings setFirstName:respDict[@"firstName"]];
+        [GASettings setLastName:respDict[@"lastName"]];
+        [GASettings setUserId:respDict[@"userId"]];
+    }];
+}
 
 @end

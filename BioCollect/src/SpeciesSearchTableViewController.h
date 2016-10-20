@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface SpeciesSearchTableViewController : UITableViewController
 {
     NSMutableArray *displayItems;
     NSDictionary *selectedSpecies;
 }
-
 @property (strong, nonatomic) IBOutlet UITableView *speciesTableView;
 @property (strong, nonatomic) NSMutableArray *displayItems;
 @property (strong, nonatomic) NSDictionary *selectedSpecies;

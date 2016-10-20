@@ -7,7 +7,9 @@
 //
 
 #import "FXForms.h"
+#import "SpeciesSearchTableViewController.h"
 
 @interface RecordViewController : FXFormViewController
-
+@property (nonatomic, strong) SpeciesSearchTableViewController *speciesSearchVC;
+@property (nonatomic, strong) UITableViewCell<FXFormFieldCell> *recordCell;
 @end

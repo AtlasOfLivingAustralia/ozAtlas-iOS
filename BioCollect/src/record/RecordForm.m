@@ -1,4 +1,4 @@
-//
+    //
 //  RecordForm.m
 //  Oz Atlas
 //
@@ -7,36 +7,23 @@
 //
 
 #import "RecordForm.h"
+#import "GASettings.h"
 
 @implementation RecordForm
-
-//let's make the email field's title red, just because we can
-
-- (NSDictionary *)recordedBy
-{
-    return @{@"textLabel.color": [UIColor redColor]};
-}
-
-- (NSDictionary *)notes
-{
-    return @{@"textLabel.color": [UIColor redColor]};
-}
 - (NSArray *)fields
 {
     return @[
 
-             @{FXFormFieldKey: @"speciesName", FXFormFieldHeader: @"Species Information"},
+             @{FXFormFieldKey: @"speciesDisplayName", FXFormFieldTitle: @"Species Name", FXFormFieldHeader: @"Species Information", FXFormFieldType: FXFormFieldTypeLabel,  FXFormFieldAction: @"showSpeciesSearchTableViewController:", FXFormFieldPlaceholder: @"No species selected"},
              @"speciesPhoto",
              @"confident",
-             
-
-             @{FXFormFieldKey: @"surveyDate", FXFormFieldHeader: @"Sightings Information"},
-             @"notes",
-             @"recordedBy",
-             
+             @{FXFormFieldKey:@"howManySpecies", FXFormFieldTitle:@"Number of individuals", FXFormFieldCell: [FXFormStepperCell class]},
              @{FXFormFieldKey: @"identificationTags",
                FXFormFieldOptions: @[@"Amphibians", @"Amphibians, Australian Ground Frogs", @"Birds"]},
 
+             @{FXFormFieldKey: @"surveyDate", FXFormFieldHeader: @"Sightings Information"},
+             @"notes",
+             @{FXFormFieldKey: @"recordedBy", FXFormFieldDefaultValue: [GASettings getFullName]}
              ];
 }
 
@@ -56,6 +43,19 @@
              @{FXFormFieldTitle: @"Submit", FXFormFieldHeader: @"", FXFormFieldAction: @"submitLoginForm"},
              
              ];
+}
+
+// hide these fields. they are autopopulated when a species is selected.
+- (NSArray *) excludedFields{
+    return @[
+             @"scientificName",
+             @"commonName",
+             @"guid",
+             ];
+}
+
+- (NSString *)speciesDisplayNameFieldDescription {
+    return self.speciesDisplayName;
 }
 
 @end

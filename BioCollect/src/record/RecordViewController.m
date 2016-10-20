@@ -15,10 +15,13 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
     {
         //set up form
         self.formController.form = [[RecordForm alloc] init];
+        self.speciesSearchVC = [[SpeciesSearchTableViewController alloc] initWithNibName:@"SpeciesSearchTableViewController" bundle:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveSpeciesHandler:) name:@"SPECIESSEARCH DISMISS" object:nil];
     }
     return self;
 }
@@ -59,6 +62,40 @@
                           cancelButtonTitle:nil
                           otherButtonTitles:@"Yes Sir!", nil] show];
     }
+}
+
+
+- (void)showSpeciesSearchTableViewController: (UITableViewCell *) sender {
+    self.recordCell = sender;
+    [self presentViewController:self.speciesSearchVC animated:YES completion:nil];
+}
+
+- (void)saveSpeciesHandler: (NSNotification *) notice{
+    NSDictionary *selection = (NSDictionary *)[notice object];
+    RecordForm *record = self.formController.form;
+    if(selection[@"name"] != [NSNull null]){
+        record.scientificName = selection[@"name"];
+    } else {
+        record.scientificName = nil;
+    }
+    
+    if(selection[@"commonName"] != [NSNull null]){
+        record.commonName = selection[@"commonName"];
+        if(record.scientificName){
+            record.speciesDisplayName = [NSString stringWithFormat:@"%@ (%@)", record.scientificName, record.commonName];
+        }
+    } else {
+        record.commonName = nil;
+        record.speciesDisplayName = [NSString stringWithFormat:@"%@", record.scientificName];
+    }
+    
+    if(selection[@"guid"] != [NSNull null]){
+        record.guid = selection[@"guid"];
+    } else {
+        record.guid = nil;
+    }
+    
+    self.recordCell.detailTextLabel.text = record.speciesDisplayName;
 }
 
 @end

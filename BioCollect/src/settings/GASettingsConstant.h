@@ -15,5 +15,5 @@
 #define AUTOCOMPLETE_URL @"http://bie.ala.org.au/ws/search/auto.json?q="
 #define AUTH_SERVER  @"https://auth.ala.org.au"
 #define AUTH_REGISTER @"/userdetails/registration/createAccount"
-
+#define AUTH_USERDETAILS @"/userdetails/userDetails/getUserDetails?userName="
 #endif

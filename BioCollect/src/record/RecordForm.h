@@ -11,12 +11,15 @@
 
 @interface RecordForm : NSObject <FXForm>
 
-@property (nonatomic, copy) NSString *speciesName;
+@property (nonatomic, copy) NSString *speciesDisplayName;
+@property (nonatomic, copy) NSString *scientificName;
+@property (nonatomic, copy) NSString *commonName;
+@property (nonatomic, copy) NSString *guid;
 @property (nonatomic, strong) NSDate *surveyDate;
 @property (nonatomic, assign) BOOL confident;
 @property (nonatomic, assign) NSUInteger howManySpecies;
 @property (nonatomic, copy) NSString *notes;
-@property (nonatomic, copy) NSString *recordedBy;
+@property (nonatomic, assign) NSString *recordedBy;
 @property (nonatomic, strong) UIImage *speciesPhoto;
 @property (nonatomic, copy) NSArray *identificationTags;
 
