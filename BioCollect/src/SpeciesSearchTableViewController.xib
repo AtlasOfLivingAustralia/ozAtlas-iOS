@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpeciesSearchTableViewController">
             <connections>
+                <outlet property="searchBar" destination="4b9-6S-zAQ" id="KMQ-gV-vRf"/>
                 <outlet property="speciesTableView" destination="BAX-tE-1co" id="jVb-XP-a3k"/>
                 <outlet property="view" destination="BAX-tE-1co" id="Cft-aW-2Qo"/>
             </connections>

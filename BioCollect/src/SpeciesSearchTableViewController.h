@@ -15,5 +15,6 @@
 }
 @property (strong, nonatomic) IBOutlet UITableView *speciesTableView;
 @property (strong, nonatomic) NSMutableArray *displayItems;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSDictionary *selectedSpecies;
 @end

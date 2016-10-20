@@ -228,7 +228,8 @@
                                                               options:kNilOptions error:&e];
     results = [[NSMutableArray alloc] initWithArray:[respDict mutableArrayValueForKey:@"autoCompleteList"] copyItems:NO];
     
-    if(addUnmatchedTaxon){
+    // do not include if string is empty
+    if(addUnmatchedTaxon && ![searchText isEqualToString:@""]){
         NSDictionary *unmatchedTaxon = @{
                                          @"name": searchText,
                                          @"guid": [NSNull null],

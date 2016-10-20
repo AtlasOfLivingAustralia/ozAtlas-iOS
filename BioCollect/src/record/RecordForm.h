@@ -7,7 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 #import "FXForms.h"
-
+#import <MapKit/MapKit.h>
 
 @interface RecordForm : NSObject <FXForm>
 
@@ -24,4 +24,5 @@
 @property (nonatomic, strong) UIImage *speciesPhoto;
 @property (nonatomic, copy) NSArray *identificationTags;
 @property (nonatomic, copy) NSString *locationNotes;
+@property (nonatomic, copy) CLLocation *location;
 @end

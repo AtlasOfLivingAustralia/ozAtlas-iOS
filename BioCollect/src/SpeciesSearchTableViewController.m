@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     displayItems = [[NSMutableArray alloc] initWithCapacity:0];
+    [self searchBar].text = @"";
+    [self searchBarSearchButtonClicked:[self searchBar]];
 }
 
 - (void)didReceiveMemoryWarning {
