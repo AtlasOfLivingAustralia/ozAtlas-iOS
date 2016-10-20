@@ -22,9 +22,15 @@
                FXFormFieldOptions: @[@"Amphibians", @"Amphibians, Australian Ground Frogs", @"Birds"]},
 
              @{FXFormFieldKey: @"surveyDate", FXFormFieldHeader: @"Sightings Information"},
-             @"notes",
-             @{FXFormFieldKey: @"recordedBy", FXFormFieldDefaultValue: [GASettings getFullName]}
+             @{FXFormFieldKey: @"surveyTime", FXFormFieldType: FXFormFieldTypeTime,FXFormFieldPlaceholder: @"" },
+             @{FXFormFieldKey: @"recordedBy", FXFormFieldDefaultValue: [GASettings getFullName]},
+             @{FXFormFieldKey: @"notes", FXFormFieldType: FXFormFieldTypeLongText,FXFormFieldPlaceholder: @"" },
+             
+             @{FXFormFieldKey: @"locationNotes", FXFormFieldType: FXFormFieldTypeLongText, FXFormFieldPlaceholder: @"", FXFormFieldHeader: @"Location"},
+             
              ];
+    
+    
 }
 
 //we're happy with the layout and properties of our login form, but we
