@@ -98,7 +98,13 @@
         NSArray *dateArray = [activity.lastUpdated componentsSeparatedByString: @"T"];
         NSString *lastUpdated = [dateArray objectAtIndex: 0];
         
-        cell.textLabel.text = activity.projectActivityName;
+        if([activity.records count] > 0) {
+            NSDictionary *item = [activity.records objectAtIndex:0];
+            cell.textLabel.text = [[item objectForKey:@"name"] length] > 0 ? [item objectForKey:@"name"] : @"No species name";
+        } else {
+            cell.textLabel.text = activity.projectActivityName;
+        }
+        
         NSString *description = [[NSString alloc] initWithFormat:@"Submitted by:%@, on:%@, Activity type:%@ ", activity.activityOwnerName, lastUpdated, activity.activityName];
         cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@", description];
         

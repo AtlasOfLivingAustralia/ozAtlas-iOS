@@ -112,6 +112,7 @@
             activity.projectActivityName = activitiesJSON.projectActivityName;
             activity.thumbnailUrl = activitiesJSON.thumbnailUrl;
             activity.lastUpdated = ([activitiesJSON.lastUpdated length])?(activitiesJSON.lastUpdated):@"-";
+            activity.records = activitiesJSON.records;
             [records addObject:activity];
         }
     }
