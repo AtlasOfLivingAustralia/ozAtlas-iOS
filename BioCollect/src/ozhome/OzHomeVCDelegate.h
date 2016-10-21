@@ -10,7 +10,6 @@
 
 #import "MGSpotyViewControllerDelegate.h"
 
-
 @interface OzHomeVCDelegate : NSObject <MGSpotyViewControllerDelegate>
 
 @end

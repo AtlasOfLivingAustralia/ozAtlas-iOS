@@ -10,12 +10,17 @@
 #import "HomeCustomCell.h"
 #import "RecordWebVIew.h"
 #import "MRProgressOverlayView.h"
+#import "GAAppDelegate.h"
+
+@interface RecordsTableViewController ()
+    @property (nonatomic, strong) GAAppDelegate *appDelegate;
+@end
 
 @implementation RecordsTableViewController
 #define DEFAULT_MAX     20
 #define DEFAULT_OFFSET  0
 #define SEARCH_LENGTH   3
-@synthesize  records, appDelegate, bioProjectService, totalRecords, offset, loadingFinished, isSearching, query, spinner, myRecords;
+@synthesize  records, appDelegate, bioProjectService, totalRecords, offset, loadingFinished, isSearching, query, spinner, myRecords, projectId;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *) nibBundleOrNil {
@@ -150,8 +155,11 @@
     } else if(self.loadingFinished){
         self.loadingFinished = FALSE;
         NSError *error = nil;
-        NSString *projectId = self.project ? self.project.projectId : nil;
-        NSInteger total = [self.bioProjectService getActivities: records offset:self.offset max:DEFAULT_MAX projectId: projectId query:self.query myRecords:self.myRecords error:&error];
+        NSString *pId = self.project ? self.project.projectId : nil;
+        if(self.projectId){
+            pId = self.projectId;
+        }
+        NSInteger total = [self.bioProjectService getActivities: records offset:self.offset max:DEFAULT_MAX projectId: pId query:self.query myRecords:self.myRecords error:&error];
         DebugLog(@"%lu || %ld || %ld",(unsigned long)[self.bioProjects count], self.offset, total);
         if(error == nil && total > 0) {
             self.totalRecords = total;

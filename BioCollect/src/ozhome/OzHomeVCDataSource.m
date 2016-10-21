@@ -50,7 +50,7 @@
         NSString *escapedUrlString =[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:escapedUrlString] placeholderImage:[UIImage imageNamed:@"nochange"]];
     } else if(indexPath.row == 1) {
-        cell.textLabel.text = @"Saved sightings";
+        cell.textLabel.text = @"All sightings";
         cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@", @""];
         NSString *url = [[NSString alloc] initWithFormat: @"%@", @""];
         NSString *escapedUrlString =[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

@@ -16,4 +16,6 @@
 #define AUTH_SERVER  @"https://auth.ala.org.au"
 #define AUTH_REGISTER @"/userdetails/registration/createAccount"
 #define AUTH_USERDETAILS @"/userdetails/userDetails/getUserDetails?userName="
+
+#define SIGHTINGS_PROJECT_ID @"b3d8e243-1137-4d26-9e15-c5a6f90815eb"
 #endif

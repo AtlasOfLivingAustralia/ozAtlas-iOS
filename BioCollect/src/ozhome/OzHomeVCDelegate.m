@@ -9,9 +9,15 @@
 #import "OzHomeVCDelegate.h"
 #import "MGSpotyViewController.h"
 #import "RecordViewController.h"
+#import "RecordsTableViewController.h"
+#import "GASettingsConstant.h"
+#import "RecordsTableViewController.h"
+
+@interface OzHomeVCDelegate()
+    @property (nonatomic, strong) RecordsTableViewController *recordsTableView;
+@end
 
 @implementation OzHomeVCDelegate
-
 
 #pragma mark - MGSpotyViewControllerDelegate
 
@@ -41,15 +47,29 @@
 - (void)spotyViewController:(MGSpotyViewController *)spotyViewController didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    RecordViewController *recordViewController = [[RecordViewController alloc] init];
-    
-    
-    recordViewController.title = @"Record a sightings";
-    
-    [spotyViewController.navigationController pushViewController:recordViewController animated:TRUE];
-    
-    NSLog(@"selected row");
-    [spotyViewController.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        RecordViewController *recordViewController = [[RecordViewController alloc] init];
+        recordViewController.title = @"Record a sightings";
+        [spotyViewController.navigationController pushViewController:recordViewController animated:TRUE];
+        NSLog(@"selected row");
+        [spotyViewController.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    } else if(indexPath.row == 1) {
+        self.recordsTableView = [[RecordsTableViewController alloc] initWithNibName:@"RecordsTableViewController" bundle:nil];
+        self.recordsTableView.projectId = SIGHTINGS_PROJECT_ID;
+        self.recordsTableView.title = @"All Sightings";
+        self.recordsTableView.totalRecords = 0;
+        self.recordsTableView.offset = 0;
+        self.recordsTableView.myRecords = FALSE;
+        [self.recordsTableView.records removeAllObjects];
+        [spotyViewController.navigationController pushViewController:self.recordsTableView animated:TRUE];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"Not Implemented."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (void)spotyViewController:(MGSpotyViewController *)spotyViewController didDeselectRowAtIndexPath:(NSIndexPath *)indexPath

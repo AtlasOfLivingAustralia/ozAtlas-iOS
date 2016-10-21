@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (nonatomic, strong) NSMutableArray *records;
 @property (nonatomic, strong) GAProject *project;
+@property (nonatomic, strong) NSString * projectId;
 @property (nonatomic, strong) UIActivityIndicatorView *spinner;
 
 //Pagination info.
@@ -30,7 +31,7 @@
 //Search flag
 @property (nonatomic, assign) BOOL isSearching;
 
-@property (nonatomic, strong) GAAppDelegate *appDelegate;
+
 @property (nonatomic, strong) BioProjectService *bioProjectService;
 
 @end
