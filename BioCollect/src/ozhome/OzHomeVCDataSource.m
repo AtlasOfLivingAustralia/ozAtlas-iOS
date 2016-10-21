@@ -26,13 +26,14 @@
                    cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"CellID";
-    HomeCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
     if(!cell) {
-        cell = [[HomeCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier:identifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.backgroundColor = [UIColor whiteColor];
         cell.textLabel.textColor = [UIColor blackColor];
+        
         /*
         UIView *stroke = [[UIView alloc] init];
         stroke.backgroundColor = [UIColor grayColor];
@@ -41,7 +42,7 @@
         NSDictionary *views = NSDictionaryOfVariableBindings(stroke);
         [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[stroke(1)]|" options:0 metrics:nil views:views]];
         [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[stroke]|" options:0 metrics:nil views:views]];
-        */
+       */  
     }
     if(indexPath.row == 0) {
         cell.textLabel.text = @"Record a sightings";
@@ -54,16 +55,16 @@
         cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@", @""];
         NSString *url = [[NSString alloc] initWithFormat: @"%@", @""];
         NSString *escapedUrlString =[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:escapedUrlString] placeholderImage:[UIImage imageNamed:@"nochange@2x"]];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:escapedUrlString] placeholderImage:[UIImage imageNamed:@"nochange"]];
     }
     else if(indexPath.row == 2) {
-        cell.textLabel.text = @"Explore species by location";
+        cell.textLabel.text = @"My sightings";
         cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@", @""];
         NSString *url = [[NSString alloc] initWithFormat: @"%@", @""];
         NSString *escapedUrlString =[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:escapedUrlString] placeholderImage:[UIImage imageNamed:@"loc1_nochange"]];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:escapedUrlString] placeholderImage:[UIImage imageNamed:@"nochange"]];
     } else if(indexPath.row == 3) {
-        cell.textLabel.text = @"Browse species";
+        cell.textLabel.text = @"Explore species by location";
         cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@", @""];
         NSString *url = [[NSString alloc] initWithFormat: @"%@", @""];
         NSString *escapedUrlString =[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
