@@ -143,7 +143,7 @@
              @"projectStage":@"",
              @"mainTheme":@"",
              @"type":PROJECT_NAME,
-             @"projectId": PROJECT_ID,
+             @"projectId": SIGHTINGS_PROJECT_ID,
              @"siteId":@"",
              @"outputs":@[@{
                      @"name":PROJECT_ACTIVITY_NAME,

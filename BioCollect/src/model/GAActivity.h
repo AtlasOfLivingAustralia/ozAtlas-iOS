@@ -39,6 +39,7 @@
     NSString *lastUpdated;
     NSString *thumbnailUrl;
     NSArray *themes;
+    NSArray *records;
     
 }
 @property (nonatomic, assign) int _id;
@@ -60,6 +61,7 @@
 @property (nonatomic, strong) NSString * projectActivityName;
 @property (nonatomic, strong) NSString * thumbnailUrl;
 @property (nonatomic, strong) NSArray * themes;
+@property (nonatomic, strong) NSArray * records;
 
 - (NSComparisonResult)compareByProgress:(GAActivity *)otherObject;
 - (NSComparisonResult)compareByName:(GAActivity *)otherObject;

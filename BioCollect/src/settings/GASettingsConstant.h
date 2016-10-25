@@ -19,8 +19,7 @@
 #define CREATE_RECORD @"/ws/bioactivity/save?pActivityId=d57961a1-517d-42f2-8446-c373c0c59579"
 #define UNIQUE_SPECIES_ID @"/ws/species/uniqueId"
 #define DOCUMENT_UPLOAD_URL @"/ws/attachment/upload"
-
-#define PROJECT_ID @"b3d8e243-1137-4d26-9e15-c5a6f90815eb"
 #define PROJECT_NAME @"OzAtlas Sightings"
 #define PROJECT_ACTIVITY_NAME @"Single Sighting - Advanced"
+#define SIGHTINGS_PROJECT_ID @"b3d8e243-1137-4d26-9e15-c5a6f90815eb"
 #endif
