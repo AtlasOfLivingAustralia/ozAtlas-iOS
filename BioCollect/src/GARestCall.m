@@ -16,6 +16,8 @@
 #import "GASettings.h"
 #import "GASiteJSON.h"
 #import "GASettingsConstant.h"
+#import "RecordForm.h"
+#import "SpeciesSearchTableViewController.h"
 
 @interface GARestCall()
 @property (nonatomic, retain) NSMutableArray *projects;
@@ -27,6 +29,8 @@
 @implementation GARestCall
 #define JSON_CONTENT_TYPE_VALUE @"application/json;charset=UTF-8"
 #define JSON_CONTENT_TYPE_KEY @"Content-Type"
+#define UNMATCHED_TAXON @"unmatched taxon"
+#define NORANK_TAXON @"no rank"
 
 @synthesize projects,  urlId, restRequestCounter, restResponseCounter;
 
@@ -215,33 +219,90 @@
 /**
  * Search BIE to autocomplete a species.
  */
--(NSArray *) autoCompleteSpecies : (NSString *) searchText  addSearchText:(BOOL)addUnmatchedTaxon {
-    NSMutableArray *results = nil;
+-(NSMutableArray *) autoCompleteSpecies : (NSString *) searchText  addSearchText:(BOOL)addUnmatchedTaxon viewController: (SpeciesSearchTableViewController *) vc{
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     NSString *url = [[NSString alloc] initWithFormat:@"%@%@", AUTOCOMPLETE_URL, [searchText stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"GET"];
-    NSURLResponse *response;
-    NSError *e;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error: &e];
-    NSDictionary* respDict =  [NSJSONSerialization JSONObjectWithData:data
-                                                              options:kNilOptions error:&e];
-    results = [[NSMutableArray alloc] initWithArray:[respDict mutableArrayValueForKey:@"autoCompleteList"] copyItems:NO];
+//    [request setTimeoutInterval:60];
     
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
+        NSMutableArray *results = [[NSMutableArray alloc] init];
+        if((e == nil) && (data != nil)){
+            NSDictionary* respDict =  [NSJSONSerialization JSONObjectWithData:data
+                                                                      options:kNilOptions error:&e];
+            NSArray *reducedResults = [self minimizeSizeOfSpeciesSearchResult:respDict[@"searchResults"][@"results"]];
+            [results addObjectsFromArray: reducedResults];
+        }
+        
+        if(addUnmatchedTaxon && ![searchText isEqualToString:@""]){
+            NSDictionary *unmatchedTaxon = @{
+                                             @"displayName": searchText,
+                                             @"name": searchText,
+                                             @"guid": [NSNull null],
+                                             @"commonName": [NSNull null],
+                                             @"rank": UNMATCHED_TAXON
+                                             };
+            [results insertObject:unmatchedTaxon atIndex:0];
+        }
+        
+        if(vc != nil){
+            [vc updateDisplayItems:results];
+        }
+    }];
+    
+    NSMutableArray *initialResult = [[NSMutableArray alloc] init];
     // do not include if string is empty
     if(addUnmatchedTaxon && ![searchText isEqualToString:@""]){
         NSDictionary *unmatchedTaxon = @{
+                                         @"displayName": searchText,
                                          @"name": searchText,
                                          @"guid": [NSNull null],
                                          @"commonName": [NSNull null],
-                                         @"rankString": [NSNull null]
+                                         @"rank": UNMATCHED_TAXON
                                          };
-        [results insertObject: unmatchedTaxon atIndex:0];
+        [initialResult addObject: unmatchedTaxon];
     }
     
-    return [results copy];
+    return initialResult;
 }
 
+- (NSArray *) minimizeSizeOfSpeciesSearchResult: (NSArray *) results {
+    NSEnumerator *e = [results objectEnumerator];
+    NSMutableArray *reduced = [[NSMutableArray alloc] init];
+    NSDictionary *species;
+    NSString *displayName, *rank, *commonName;
+    
+    while (species = [e nextObject]) {
+        commonName = species[@"commonName"]?:@"";
+        if(![commonName isEqual:@""]){
+            displayName = [NSString stringWithFormat:@"%@ (%@)", species[@"name"], commonName];
+        } else {
+            displayName = species[@"name"];
+        }
+
+        if(!species[@"guid"]){
+            rank = UNMATCHED_TAXON;
+        } else if(!species[@"rank"]){
+            rank = NORANK_TAXON;
+        } else {
+            rank = species[@"rank"];
+        }
+
+        
+        [reduced addObject:@{
+                             @"displayName": displayName?:[NSNull null],
+                             @"rank": rank?:[NSNull null],
+                             @"name": species[@"name"]?:[NSNull null],
+                             @"guid": species[@"guid"]?:[NSNull null],
+                             @"commonName": species[@"commonName"]?:[NSNull null],
+                             @"thumbnailUrl": species[@"thumbnailUrl"]?:[NSNull null]
+                             }];
+    }
+    
+    return [[NSArray alloc] initWithArray: [reduced copy]];
+}
 
 -(NSString *) uploadSite : (GASite*) site :(NSError**) e{
     
@@ -301,14 +362,147 @@
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
-        NSError *error;
-        NSDictionary* respDict =  [NSJSONSerialization JSONObjectWithData:data
-                                                                  options:kNilOptions error:&error];
-        
-        [GASettings setFirstName:respDict[@"firstName"]];
-        [GASettings setLastName:respDict[@"lastName"]];
-        [GASettings setUserId:respDict[@"userId"]];
+        // set properties only when request succeeded
+        if(e == nil){
+            NSError *error;
+            NSDictionary* respDict =  [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            
+            [GASettings setFirstName:respDict[@"firstName"]];
+            [GASettings setLastName:respDict[@"lastName"]];
+            [GASettings setUserId:respDict[@"userId"]];
+        }
     }];
 }
 
+/**
+ * create a record on server
+ */
+- (NSMutableDictionary * )createRecord: (RecordForm *) record {
+    // first get unique id for species
+    if(record.uniqueId == nil){
+        NSString *uniqueId = [self getSpeciesUniqueId];
+        record.uniqueId = uniqueId;
+    }
+    
+    // now save record if unique id was generated
+    NSMutableDictionary *result = [[NSMutableDictionary alloc] initWithDictionary:@{
+                                                                                    @"status":[NSNull null],
+                                                                                    @"message":[NSNull null]
+                                                                                    }];
+    if(record.uniqueId != nil){
+        // check if photo is attached. then upload photo.
+        NSMutableDictionary *photoStatus = [self uploadImage:record.speciesPhoto];
+        
+        
+        if((photoStatus == nil) || [[NSNumber numberWithInt:200] isEqual: photoStatus[@"statusCode"]]){
+            [record updateImageSettings: photoStatus[@"resp"]];
+            NSString *url = [NSString stringWithFormat:@"%@%@", BIOCOLLECT_SERVER, CREATE_RECORD];
+            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+            [request setURL:[NSURL URLWithString:url]];
+            [request setValue:JSON_CONTENT_TYPE_VALUE forHTTPHeaderField:JSON_CONTENT_TYPE_KEY];
+            [request setValue:[GASettings getEmailAddress] forHTTPHeaderField: @"userName"];
+            [request setValue:[GASettings getAuthKey] forHTTPHeaderField: @"authKey"];
+            [request setHTTPBody:[[record toJSON] dataUsingEncoding:NSUTF8StringEncoding]];
+            [request setHTTPMethod:@"POST"];
+            NSLog(@"%@", [record toJSON]);
+            
+            NSError *e;
+            NSURLResponse *response;
+            NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&e];
+            
+            if(e == nil) {
+                NSDictionary* respDict =  [NSJSONSerialization JSONObjectWithData:POSTReply options:kNilOptions error:&e];
+                if( [[NSNumber numberWithInt:200] isEqual: respDict[@"statusCode"]] ){
+                    result[@"status"] = [NSNumber numberWithInt: 200];
+                    result[@"message"] = @"Record saved";
+                } else {
+                    result[@"status"] = [NSNumber numberWithInt: 500];
+                    result[@"message"] = @"Failed to save record";
+                }
+            }
+            else {
+                // save record for sync later
+                DebugLog(@"[ERROR] Connection error %@",[*e localizedDescription]);
+                result[@"status"] = [NSNumber numberWithInt: 500];
+                result[@"message"] = @"An error occurred while saving. Try syncronizing this record later.";
+            }
+        } else {
+            // save object for offline use
+        }
+    }
+    
+    return result;
+}
+
+/**
+ * get unique id for species
+ */
+- (NSString *) getSpeciesUniqueId{
+    NSString *uniqueId;
+    NSString *url = [NSString stringWithFormat:@"%@%@", BIOCOLLECT_SERVER, UNIQUE_SPECIES_ID];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    
+    NSError *e;
+    NSURLResponse *response;
+    NSData *GETReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&e];
+    
+    if(e == nil) {
+        NSDictionary* respDict =  [NSJSONSerialization JSONObjectWithData:GETReply options:kNilOptions error:&e];
+        uniqueId = respDict[@"outputSpeciesId"];
+    }
+    
+    return uniqueId;
+}
+
+/**
+ * Upload image to server.
+ */
+- (NSMutableDictionary *) uploadImage: (UIImage *) image {
+    if(image != nil){
+        NSString *url = [NSString stringWithFormat: @"%@%@", BIOCOLLECT_SERVER, DOCUMENT_UPLOAD_URL];
+        NSMutableDictionary *dict = [[NSMutableDictionary  alloc] initWithDictionary: @{ @"statusCode":[NSNull null],
+                                                                                         @"resp": [NSNull null]
+                                                                                         }];
+        NSData *imageData = UIImagePNGRepresentation(image);
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL: [NSURL URLWithString:url]];
+        [request setHTTPMethod:@"POST"];
+        
+        // create request headers
+        NSString *boundary = @"ydiasdaTXWa";
+        NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+        [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
+        [request setValue:[GASettings getEmailAddress] forHTTPHeaderField: @"userName"];
+        [request setValue:[GASettings getAuthKey] forHTTPHeaderField: @"authKey"];
+        
+        // create body of request
+        NSMutableData *body = [NSMutableData data];
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=files; filename=%@.jpg\r\n", @"Animage"] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:imageData];
+        [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        [request setHTTPBody:body];
+        
+        NSURLResponse *response;
+        NSError *error;
+        
+        NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if(error == nil){
+            NSDictionary* respDict =  [NSJSONSerialization JSONObjectWithData:POSTReply options:kNilOptions error:&error];
+            dict[@"statusCode"] = [NSNumber numberWithInt: 200];
+            dict[@"resp"] = respDict;
+        } else {
+            dict[@"statusCode"] = [NSNumber numberWithInt: 500];
+            dict[@"resp"] = @{};
+        }
+        
+        return dict;
+    } else {
+        return nil;
+    }
+}
 @end

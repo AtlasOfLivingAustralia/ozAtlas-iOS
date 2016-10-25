@@ -37,6 +37,8 @@
 	<string>Location is required to find out where you are</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location is required to find out where you are</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) uses Camera</string>
 	<key>UILaunchImages</key>
 	<array>
 		<dict>

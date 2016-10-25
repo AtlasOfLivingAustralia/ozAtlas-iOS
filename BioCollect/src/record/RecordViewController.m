@@ -7,8 +7,8 @@
 //
 
 #import "RecordViewController.h"
-
 #import "RecordForm.h"
+#import "GAAppDelegate.h"
 
 
 @implementation RecordViewController
@@ -19,7 +19,12 @@
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
     {
         //set up form
-        self.formController.form = [[RecordForm alloc] init];
+        RecordForm *record = [[RecordForm alloc] init];
+        record.surveyDate = [NSDate date];
+        record.howManySpecies = 1;
+        record.photoDate = [NSDate date];
+        self.formController.form = record;
+        
         self.speciesSearchVC = [[SpeciesSearchTableViewController alloc] initWithNibName:@"SpeciesSearchTableViewController" bundle:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveSpeciesHandler:) name:@"SPECIESSEARCH DISMISS" object:nil];
     }
@@ -32,12 +37,27 @@
 
 - (void)submitLoginForm
 {
+    RecordForm *record = self.formController.form;
+    NSMutableDictionary *formValidity = [record isValid];
+    NSNumber *valid = formValidity[@"valid"];
+    if( [valid isEqual: 0] ) {
+        [[[UIAlertView alloc] initWithTitle: @"Form not valid"
+                                    message:[formValidity valueForKey:@"message"]
+                                   delegate:nil
+                          cancelButtonTitle:nil
+                          otherButtonTitles:@"OK", nil] show];
+
+    } else {
+        GAAppDelegate *appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
+//        NSLog(@"%@", [record toJSON]);
+        NSMutableDictionary *status = [[appDelegate restCall] createRecord: record];
+        [[[UIAlertView alloc] initWithTitle:@"Successfully submitted."
+                                    message:status[@"message"]
+                                   delegate:nil
+                          cancelButtonTitle:nil
+                          otherButtonTitles:@"OK", nil] show];
+    }
     //now we can display a form value in our alert
-    [[[UIAlertView alloc] initWithTitle:@"Successfully submitted."
-                                message:nil
-                               delegate:nil
-                      cancelButtonTitle:nil
-                      otherButtonTitles:@"OK", nil] show];
 }
 
 - (void)submitRegistrationForm:(UITableViewCell<FXFormFieldCell> *)cell
@@ -79,7 +99,7 @@
         record.scientificName = nil;
     }
     
-    if(selection[@"commonName"] != [NSNull null]){
+    if(![selection[@"commonName"] isEqual:@""]){
         record.commonName = selection[@"commonName"];
         if(record.scientificName){
             record.speciesDisplayName = [NSString stringWithFormat:@"%@ (%@)", record.scientificName, record.commonName];

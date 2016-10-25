@@ -8,6 +8,9 @@
 
 #import "SpeciesSearchTableViewController.h"
 #import "GAAppDelegate.h"
+#import "SDWebImage/UIImageView+WebCache.h"
+#import "SpeciesCell.h"
+
 @interface SpeciesSearchTableViewController ()
 @end
 
@@ -20,6 +23,13 @@
     displayItems = [[NSMutableArray alloc] initWithCapacity:0];
     [self searchBar].text = @"";
     [self searchBarSearchButtonClicked:[self searchBar]];
+    
+    // table view settings
+    speciesTableView.rowHeight = 60;
+    speciesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+    // temp fix
+    speciesTableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,29 +63,27 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" ];
     if(!cell){
-         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+        // Configure the cell...
+        cell = [[SpeciesCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        cell.autoresizesSubviews = YES;
     }
-                 
-    // Configure the cell...
-    NSLog(@"%@", [displayItems objectAtIndex:indexPath.row]);
     
-    cell.textLabel.text = [[displayItems objectAtIndex:indexPath.row] objectForKey:@"name"];
-    if([displayItems objectAtIndex:indexPath.row][@"commonName"] != [NSNull null]){
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", [[displayItems objectAtIndex:indexPath.row] objectForKey:@"name"], [[displayItems objectAtIndex:indexPath.row] objectForKey:@"commonName"]];
-        if([displayItems objectAtIndex:indexPath.row][@"rankString"] != [NSNull null]){
-            cell.detailTextLabel.text = [displayItems objectAtIndex:indexPath.row][@"rankString"];
-        } else {
-            cell.detailTextLabel.text = @"Unmatched taxon";
-        }
-
+    NSDictionary *species = [displayItems objectAtIndex:indexPath.row];
+    NSString *thumbnail;
+    cell.textLabel.text = species[@"displayName"];
+    cell.detailTextLabel.text = species[@"rank"];
+    
+    if(self.noImage == nil){
+        self.noImage = [UIImage imageNamed:@"table-place-holder"];
+    }
+    
+    thumbnail = (([species objectForKey:@"thumbnailUrl"] != nil) && (species[@"thumbnailUrl"] != [NSNull null]))? species[@"thumbnailUrl"] :@"";
+    if(![thumbnail isEqualToString:@""]){
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString: thumbnail] placeholderImage:self.noImage options:SDWebImageRefreshCached];
     } else {
-        cell.textLabel.text = [[displayItems objectAtIndex:indexPath.row] objectForKey:@"name"];
-        if([displayItems objectAtIndex:indexPath.row][@"rankString"] != [NSNull null]){
-            cell.detailTextLabel.text = [displayItems objectAtIndex:indexPath.row][@"rankString"];
-        } else {
-            cell.detailTextLabel.text = @"Unmatched taxon";
-        }
+        cell.imageView.image = self.noImage;
     }
     
     return cell;
@@ -102,10 +110,22 @@
 
 - (void) searchBarSearchButtonClicked:(UISearchBar*) theSearchBar{
     [theSearchBar resignFirstResponder];
+
     GAAppDelegate *appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSArray *results = [appDelegate.restCall autoCompleteSpecies:theSearchBar.text addSearchText:YES];
+    NSMutableArray *result = [appDelegate.restCall autoCompleteSpecies:theSearchBar.text addSearchText:YES viewController: self];
+
     [displayItems removeAllObjects];
-    [displayItems addObjectsFromArray:results];
+    [displayItems addObjectsFromArray:result];
+    [speciesTableView reloadData];
+}
+
+
+/**
+ * update display items after asynchronous search
+ */
+-(void)updateDisplayItems: (NSMutableArray *)data{
+    [displayItems removeAllObjects];
+    [displayItems addObjectsFromArray:data];
     [speciesTableView reloadData];
 }
 @end

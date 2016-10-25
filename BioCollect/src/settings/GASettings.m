@@ -71,7 +71,10 @@
 
 
 +(NSString*) getFullName{
-    return [NSString stringWithFormat:@"%@ %@", [[NSUserDefaults standardUserDefaults] objectForKey: kFirstName], [[NSUserDefaults standardUserDefaults] objectForKey:kLastName]];
+    NSString *firstName =[[NSUserDefaults standardUserDefaults] objectForKey: kFirstName]?:@"";
+    NSString *lastName =[[NSUserDefaults standardUserDefaults] objectForKey: kLastName]?:@"";
+    
+    return [NSString stringWithFormat:@"%@ %@", firstName, lastName];
 }
 
 +(void) setEmailAddress : (NSString *) emailAddress{

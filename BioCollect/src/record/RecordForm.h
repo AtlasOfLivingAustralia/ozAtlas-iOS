@@ -15,14 +15,33 @@
 @property (nonatomic, copy) NSString *scientificName;
 @property (nonatomic, copy) NSString *commonName;
 @property (nonatomic, copy) NSString *guid;
+@property (nonatomic, copy) NSString *uniqueId;
+@property (nonatomic, copy) NSString *comments;
 @property (nonatomic, strong) NSDate *surveyDate;
-@property (nonatomic, strong) NSDate *surveyTime;
-@property (nonatomic, assign) BOOL confident;
-@property (nonatomic, assign) NSUInteger howManySpecies;
+@property (nonatomic) BOOL confident;
+@property (nonatomic) NSUInteger howManySpecies;
 @property (nonatomic, copy) NSString *notes;
-@property (nonatomic, assign) NSString *recordedBy;
-@property (nonatomic, strong) UIImage *speciesPhoto;
+@property (nonatomic, copy) NSString *recordedBy;
 @property (nonatomic, copy) NSArray *identificationTags;
 @property (nonatomic, copy) NSString *locationNotes;
-@property (nonatomic, copy) CLLocation *location;
+@property (nonatomic, strong) CLLocation *location;
+
+@property (nonatomic, strong) UIImage *speciesPhoto;
+@property (nonatomic, strong) NSDate *photoDate;
+@property (nonatomic, copy) NSString *photoTitle;
+@property (nonatomic, copy) NSString *photoLicence;
+@property (nonatomic, copy) NSString *photoAttribution;
+@property (nonatomic, copy) NSString *photoNotes;
+@property (nonatomic, copy) NSString *photoUrl;
+@property (nonatomic, copy) NSString *photoThumbnailUrl;
+@property (nonatomic, copy) NSString *photoContentType;
+@property (nonatomic, copy) NSString *photoFilename;
+
+- (NSObject *) isValid;
+
+- (NSDictionary *) toDictionary;
+
+- (NSString *) toJSON;
+
+- (void) updateImageSettings: (NSMutableDictionary *) data;
 @end

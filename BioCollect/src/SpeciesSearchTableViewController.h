@@ -17,4 +17,6 @@
 @property (strong, nonatomic) NSMutableArray *displayItems;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSDictionary *selectedSpecies;
+@property (strong, nonatomic) UIImage *noImage;
+-(void)updateDisplayItems: (NSMutableArray *)data;
 @end

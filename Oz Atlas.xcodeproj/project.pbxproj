@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8709D1C81DB9926700E49C7E /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709D1C61DB9926700E49C7E /* MapViewController.m */; };
+		8709D1C91DB9926700E49C7E /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8709D1C71DB9926700E49C7E /* MapViewController.xib */; };
 		8709E9B01DB5A0FF00D04585 /* SightingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8709E9AA1DB5A0FF00D04585 /* SightingsVC.xib */; };
 		8709E9B11DB5A0FF00D04585 /* SightingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709E9AC1DB5A0FF00D04585 /* SightingsViewController.m */; };
 		8709E9B21DB5A0FF00D04585 /* SpeciesSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709E9AE1DB5A0FF00D04585 /* SpeciesSearchTableViewController.m */; };
 		8709E9B31DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8709E9AF1DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib */; };
 		8709E9B61DB5A11700D04585 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709E9B51DB5A11700D04585 /* Record.m */; };
+		872EFB041DBF7DC1006EB9BF /* SpeciesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 872EFB031DBF7DC1006EB9BF /* SpeciesCell.m */; };
 		B83825F61A0C666B00690383 /* MRBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825DA1A0C666B00690383 /* MRBlurView.m */; };
 		B83825F71A0C666B00690383 /* UIImage+MRImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825DC1A0C666B00690383 /* UIImage+MRImageEffects.m */; };
 		B83825F81A0C666B00690383 /* MRActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825DF1A0C666B00690383 /* MRActivityIndicatorView.m */; };
@@ -215,6 +218,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8709D1C51DB9926700E49C7E /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = src/record/MapViewController.h; sourceTree = "<group>"; };
+		8709D1C61DB9926700E49C7E /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = src/record/MapViewController.m; sourceTree = "<group>"; };
+		8709D1C71DB9926700E49C7E /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = src/record/MapViewController.xib; sourceTree = "<group>"; };
 		8709E9AA1DB5A0FF00D04585 /* SightingsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SightingsVC.xib; path = src/SightingsVC.xib; sourceTree = "<group>"; };
 		8709E9AB1DB5A0FF00D04585 /* SightingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SightingsViewController.h; path = src/SightingsViewController.h; sourceTree = "<group>"; };
 		8709E9AC1DB5A0FF00D04585 /* SightingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SightingsViewController.m; path = src/SightingsViewController.m; sourceTree = "<group>"; };
@@ -223,6 +229,8 @@
 		8709E9AF1DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpeciesSearchTableViewController.xib; path = src/SpeciesSearchTableViewController.xib; sourceTree = "<group>"; };
 		8709E9B41DB5A11700D04585 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Record.h; path = src/Record.h; sourceTree = "<group>"; };
 		8709E9B51DB5A11700D04585 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Record.m; path = src/Record.m; sourceTree = "<group>"; };
+		872EFB021DBF7DC1006EB9BF /* SpeciesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeciesCell.h; path = src/Sightings/SpeciesCell.h; sourceTree = "<group>"; };
+		872EFB031DBF7DC1006EB9BF /* SpeciesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeciesCell.m; path = src/Sightings/SpeciesCell.m; sourceTree = "<group>"; };
 		B83825D91A0C666B00690383 /* MRBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBlurView.h; sourceTree = "<group>"; };
 		B83825DA1A0C666B00690383 /* MRBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBlurView.m; sourceTree = "<group>"; };
 		B83825DB1A0C666B00690383 /* UIImage+MRImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MRImageEffects.h"; sourceTree = "<group>"; };
@@ -644,6 +652,8 @@
 				8709E9AD1DB5A0FF00D04585 /* SpeciesSearchTableViewController.h */,
 				8709E9AE1DB5A0FF00D04585 /* SpeciesSearchTableViewController.m */,
 				8709E9AF1DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib */,
+				872EFB021DBF7DC1006EB9BF /* SpeciesCell.h */,
+				872EFB031DBF7DC1006EB9BF /* SpeciesCell.m */,
 			);
 			name = Sightings;
 			sourceTree = "<group>";
@@ -754,6 +764,9 @@
 				B87373E41DB7027F0057027E /* RecordViewController.m */,
 				B87373E71DB703110057027E /* RecordForm.h */,
 				B87373E81DB703280057027E /* RecordForm.m */,
+				8709D1C51DB9926700E49C7E /* MapViewController.h */,
+				8709D1C61DB9926700E49C7E /* MapViewController.m */,
+				8709D1C71DB9926700E49C7E /* MapViewController.xib */,
 			);
 			name = Record;
 			sourceTree = "<group>";
@@ -1322,6 +1335,7 @@
 				E241C688196A33B6002302D7 /* index.html in Resources */,
 				E2A2FFCB1C8546F0008B63A8 /* ala_logo.png in Resources */,
 				E2E56B2819259D0B007AC38C /* StaticWebPages in Resources */,
+				8709D1C91DB9926700E49C7E /* MapViewController.xib in Resources */,
 				E20189E61C8966700031435D /* Icon-placeholder.png in Resources */,
 				E2DCF1ED1CF68D8B008D438C /* Default-568h.png in Resources */,
 				E2F8E56A19108A640093A3D3 /* Icon-76.png in Resources */,
@@ -1396,6 +1410,7 @@
 				E21CD1831CEAF8E10021536B /* JGActionSheet.m in Sources */,
 				E2B4BEEE1C896E270054F117 /* HomeCustomCell.m in Sources */,
 				B87373E91DB703280057027E /* RecordForm.m in Sources */,
+				8709D1C81DB9926700E49C7E /* MapViewController.m in Sources */,
 				B87373A71DB085540057027E /* MGSpotyView.m in Sources */,
 				E27BDFD918F7AA07001EE2F8 /* GAActivitiesJSON.m in Sources */,
 				E27BDFD518F78D97001EE2F8 /* GASettings.m in Sources */,
@@ -1446,6 +1461,7 @@
 				E20284971C87D59300E8203F /* HomeTableViewController.m in Sources */,
 				E2E3AAE318F515410005BB9E /* GAProject.m in Sources */,
 				B89441FB18FA38F500BB5928 /* GAProjectsUtil.m in Sources */,
+				872EFB041DBF7DC1006EB9BF /* SpeciesCell.m in Sources */,
 				E20189891C8922DD0031435D /* BioProjectService.m in Sources */,
 				E23586E418FCFED600EE6D13 /* EasyJSWebViewProxyDelegate.m in Sources */,
 				8709E9B21DB5A0FF00D04585 /* SpeciesSearchTableViewController.m in Sources */,
