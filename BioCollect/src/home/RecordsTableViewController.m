@@ -100,7 +100,8 @@
         
         if([activity.records count] > 0) {
             NSDictionary *item = [activity.records objectAtIndex:0];
-            cell.textLabel.text = [[item objectForKey:@"name"] length] > 0 ? [item objectForKey:@"name"] : @"No species name";
+            NSString *speciesName = [item objectForKey:@"name"];
+            cell.textLabel.text = ((speciesName != (id)[NSNull null]) && [speciesName length] > 0) ? [item objectForKey:@"name"] : @"No species name";
         } else {
             cell.textLabel.text = activity.projectActivityName;
         }
