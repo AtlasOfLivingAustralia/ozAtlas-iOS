@@ -24,6 +24,13 @@
     {
         self.mapView.centerCoordinate = ((CLLocation *)self.field.value).coordinate;
     }
+    
+    MKCoordinateRegion mapRegion;
+    mapRegion.center = self.mapView.centerCoordinate;
+    mapRegion.span.latitudeDelta = 0.2;
+    mapRegion.span.longitudeDelta = 0.2;
+    
+    [self.mapView  setRegion:mapRegion animated: YES];
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(__unused BOOL)animated

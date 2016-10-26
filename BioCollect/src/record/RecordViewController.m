@@ -19,17 +19,29 @@
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
     {
         //set up form
+        
         RecordForm *record = [[RecordForm alloc] init];
         record.surveyDate = [NSDate date];
         record.howManySpecies = 1;
         record.photoDate = [NSDate date];
+    
+        // location manager
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        [self.locationManager startUpdatingLocation];
+        record.location = [self.locationManager location];
+        
         self.formController.form = record;
         
         self.speciesSearchVC = [[SpeciesSearchTableViewController alloc] initWithNibName:@"SpeciesSearchTableViewController" bundle:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveSpeciesHandler:) name:@"SPECIESSEARCH DISMISS" object:nil];
+        
     }
     return self;
 }
+
+//- (void) viewDidLoad{
+//}
 
 //these are action methods for our forms
 //the methods escalate through the responder chain until
@@ -40,7 +52,7 @@
     RecordForm *record = self.formController.form;
     NSMutableDictionary *formValidity = [record isValid];
     NSNumber *valid = formValidity[@"valid"];
-    if( [valid isEqual: 0] ) {
+    if( [valid isEqualToNumber:[NSNumber numberWithInt: 0]] ) {
         [[[UIAlertView alloc] initWithTitle: @"Form not valid"
                                     message:[formValidity valueForKey:@"message"]
                                    delegate:nil
@@ -49,13 +61,22 @@
 
     } else {
         GAAppDelegate *appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
-//        NSLog(@"%@", [record toJSON]);
         NSMutableDictionary *status = [[appDelegate restCall] createRecord: record];
-        [[[UIAlertView alloc] initWithTitle:@"Successfully submitted."
-                                    message:status[@"message"]
-                                   delegate:nil
-                          cancelButtonTitle:nil
-                          otherButtonTitles:@"OK", nil] show];
+        NSNumber *statusCode = status[@"status"];
+        if([statusCode isEqualToNumber: [NSNumber numberWithInt: 200]]){
+            [[[UIAlertView alloc] initWithTitle:@"Successfully submitted."
+                                        message:status[@"message"]
+                                       delegate:nil
+                              cancelButtonTitle:nil
+                              otherButtonTitles:@"OK", nil] show];
+        } else {
+            [[[UIAlertView alloc] initWithTitle:@"Submission failed"
+                                        message:status[@"message"]
+                                       delegate:nil
+                              cancelButtonTitle:nil
+                              otherButtonTitles:@"OK", nil] show];
+
+        }
     }
     //now we can display a form value in our alert
 }
@@ -116,6 +137,33 @@
     }
     
     self.recordCell.detailTextLabel.text = record.speciesDisplayName;
+}
+
+-(void) getLocation{
+    if(self.locationManager == nil) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        [self.locationManager requestWhenInUseAuthorization];
+        
+        self.locationManager.delegate = self;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    }
+    
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    RecordForm *record = self.formController.form;
+    if (record.location == nil) {
+        record.location = currentLocation;
+    }
 }
 
 @end

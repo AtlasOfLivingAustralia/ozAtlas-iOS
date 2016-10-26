@@ -92,18 +92,18 @@
     NSMutableDictionary *validity = [NSMutableDictionary dictionaryWithDictionary: @{@"valid":[NSNumber numberWithInt:1], @"message": @""}];
     NSMutableArray *invalidFields = [[NSMutableArray alloc] init];
     NSDictionary *mandatory = @{ @"scientificName":@"species name", @"location": @"location", @"surveyDate": @"survey date"};
-        if([self scientificName] == nil){
-            [validity setValue: [NSNumber numberWithInt:0] forKey:@"valids"];
-            [invalidFields addObject: @"species name"];
-        }
+    if([self scientificName] == nil){
+        validity[@"valid"] =  [NSNumber numberWithInt:0];
+        [invalidFields addObject: @"species name"];
+    }
     
     if([self location] == nil){
-        [validity setValue: [NSNumber numberWithInt:0] forKey:@"valids"];
+        validity[@"valid"] =  [NSNumber numberWithInt:0];
         [invalidFields addObject: @"location"];
     }
     
     if([self surveyDate] == nil){
-        [validity setValue: [NSNumber numberWithInt:0] forKey:@"valids"];
+        validity[@"valid"] =  [NSNumber numberWithInt:0];
         [invalidFields addObject: @"survey date"];
     }
     

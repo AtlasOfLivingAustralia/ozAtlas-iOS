@@ -16,7 +16,7 @@
 
 @implementation SpeciesSearchTableViewController
 
-@synthesize speciesTableView, displayItems, selectedSpecies;
+@synthesize speciesTableView, displayItems, selectedSpecies, searchBar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,7 +29,7 @@
     speciesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     // temp fix
-    speciesTableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+    speciesTableView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,7 +81,7 @@
     
     thumbnail = (([species objectForKey:@"thumbnailUrl"] != nil) && (species[@"thumbnailUrl"] != [NSNull null]))? species[@"thumbnailUrl"] :@"";
     if(![thumbnail isEqualToString:@""]){
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString: thumbnail] placeholderImage:self.noImage options:SDWebImageRefreshCached];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString: thumbnail] placeholderImage:[UIImage imageNamed:@"ajax_loader.gif"] options:SDWebImageRefreshCached ];
     } else {
         cell.imageView.image = self.noImage;
     }
@@ -108,8 +108,21 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *title = nil;
+    if(self.isSearching) {
+        title = @"Loading...";
+    } else if(self.loadingFinished){
+        title = @"Completed searching";
+    }
+    
+    return title;
+}
+
 - (void) searchBarSearchButtonClicked:(UISearchBar*) theSearchBar{
     [theSearchBar resignFirstResponder];
+    self.loadingFinished = NO;
+    self.isSearching = YES;
 
     GAAppDelegate *appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSMutableArray *result = [appDelegate.restCall autoCompleteSpecies:theSearchBar.text addSearchText:YES viewController: self];
@@ -124,6 +137,8 @@
  * update display items after asynchronous search
  */
 -(void)updateDisplayItems: (NSMutableArray *)data{
+    self.loadingFinished = YES;
+    self.isSearching = NO;
     [displayItems removeAllObjects];
     [displayItems addObjectsFromArray:data];
     [speciesTableView reloadData];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8705B9301DC041770015E171 /* ajax_loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8705B92F1DC041770015E171 /* ajax_loader.gif */; };
 		8709D1C81DB9926700E49C7E /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709D1C61DB9926700E49C7E /* MapViewController.m */; };
 		8709D1C91DB9926700E49C7E /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8709D1C71DB9926700E49C7E /* MapViewController.xib */; };
 		8709E9B01DB5A0FF00D04585 /* SightingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8709E9AA1DB5A0FF00D04585 /* SightingsVC.xib */; };
@@ -218,6 +219,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8705B92F1DC041770015E171 /* ajax_loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ajax_loader.gif; sourceTree = "<group>"; };
 		8709D1C51DB9926700E49C7E /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = src/record/MapViewController.h; sourceTree = "<group>"; };
 		8709D1C61DB9926700E49C7E /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = src/record/MapViewController.m; sourceTree = "<group>"; };
 		8709D1C71DB9926700E49C7E /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = src/record/MapViewController.xib; sourceTree = "<group>"; };
@@ -827,6 +829,7 @@
 				E2CCECFA190F82E6003655B7 /* deferred@2x.png */,
 				E2CCECFB190F82E6003655B7 /* finished@2x.png */,
 				E2CCECFC190F82E6003655B7 /* planned@2x.png */,
+				8705B92F1DC041770015E171 /* ajax_loader.gif */,
 				E2CCECFD190F82E6003655B7 /* started@2x.png */,
 			);
 			name = Images;
@@ -1342,6 +1345,7 @@
 				E22045CA192D7EDD00531116 /* profile@2x.png in Resources */,
 				E227E39C192CD30D00E22DC7 /* lock_filled-25@2x.png in Resources */,
 				E2F8E56B19108A640093A3D3 /* Icon-76@2x.png in Resources */,
+				8705B9301DC041770015E171 /* ajax_loader.gif in Resources */,
 				E20D1B581CDC570800A3607B /* LaunchScreen.storyboard in Resources */,
 				E2A2FFCD1C8547A5008B63A8 /* ala_logo1.png in Resources */,
 				B87373DA1DB6DFE90057027E /* SVWebViewControllerActivitySafari-iPad.png in Resources */,

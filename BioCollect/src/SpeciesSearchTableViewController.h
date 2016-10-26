@@ -18,5 +18,10 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSDictionary *selectedSpecies;
 @property (strong, nonatomic) UIImage *noImage;
+@property (nonatomic, assign) BOOL loadingFinished;
+//Search flag
+@property (nonatomic, assign) BOOL isSearching;
+
+
 -(void)updateDisplayItems: (NSMutableArray *)data;
 @end
