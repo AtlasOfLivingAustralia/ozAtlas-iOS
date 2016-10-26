@@ -141,6 +141,8 @@
     self.isSearching = NO;
     [displayItems removeAllObjects];
     [displayItems addObjectsFromArray:data];
-    [speciesTableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 @end
