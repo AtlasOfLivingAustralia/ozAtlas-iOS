@@ -219,9 +219,9 @@
 /**
  * Search BIE to autocomplete a species.
  */
--(NSMutableArray *) autoCompleteSpecies : (NSString *) searchText  addSearchText:(BOOL)addUnmatchedTaxon viewController: (SpeciesSearchTableViewController *) vc{
+-(NSMutableArray *) autoCompleteSpecies : (NSString *) searchText numberOfItemsPerPage: (int) pageSize fromSerialNumber: (int) offset addSearchText:(BOOL)addUnmatchedTaxon viewController: (SpeciesSearchTableViewController *) vc{
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    NSString *url = [[NSString alloc] initWithFormat:@"%@%@", AUTOCOMPLETE_URL, [searchText stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    NSString *url = [[NSString alloc] initWithFormat:@"%@%@&pageSize=%d&start=%d", AUTOCOMPLETE_URL, [searchText stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding], pageSize, offset];
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"GET"];
 //    [request setTimeoutInterval:60];
@@ -229,13 +229,24 @@
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *e) {
         NSMutableArray *results = [[NSMutableArray alloc] init];
+        int total;
         if((e == nil) && (data != nil)){
             NSDictionary* respDict =  [NSJSONSerialization JSONObjectWithData:data
                                                                       options:kNilOptions error:&e];
             NSArray *reducedResults = [self minimizeSizeOfSpeciesSearchResult:respDict[@"searchResults"][@"results"]];
+            total = [respDict[@"searchResults"][@"totalRecords"] intValue];
             [results addObjectsFromArray: reducedResults];
         }
         
+        if(vc != nil){
+            [vc updateDisplayItems:results totalRecords: total];
+        }
+    }];
+    
+    NSMutableArray *initialResult = [[NSMutableArray alloc] init];
+    // only return unmatched taxon when the first page is loaded.
+    if(offset == 0){
+        // do not include if string is empty
         if(addUnmatchedTaxon && ![searchText isEqualToString:@""]){
             NSDictionary *unmatchedTaxon = @{
                                              @"displayName": searchText,
@@ -244,25 +255,8 @@
                                              @"commonName": [NSNull null],
                                              @"rank": UNMATCHED_TAXON
                                              };
-            [results insertObject:unmatchedTaxon atIndex:0];
+            [initialResult addObject: unmatchedTaxon];
         }
-        
-        if(vc != nil){
-            [vc updateDisplayItems:results];
-        }
-    }];
-    
-    NSMutableArray *initialResult = [[NSMutableArray alloc] init];
-    // do not include if string is empty
-    if(addUnmatchedTaxon && ![searchText isEqualToString:@""]){
-        NSDictionary *unmatchedTaxon = @{
-                                         @"displayName": searchText,
-                                         @"name": searchText,
-                                         @"guid": [NSNull null],
-                                         @"commonName": [NSNull null],
-                                         @"rank": UNMATCHED_TAXON
-                                         };
-        [initialResult addObject: unmatchedTaxon];
     }
     
     return initialResult;

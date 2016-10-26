@@ -18,7 +18,7 @@
 -(NSString *) uploadSite: (GASite*) site :(NSError**) e;
 -(void) authenticate : (NSString *)username password:(NSString *) p error:(NSError **) e;
 -(NSMutableArray *) downloadProjects : (NSError **) error;
--(NSMutableArray *) autoCompleteSpecies : (NSString *) searchText addSearchText:(BOOL)addUnmatchedTaxon viewController: (SpeciesSearchTableViewController *) vc;
-- (NSMutableDictionary * )createRecord: RecordForm;
+-(NSMutableArray *) autoCompleteSpecies : (NSString *) searchText numberOfItemsPerPage: (int) pageSize fromSerialNumber: (int) offset addSearchText:(BOOL)addUnmatchedTaxon viewController: (SpeciesSearchTableViewController *) vc;
+-(NSMutableDictionary * )createRecord: RecordForm;
 @end
     

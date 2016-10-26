@@ -14,15 +14,24 @@
 @interface SpeciesSearchTableViewController ()
 @end
 
+
 @implementation SpeciesSearchTableViewController
+
+#define SEARCH_PAGE_SIZE 20;
 
 @synthesize speciesTableView, displayItems, selectedSpecies, searchBar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     displayItems = [[NSMutableArray alloc] initWithCapacity:0];
+    
+    // search settings
+    self.totalResults = 0;
+    self.offset = 0;
+    
     [self searchBar].text = @"";
-    [self searchBarSearchButtonClicked:[self searchBar]];
+    [self loadFirstPage];
     
     // table view settings
     speciesTableView.rowHeight = 60;
@@ -113,7 +122,11 @@
     if(self.isSearching) {
         title = @"Loading...";
     } else if(self.loadingFinished){
-        title = @"Completed searching";
+        if(self.totalResults > 0){
+            title = [NSString stringWithFormat:@"Found %d results", self.totalResults];
+        } else{
+            title = @"No results found";
+        }
     }
     
     return title;
@@ -121,28 +134,63 @@
 
 - (void) searchBarSearchButtonClicked:(UISearchBar*) theSearchBar{
     [theSearchBar resignFirstResponder];
+    [displayItems removeAllObjects];
     self.loadingFinished = NO;
     self.isSearching = YES;
-
-    GAAppDelegate *appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSMutableArray *result = [appDelegate.restCall autoCompleteSpecies:theSearchBar.text addSearchText:YES viewController: self];
-
-    [displayItems removeAllObjects];
-    [displayItems addObjectsFromArray:result];
-    [speciesTableView reloadData];
+    [self loadFirstPage];
 }
-
 
 /**
  * update display items after asynchronous search
  */
--(void)updateDisplayItems: (NSMutableArray *)data{
+-(void)updateDisplayItems: (NSMutableArray *)data totalRecords: (int) total{
     self.loadingFinished = YES;
     self.isSearching = NO;
-    [displayItems removeAllObjects];
+    self.totalResults = total;
+//    [displayItems removeAllObjects];
     [displayItems addObjectsFromArray:data];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-    });
+    
+    // run reload data on main thread. otherwise, table rendering will be very slow.
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+}
+
+/**
+ * check if scroll has reached the end of table. This method is used to get the next page.
+ */
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if(self.tableView.contentOffset.y >= (self.tableView.contentSize.height - self.tableView.bounds.size.height + 30) ) {
+        [self loadNextPage];
+    }
+}
+
+#pragma mark - Utility functions
+/**
+ * search for species
+ */
+- (void) lookup {
+    GAAppDelegate *appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
+    int limit = SEARCH_PAGE_SIZE;
+    NSMutableArray *result = [appDelegate.restCall autoCompleteSpecies:self.searchBar.text numberOfItemsPerPage: limit fromSerialNumber: self.offset addSearchText:YES viewController:self];
+    [displayItems addObjectsFromArray:result];
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+}
+
+/**
+ * load first page
+ */
+- (void) loadFirstPage{
+    self.offset = 0;
+    self.totalResults = 0;
+    [self lookup];
+}
+
+/**
+ * load next page
+ */
+- (void) loadNextPage{
+    self.offset = self.offset + SEARCH_PAGE_SIZE;
+    if(self.offset < self.totalResults){
+        [self lookup];
+    }
 }
 @end
