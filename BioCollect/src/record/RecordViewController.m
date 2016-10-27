@@ -34,7 +34,7 @@
         self.formController.form = record;
         
         self.speciesSearchVC = [[SpeciesSearchTableViewController alloc] initWithNibName:@"SpeciesSearchTableViewController" bundle:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveSpeciesHandler:) name:@"SPECIESSEARCH DISMISS" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveSpeciesHandler:) name:@"SPECIESSEARCH SELECTED" object:nil];
         
     }
     return self;
@@ -108,7 +108,7 @@
 
 - (void)showSpeciesSearchTableViewController: (UITableViewCell *) sender {
     self.recordCell = sender;
-    [self presentViewController:self.speciesSearchVC animated:YES completion:nil];
+    [self.navigationController pushViewController:self.speciesSearchVC animated:YES];
 }
 
 - (void)saveSpeciesHandler: (NSNotification *) notice{

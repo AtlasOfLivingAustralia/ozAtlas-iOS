@@ -21,6 +21,28 @@
 
 @synthesize speciesTableView, displayItems, selectedSpecies, searchBar;
 
+#pragma mark - init
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(self){
+        self.navigationItem.title = @"Search species";
+    }
+    
+    // add done button
+    UIBarButtonItem *btnDone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(btnDonePressed)];
+    self.navigationItem.rightBarButtonItem = btnDone;
+    btnDone.enabled=TRUE;
+
+    // add cancel button
+    UIBarButtonItem *btnCancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(btnCancelPressed)];
+    self.navigationItem.leftBarButtonItem = btnCancel;
+    btnCancel.enabled=TRUE;
+
+    return  self;
+}
+
+#pragma mark - standard functions
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -36,24 +58,10 @@
     // table view settings
     speciesTableView.rowHeight = 60;
     speciesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
-    // temp fix
-    speciesTableView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-#pragma mark - init
-
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if(self){
-        self.navigationItem.title = @"Search species";
-    }
-    
-    return  self;
 }
 
 #pragma mark - Table view data source
@@ -74,7 +82,6 @@
     if(!cell){
         // Configure the cell...
         cell = [[SpeciesCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
         cell.autoresizesSubviews = YES;
     }
@@ -107,14 +114,6 @@
     
     // Push the view controller.
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"SPECIESSEARCH DISMISS" object: self.selectedSpecies];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    [searchBar resignFirstResponder];
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -132,12 +131,23 @@
     return title;
 }
 
+#pragma mark - Navigation controller
 - (void) searchBarSearchButtonClicked:(UISearchBar*) theSearchBar{
     [theSearchBar resignFirstResponder];
     [displayItems removeAllObjects];
     self.loadingFinished = NO;
     self.isSearching = YES;
     [self loadFirstPage];
+}
+
+- (void) btnDonePressed {
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"SPECIESSEARCH SELECTED" object: self.selectedSpecies];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)btnCancelPressed {
+    [searchBar resignFirstResponder];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /**
@@ -147,7 +157,6 @@
     self.loadingFinished = YES;
     self.isSearching = NO;
     self.totalResults = total;
-//    [displayItems removeAllObjects];
     [displayItems addObjectsFromArray:data];
     
     // run reload data on main thread. otherwise, table rendering will be very slow.
