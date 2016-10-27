@@ -39,6 +39,8 @@
     self.navigationItem.leftBarButtonItem = btnCancel;
     btnCancel.enabled=TRUE;
 
+    // spinner to show searching
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     return  self;
 }
 
@@ -126,9 +128,24 @@
         } else{
             title = @"No results found";
         }
+        
+        [self.spinner stopAnimating];
     }
     
     return title;
+}
+
+#pragma mark - Table view display
+- (void)showOrHideActivityIndicator {
+    if(self.isSearching){
+        self.spinner.center = speciesTableView.center;
+        [speciesTableView addSubview : self.spinner];
+        [self.spinner startAnimating];
+    } else {
+        [self.spinner performSelectorOnMainThread:@selector(removeFromSuperview) withObject:nil waitUntilDone:NO ];
+        [self.spinner stopAnimating];
+    }
+    
 }
 
 #pragma mark - Navigation controller
@@ -161,6 +178,8 @@
     
     // run reload data on main thread. otherwise, table rendering will be very slow.
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    
+    [self showOrHideActivityIndicator];
 }
 
 /**
@@ -177,6 +196,8 @@
  * search for species
  */
 - (void) lookup {
+    [self showOrHideActivityIndicator];
+    
     GAAppDelegate *appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
     int limit = SEARCH_PAGE_SIZE;
     NSMutableArray *result = [appDelegate.restCall autoCompleteSpecies:self.searchBar.text numberOfItemsPerPage: limit fromSerialNumber: self.offset addSearchText:YES viewController:self];

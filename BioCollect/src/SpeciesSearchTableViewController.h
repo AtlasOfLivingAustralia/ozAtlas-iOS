@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSDictionary *selectedSpecies;
 @property (strong, nonatomic) UIImage *noImage;
+@property (nonatomic, strong) UIActivityIndicatorView *spinner;
 
 //pagination flags
 @property (nonatomic, assign) int totalResults;
