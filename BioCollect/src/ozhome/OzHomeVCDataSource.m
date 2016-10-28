@@ -18,7 +18,7 @@
 - (NSInteger)spotyViewController:(MGSpotyViewController *)spotyViewController
            numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 5;
 }
 
 - (UITableViewCell *)spotyViewController:(MGSpotyViewController *)spotyViewController
@@ -69,6 +69,10 @@
         NSString *url = [[NSString alloc] initWithFormat: @"%@", @""];
         NSString *escapedUrlString =[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:escapedUrlString] placeholderImage:[UIImage imageNamed:@"loc1_changed"]];
+    } else if(indexPath.row == 4) {
+        cell.textLabel.text = @"Synchornise records on disk";
+        cell.detailTextLabel.text = @"";
+        [cell.imageView setImage:[UIImage imageNamed:@"nochange"]];
     }
     
     return cell;

@@ -10,12 +10,12 @@
 		8705B9301DC041770015E171 /* ajax_loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8705B92F1DC041770015E171 /* ajax_loader.gif */; };
 		8709D1C81DB9926700E49C7E /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709D1C61DB9926700E49C7E /* MapViewController.m */; };
 		8709D1C91DB9926700E49C7E /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8709D1C71DB9926700E49C7E /* MapViewController.xib */; };
-		8709E9B01DB5A0FF00D04585 /* SightingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8709E9AA1DB5A0FF00D04585 /* SightingsVC.xib */; };
-		8709E9B11DB5A0FF00D04585 /* SightingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709E9AC1DB5A0FF00D04585 /* SightingsViewController.m */; };
 		8709E9B21DB5A0FF00D04585 /* SpeciesSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709E9AE1DB5A0FF00D04585 /* SpeciesSearchTableViewController.m */; };
 		8709E9B31DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8709E9AF1DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib */; };
 		8709E9B61DB5A11700D04585 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709E9B51DB5A11700D04585 /* Record.m */; };
 		872EFB041DBF7DC1006EB9BF /* SpeciesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 872EFB031DBF7DC1006EB9BF /* SpeciesCell.m */; };
+		87B700121DC2E5520066C236 /* SyncTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B700101DC2E5520066C236 /* SyncTableViewController.m */; };
+		87B700131DC2E5520066C236 /* SyncTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B700111DC2E5520066C236 /* SyncTableViewController.xib */; };
 		B83825F61A0C666B00690383 /* MRBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825DA1A0C666B00690383 /* MRBlurView.m */; };
 		B83825F71A0C666B00690383 /* UIImage+MRImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825DC1A0C666B00690383 /* UIImage+MRImageEffects.m */; };
 		B83825F81A0C666B00690383 /* MRActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825DF1A0C666B00690383 /* MRActivityIndicatorView.m */; };
@@ -223,9 +223,6 @@
 		8709D1C51DB9926700E49C7E /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = src/record/MapViewController.h; sourceTree = "<group>"; };
 		8709D1C61DB9926700E49C7E /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = src/record/MapViewController.m; sourceTree = "<group>"; };
 		8709D1C71DB9926700E49C7E /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = src/record/MapViewController.xib; sourceTree = "<group>"; };
-		8709E9AA1DB5A0FF00D04585 /* SightingsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SightingsVC.xib; path = src/SightingsVC.xib; sourceTree = "<group>"; };
-		8709E9AB1DB5A0FF00D04585 /* SightingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SightingsViewController.h; path = src/SightingsViewController.h; sourceTree = "<group>"; };
-		8709E9AC1DB5A0FF00D04585 /* SightingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SightingsViewController.m; path = src/SightingsViewController.m; sourceTree = "<group>"; };
 		8709E9AD1DB5A0FF00D04585 /* SpeciesSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeciesSearchTableViewController.h; path = src/SpeciesSearchTableViewController.h; sourceTree = "<group>"; };
 		8709E9AE1DB5A0FF00D04585 /* SpeciesSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeciesSearchTableViewController.m; path = src/SpeciesSearchTableViewController.m; sourceTree = "<group>"; };
 		8709E9AF1DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SpeciesSearchTableViewController.xib; path = src/SpeciesSearchTableViewController.xib; sourceTree = "<group>"; };
@@ -233,6 +230,9 @@
 		8709E9B51DB5A11700D04585 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Record.m; path = src/Record.m; sourceTree = "<group>"; };
 		872EFB021DBF7DC1006EB9BF /* SpeciesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeciesCell.h; path = src/Sightings/SpeciesCell.h; sourceTree = "<group>"; };
 		872EFB031DBF7DC1006EB9BF /* SpeciesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeciesCell.m; path = src/Sightings/SpeciesCell.m; sourceTree = "<group>"; };
+		87B7000F1DC2E5520066C236 /* SyncTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SyncTableViewController.h; path = src/Sync/SyncTableViewController.h; sourceTree = "<group>"; };
+		87B700101DC2E5520066C236 /* SyncTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SyncTableViewController.m; path = src/Sync/SyncTableViewController.m; sourceTree = "<group>"; };
+		87B700111DC2E5520066C236 /* SyncTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SyncTableViewController.xib; path = src/Sync/SyncTableViewController.xib; sourceTree = "<group>"; };
 		B83825D91A0C666B00690383 /* MRBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBlurView.h; sourceTree = "<group>"; };
 		B83825DA1A0C666B00690383 /* MRBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBlurView.m; sourceTree = "<group>"; };
 		B83825DB1A0C666B00690383 /* UIImage+MRImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MRImageEffects.h"; sourceTree = "<group>"; };
@@ -549,6 +549,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		87B700091DC2E46C0066C236 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				87B7000F1DC2E5520066C236 /* SyncTableViewController.h */,
+				87B700101DC2E5520066C236 /* SyncTableViewController.m */,
+				87B700111DC2E5520066C236 /* SyncTableViewController.xib */,
+			);
+			name = Sync;
+			sourceTree = "<group>";
+		};
 		B83825D71A0C666B00690383 /* MRActivityUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +621,7 @@
 		B839846B1DA5EFCA00551C67 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				87B700091DC2E46C0066C236 /* Sync */,
 				B87373E31DB702280057027E /* Record */,
 				B83984761DB063FD00551C67 /* OzHome */,
 				B839846E1DA5F49D00551C67 /* Sightings */,
@@ -648,9 +659,6 @@
 		B839846E1DA5F49D00551C67 /* Sightings */ = {
 			isa = PBXGroup;
 			children = (
-				8709E9AA1DB5A0FF00D04585 /* SightingsVC.xib */,
-				8709E9AB1DB5A0FF00D04585 /* SightingsViewController.h */,
-				8709E9AC1DB5A0FF00D04585 /* SightingsViewController.m */,
 				8709E9AD1DB5A0FF00D04585 /* SpeciesSearchTableViewController.h */,
 				8709E9AE1DB5A0FF00D04585 /* SpeciesSearchTableViewController.m */,
 				8709E9AF1DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib */,
@@ -1358,9 +1366,9 @@
 				E2F8E56C19108A640093A3D3 /* Icon-Small.png in Resources */,
 				E2E43395190FAE5700A3FAB2 /* cancelled@2x.png in Resources */,
 				E2CCED01190F82E6003655B7 /* planned@2x.png in Resources */,
-				8709E9B01DB5A0FF00D04585 /* SightingsVC.xib in Resources */,
 				E2A2FFD11C854EDD008B63A8 /* BioCollect-logo 1.png in Resources */,
 				E29A35421966781C003D025D /* searchbar_bk@2x.png in Resources */,
+				87B700131DC2E5520066C236 /* SyncTableViewController.xib in Resources */,
 				E2F471C41C86827B00594DAB /* HomeTableViewController.xib in Resources */,
 				E21CD17F1CEAF7E80021536B /* Images-2.xcassets in Resources */,
 				E2B627511CE4119A00A89179 /* BioCollect-text-small.png in Resources */,
@@ -1387,7 +1395,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8709E9B11DB5A0FF00D04585 /* SightingsViewController.m in Sources */,
 				B87373E51DB7027F0057027E /* RecordViewController.m in Sources */,
 				E2636E3A1CF43C4100000371 /* SDWebImageDecoder.m in Sources */,
 				E2636E3E1CF43C4100000371 /* SDWebImagePrefetcher.m in Sources */,
@@ -1428,6 +1435,7 @@
 				B83825FE1A0C666B00690383 /* MRStopButton.m in Sources */,
 				B83825FC1A0C666B00690383 /* MRProgressOverlayView.m in Sources */,
 				B87373AB1DB089110057027E /* OzHomeVC.m in Sources */,
+				87B700121DC2E5520066C236 /* SyncTableViewController.m in Sources */,
 				B87373D81DB6DFE90057027E /* SVWebViewControllerActivityChrome.m in Sources */,
 				E2E3AA9D18F4D2940005BB9E /* GAAppDelegate.m in Sources */,
 				E23AF5131C910F93002501F3 /* ProjectActivityJSON.m in Sources */,

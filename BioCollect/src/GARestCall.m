@@ -381,7 +381,8 @@
     // now save record if unique id was generated
     NSMutableDictionary *result = [[NSMutableDictionary alloc] initWithDictionary:@{
                                                                                     @"status":[NSNull null],
-                                                                                    @"message":[NSNull null]
+                                                                                    @"message":[NSNull null],
+                                                                                    @"activityId": [NSNull null]
                                                                                     }];
     if(record.uniqueId != nil){
         // check if photo is attached. then upload photo.
@@ -409,23 +410,45 @@
                 if( [[NSNumber numberWithInt:200] isEqual: respDict[@"statusCode"]] ){
                     result[@"status"] = [NSNumber numberWithInt: 200];
                     result[@"message"] = @"Record saved";
+                    result[@"activityId"] = respDict[@"resp"][@"activityId"];
+                    
+                    GAAppDelegate *appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
+                    [appDelegate removeRecords:@[record]];
                 } else {
+                    DebugLog(@"[ERROR] Server error %@",[*e localizedDescription]);
+                    [self saveRecordToDisk: record];
                     result[@"status"] = [NSNumber numberWithInt: 500];
-                    result[@"message"] = @"Failed to save record";
+                    result[@"message"] = @"An error occurred while saving at the server. The record is now saved to disk. Try uploading it later.";
                 }
             }
             else {
                 // save record for sync later
                 DebugLog(@"[ERROR] Connection error %@",[*e localizedDescription]);
+                [self saveRecordToDisk: record];
                 result[@"status"] = [NSNumber numberWithInt: 500];
-                result[@"message"] = @"An error occurred while saving. Try syncronizing this record later.";
+                result[@"message"] = @"An error occurred while connceting to server. The record is now saved to disk. Try uploading it later.";
             }
         } else {
-            // save object for offline use
+            // save record for sync later
+            DebugLog(@"[ERROR] Connection error %@",[*e localizedDescription]);
+            [self saveRecordToDisk: record];
+            result[@"status"] = [NSNumber numberWithInt: 500];
+            result[@"message"] = @"An error occurred while uploading multimedia. The record is now saved to disk. Try uploading it later.";
         }
+    } else {
+        DebugLog(@"[ERROR] Connection error %@",[*e localizedDescription]);
+        [self saveRecordToDisk: record];
+        result[@"status"] = [NSNumber numberWithInt: 500];
+        result[@"message"] = @"An error occurred while connceting to server. Is your internet connection switched on? The record is now saved to disk. Try uploading it later.";
     }
     
     return result;
+}
+
+-(void)saveRecordToDisk: (RecordForm *) record{
+    // save record for sync later
+    GAAppDelegate *appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate addRecord:record];
 }
 
 /**

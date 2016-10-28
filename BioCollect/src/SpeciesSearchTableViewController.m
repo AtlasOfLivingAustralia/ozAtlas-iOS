@@ -145,7 +145,6 @@
         [self.spinner performSelectorOnMainThread:@selector(removeFromSuperview) withObject:nil waitUntilDone:NO ];
         [self.spinner stopAnimating];
     }
-    
 }
 
 #pragma mark - Navigation controller

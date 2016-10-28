@@ -17,7 +17,7 @@
 #import "HomeTableViewController.h"
 #import "MRProgressOverlayView.h"
 #import "ContactVC.h"
-#import "SightingsViewController.h"
+#import "RecordForm.h"
 
 #define IDIOM    UI_USER_INTERFACE_IDIOM()
 #define IPAD     UIUserInterfaceIdiomPad
@@ -28,17 +28,15 @@
 @property (strong, nonatomic) RecordsTableViewController *recordsVC;
 @property (strong, nonatomic) HomeTableViewController *myProjectsVC;
 @property (strong, nonatomic) RecordsTableViewController *myRecordsVC;
-@property (strong, nonatomic) SightingsViewController *mySightingsVC;
 
 @property (strong, nonatomic) GADetailActivitiesTableViewController *detailVC;
 @property (nonatomic, retain) GAActivity *updatedActivity;
 
 @property (nonatomic, retain) NSMutableArray *projects;
-
 @end
 @implementation GAAppDelegate
 
-@synthesize splitViewController, projects,masterProjectVC, detailVC, restCall, sqlLite, loginViewController, eulaVC, homeVC, recordsVC, myProjectsVC, myRecordsVC, mySightingsVC, bioProjectService,tabBarController;
+@synthesize splitViewController, projects,masterProjectVC, detailVC, restCall, sqlLite, loginViewController, eulaVC, homeVC, recordsVC, myProjectsVC, myRecordsVC, bioProjectService,tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -56,6 +54,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     self.projects = [[NSMutableArray alloc] init];
+    _records = [[NSMutableArray alloc] init];
 
     //Singleton instantiation.
     restCall = [[GARestCall alloc]init];
@@ -69,6 +68,15 @@
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:200.0/255.0 green:77.0/255.0 blue:47.0/255.0 alpha:1]];
 
     [[MRProgressOverlayView appearance] setTintColor:[UIColor colorWithRed:200.0/255.0 green:77.0/255.0 blue:47.0/255.0 alpha:1]];
+    
+    //
+    
+    NSArray<NSURL *> *urls = [NSFileManager.defaultManager URLsForDirectory:NSDocumentDirectory inDomains: NSUserDomainMask];
+    if([urls count] > 0){
+        _recordArchivePath = [urls[0] URLByAppendingPathComponent:@"record"];
+    }
+    
+    [self loadRecords];
     
     return YES;
 }
@@ -108,13 +116,6 @@
     homeNC.tabBarItem.image = [UIImage imageNamed:@"home_filled-25"];
     homeNC.navigationBar.topItem.title = @"Home";
     
-    // BioCollect Home page
-    mySightingsVC = [[SightingsViewController alloc] initWithNibName:@"SightingsVC" bundle:nil];
-    UINavigationController *sightingsNC = [[UINavigationController alloc] initWithRootViewController: mySightingsVC];
-    sightingsNC.tabBarItem.title = @"Sighting";
-    sightingsNC.tabBarItem.image = [UIImage imageNamed:@"pad"];
-    sightingsNC.navigationBar.topItem.title = @"Add a Sighting";
-
 
     // Records view
     recordsVC = [[RecordsTableViewController alloc] initWithNibName:@"RecordsTableViewController" bundle:nil];
@@ -229,5 +230,36 @@
 
 -(void) closeDetailModal {
    [self.detailVC.formWebView webViewDidFinishLoad];
+}
+
+# pragma mark - utility functions
+- (void)saveRecords{
+    BOOL archived = [NSKeyedArchiver archiveRootObject:self.records toFile:self.recordArchivePath.path];
+
+    if (!archived) {
+        NSLog(@"Failed to records to file");
+    }
+}
+
+ - (void) loadRecords{
+     NSArray<RecordForm*> *records = [NSKeyedUnarchiver unarchiveObjectWithFile: self.recordArchivePath.path];
+     [self.records addObjectsFromArray:records];
+}
+
+-(void) addRecord:(RecordForm *) record{
+    if(![self.records containsObject: record]){
+        [self.records addObject:record];
+    }
+    
+    self.projectsModified = YES;
+    [self saveRecords];
+}
+
+-(void) removeRecords:(NSArray *) records{
+    if(records){
+        self.projectsModified = YES;
+        [self.records removeObjectsInArray:records];
+        [self saveRecords];
+    }
 }
 @end

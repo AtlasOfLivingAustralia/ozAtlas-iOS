@@ -11,6 +11,103 @@
 #import "GASettingsConstant.h"
 
 @implementation RecordForm
+
+@synthesize propertyKey;
+
+- (instancetype)init{
+    self = [super init];
+    
+    self.propertyKey = @{
+                         @"displayKey": @"speciesDisplayName",
+                         @"activityIdKey":@"activityId",
+                         @"scientificNameKey": @"scientificName",
+                         @"commonNameKey": @"commonName",
+                         @"guidKey": @"guid",
+                         @"uniqueIdKey":@"uniqueId",
+                         @"commentsKey":@"comments",
+                         @"surveyDate":@"surveyDate",
+                         @"confidentKey":@"confident",
+                         @"howManySpeciesKey":@"howManySpecies",
+                         @"notesKey": @"notes",
+                         @"recordedByKey": @"recordedBy",
+                         @"identificationTagsKey": @"identificationTags",
+                         @"locationNotesKey":@"locationNotes",
+                         @"locationKey":@"location",
+                         @"speciesPhotoKey":@"speciesPhoto",
+                         @"photoDateKey":@"photoDate",
+                         @"photoTitleKey": @"photoTitle",
+                         @"photoLicenceKey": @"photoLicence",
+                         @"photoAttributionKey": @"photoAttribution",
+                         @"photoNotesKey": @"photoNotes",
+                         @"photoUrlKey":@"photoUrl",
+                         @"photoThumbnailUrlKey":@"photoThumbnailUrl",
+                         @"photoContentTypeKey":@"photoContentType",
+                         @"photoFilenameKey": @"photoFilename"
+                         };
+    return  self;
+}
+
+#pragma mark NSCoding
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [self init];
+    
+    self.speciesDisplayName = [aDecoder decodeObjectForKey: propertyKey[@"displayKey"]];
+    self.activityId = [aDecoder decodeObjectForKey: propertyKey[@"activityIdKey"]];
+    self.scientificName = [aDecoder decodeObjectForKey: propertyKey[@"scientificNameKey"]];
+    self.commonName = [aDecoder decodeObjectForKey: propertyKey[@"commonNameKey"]];
+    self.guid = [aDecoder decodeObjectForKey: propertyKey[@"guidKey"]];
+    self.uniqueId = [aDecoder decodeObjectForKey: propertyKey[@"uniqueIdKey"]];
+    self.comments = [aDecoder decodeObjectForKey: propertyKey[@"commentsKey"]];
+    self.surveyDate = [aDecoder decodeObjectForKey: propertyKey[@"surveyDate"]];
+    self.confident = [aDecoder decodeBoolForKey: propertyKey[@"confidentKey"]];
+    self.howManySpecies = [aDecoder decodeIntegerForKey:propertyKey[@"howManySpeciesKey"]];
+    self.notes = [aDecoder decodeObjectForKey: propertyKey[@"notesKey"]];
+    self.recordedBy = [aDecoder decodeObjectForKey: propertyKey[@"recordedByKey"]];
+    self.identificationTags = [aDecoder decodeObjectForKey: propertyKey[@"identificationTagsKey"]];
+    self.locationNotes = [aDecoder decodeObjectForKey: propertyKey[@"locationNotesKey"]];
+    self.location = [aDecoder decodeObjectForKey: propertyKey[@"locationKey"]];
+    self.speciesPhoto = [aDecoder decodeObjectForKey: propertyKey[@"speciesPhotoKey"]];
+    self.photoDate = [aDecoder decodeObjectForKey: propertyKey[@"photoDateKey"]];
+    self.photoTitle = [aDecoder decodeObjectForKey: propertyKey[@"photoTitleKey"]];
+    self.photoLicence = [aDecoder decodeObjectForKey: propertyKey[@"photoLicenceKey"]];
+    self.photoAttribution = [aDecoder decodeObjectForKey: propertyKey[@"photoAttributionKey"]];
+    self.photoNotes = [aDecoder decodeObjectForKey: propertyKey[@"photoNotesKey"]];
+    self.photoUrl = [aDecoder decodeObjectForKey: propertyKey[@"photoUrlKey"]];
+    self.photoThumbnailUrl = [aDecoder decodeObjectForKey: propertyKey[@"photoThumbnailUrlKey"]];
+    self.photoContentType = [aDecoder decodeObjectForKey: propertyKey[@"photoContentTypeKey"]];
+    self.photoFilename = [aDecoder decodeObjectForKey: propertyKey[@"photoFilenameKey"]];
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:self.speciesDisplayName forKey:propertyKey[@"displayKey"]];
+    [aCoder encodeObject:self.activityId forKey: propertyKey[@"activityIdKey"]];
+    [aCoder encodeObject:self.scientificName forKey: propertyKey[@"scientificNameKey"]];
+    [aCoder encodeObject:self.commonName forKey: propertyKey[@"commonNameKey"]];
+    [aCoder encodeObject:self.guid forKey: propertyKey[@"guidKey"]];
+    [aCoder encodeObject:self.uniqueId forKey: propertyKey[@"uniqueIdKey"]];
+    [aCoder encodeObject:self.comments forKey: propertyKey[@"commentsKey"]];
+    [aCoder encodeObject:self.surveyDate forKey: propertyKey[@"surveyDate"]];
+    [aCoder encodeBool:self.confident forKey: propertyKey[@"confidentKey"]];
+    [aCoder encodeInteger:self.howManySpecies forKey: propertyKey[@"howManySpeciesKey"]];
+    [aCoder encodeObject:self.notes forKey: propertyKey[@"notesKey"]];
+    [aCoder encodeObject:self.recordedBy forKey: propertyKey[@"recordedByKey"]];
+    [aCoder encodeObject:self.identificationTags forKey: propertyKey[@"identificationTagsKey"]];
+    [aCoder encodeObject:self.locationNotes forKey: propertyKey[@"locationNotesKey"]];
+    [aCoder encodeObject:self.location forKey: propertyKey[@"locationKey"]];
+    [aCoder encodeObject:self.speciesPhoto forKey: propertyKey[@"speciesPhotoKey"]];
+    [aCoder encodeObject:self.photoDate forKey: propertyKey[@"photoDateKey"]];
+    [aCoder encodeObject:self.photoTitle forKey: propertyKey[@"photoTitleKey"]];
+    [aCoder encodeObject:self.photoLicence forKey: propertyKey[@"photoLicenceKey"]];
+    [aCoder encodeObject:self.photoAttribution forKey: propertyKey[@"photoAttributionKey"]];
+    [aCoder encodeObject:self.photoNotes forKey: propertyKey[@"photoNotesKey"]];
+    [aCoder encodeObject:self.photoUrl forKey: propertyKey[@"photoUrlKey"]];
+    [aCoder encodeObject:self.photoThumbnailUrl forKey: propertyKey[@"photoThumbnailUrlKey"]];
+    [aCoder encodeObject:self.photoContentType forKey: propertyKey[@"photoContentTypeKey"]];
+    [aCoder encodeObject:self.photoFilename forKey: propertyKey[@"photoFilenameKey"]];
+
+}
+
 - (NSArray *)fields
 {
     return @[
@@ -139,7 +236,7 @@
  */
 - (NSDictionary *) toBiocollectFormat{
     return @{
-             @"activityId":@"",
+             @"activityId":self.activityId ?:@"",
              @"projectStage":@"",
              @"mainTheme":@"",
              @"type":PROJECT_NAME,
@@ -239,5 +336,9 @@
             self.photoContentType = file[@"contentType"];
         }
     }
+}
+
+- (NSString *) getSubtitle{
+    return [NSString stringWithFormat:@"%@ %@", self.recordedBy?:@"", self.surveyDate];
 }
 @end

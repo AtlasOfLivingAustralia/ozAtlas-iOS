@@ -9,8 +9,9 @@
 #import "FXForms.h"
 #import <MapKit/MapKit.h>
 
-@interface RecordForm : NSObject <FXForm>
+@interface RecordForm : NSObject <FXForm, NSCoding>
 
+@property (nonatomic, copy) NSString *activityId;
 @property (nonatomic, copy) NSString *speciesDisplayName;
 @property (nonatomic, copy) NSString *scientificName;
 @property (nonatomic, copy) NSString *commonName;
@@ -37,6 +38,8 @@
 @property (nonatomic, copy) NSString *photoContentType;
 @property (nonatomic, copy) NSString *photoFilename;
 
+
+@property (nonatomic, strong) NSDictionary *propertyKey;
 - (NSObject *) isValid;
 
 - (NSDictionary *) toDictionary;
@@ -44,4 +47,5 @@
 - (NSString *) toJSON;
 
 - (void) updateImageSettings: (NSMutableDictionary *) data;
+- (NSString *) getSubtitle;
 @end

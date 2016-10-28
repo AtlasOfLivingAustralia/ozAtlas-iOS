@@ -9,9 +9,12 @@
 #import "FXForms.h"
 #import "SpeciesSearchTableViewController.h"
 #import <MapKit/MapKit.h>
+#import "RecordForm.h"
 
-@interface RecordViewController : FXFormViewController<CLLocationManagerDelegate>
+@interface RecordViewController : FXFormViewController<CLLocationManagerDelegate, UIAlertViewDelegate>
 @property (nonatomic, strong) SpeciesSearchTableViewController *speciesSearchVC;
 @property (nonatomic, strong) UITableViewCell<FXFormFieldCell> *recordCell;
 @property (nonatomic, strong) CLLocationManager *locationManager;
+
+- (void) setRecord: (RecordForm *) record;
 @end

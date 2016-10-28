@@ -12,9 +12,12 @@
 #import "RecordsTableViewController.h"
 #import "GASettingsConstant.h"
 #import "RecordsTableViewController.h"
+#import "SyncTableViewController.h"
+#import "GAAppDelegate.h"
 
 @interface OzHomeVCDelegate()
     @property (nonatomic, strong) RecordsTableViewController *recordsTableView;
+    @property (nonatomic, strong) SyncTableViewController *syncViewController;
 @end
 
 @implementation OzHomeVCDelegate
@@ -62,6 +65,21 @@
         self.recordsTableView.myRecords = FALSE;
         [self.recordsTableView.records removeAllObjects];
         [spotyViewController.navigationController pushViewController:self.recordsTableView animated:TRUE];
+    } else if(indexPath.row == 4) {
+        GAAppDelegate *appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
+        if(self.syncViewController == nil){
+            self.syncViewController = [[SyncTableViewController alloc] initWithNibName:@"SyncTableViewController" bundle:nil];
+            self.syncViewController.title = @"Records to sync";
+        }
+        
+        [spotyViewController.navigationController pushViewController:self.syncViewController animated:TRUE];
+        
+        if(appDelegate.projectsModified){
+            appDelegate.projectsModified = NO;
+            [self.syncViewController.tableView reloadData];
+        }
+        
+        [spotyViewController.tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
                                                         message:@"Not Implemented."

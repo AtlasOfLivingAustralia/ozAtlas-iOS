@@ -9,6 +9,7 @@
 #import "RecordViewController.h"
 #import "RecordForm.h"
 #import "GAAppDelegate.h"
+#import "MRProgressOverlayView.h"
 
 
 @implementation RecordViewController
@@ -60,51 +61,44 @@
                           otherButtonTitles:@"OK", nil] show];
 
     } else {
-        GAAppDelegate *appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
-        NSMutableDictionary *status = [[appDelegate restCall] createRecord: record];
-        NSNumber *statusCode = status[@"status"];
-        if([statusCode isEqualToNumber: [NSNumber numberWithInt: 200]]){
-            [[[UIAlertView alloc] initWithTitle:@"Successfully submitted."
-                                        message:status[@"message"]
-                                       delegate:nil
-                              cancelButtonTitle:nil
-                              otherButtonTitles:@"OK", nil] show];
-        } else {
-            [[[UIAlertView alloc] initWithTitle:@"Submission failed"
-                                        message:status[@"message"]
-                                       delegate:nil
-                              cancelButtonTitle:nil
-                              otherButtonTitles:@"OK", nil] show];
-
-        }
+        [self createRecord:record];
     }
     //now we can display a form value in our alert
 }
 
-- (void)submitRegistrationForm:(UITableViewCell<FXFormFieldCell> *)cell
-{
-    //we can lookup the form from the cell if we want, like this:
-    RecordForm *form = cell.field.form;
-    
-    //we can then perform validation, etc
-    if (form.recordedBy)
-    {
-        [[[UIAlertView alloc] initWithTitle:@"Record sightings Form Submitted"
-                                    message:nil
-                                   delegate:nil
-                          cancelButtonTitle:nil
-                          otherButtonTitles:@"OK", nil] show];
-    }
-    else
-    {
-        [[[UIAlertView alloc] initWithTitle:@"User Error"
-                                    message:@"Please agree to the terms and conditions before proceeding"
-                                   delegate:nil
-                          cancelButtonTitle:nil
-                          otherButtonTitles:@"Yes Sir!", nil] show];
-    }
-}
+- (void) createRecord: (RecordForm *) record {
+    GAAppDelegate *appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
 
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // set animation to show record creation is in progress
+            [MRProgressOverlayView showOverlayAddedTo:appDelegate.window title:@"Processing.." mode:MRProgressOverlayViewModeIndeterminateSmall animated:YES];
+        });
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSMutableDictionary *status = [[appDelegate restCall] createRecord: record];
+        NSNumber *statusCode = status[@"status"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MRProgressOverlayView dismissOverlayForView:appDelegate.window animated:NO];
+            
+            if([statusCode isEqualToNumber: [NSNumber numberWithInt: 200]]){
+                record.activityId = status[@"activityId"];
+                [[[UIAlertView alloc] initWithTitle:@"Successfully submitted."
+                                            message:status[@"message"]
+                                           delegate:self
+                                  cancelButtonTitle:nil
+                                  otherButtonTitles:@"OK", nil] show];
+            } else {
+                [[[UIAlertView alloc] initWithTitle:@"Submission failed"
+                                            message:status[@"message"]
+                                           delegate: self
+                                  cancelButtonTitle:nil
+                                  otherButtonTitles:@"OK", nil] show];
+            }
+        });
+    });
+}
 
 - (void)showSpeciesSearchTableViewController: (UITableViewCell *) sender {
     self.recordCell = sender;
@@ -166,4 +160,12 @@
     }
 }
 
+- (void) setRecord: (RecordForm *) record{
+    self.formController.form = record;
+}
+
+#pragma mark - alert view delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end
