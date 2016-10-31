@@ -341,4 +341,23 @@
 - (NSString *) getSubtitle{
     return [NSString stringWithFormat:@"%@ %@", self.recordedBy?:@"", self.surveyDate];
 }
+
+- (void)setScientificName:(NSString *)sn commonName:(NSString *)cn guid:(NSString *)guid{
+    
+    self.commonName = cn != [NSNull null]? cn:@"";
+    self.scientificName = sn != [NSNull null]? sn:@"";
+    self.guid = guid != [NSNull null]?guid:@"";
+    
+    if(![self.commonName isEqual:@""]){
+        self.speciesDisplayName = [NSString stringWithFormat:@"%@ (%@)", self.scientificName, self.commonName];
+    } else {
+        self.speciesDisplayName = self.scientificName;
+    }
+    
+    if([self.guid isEqual:@""]){
+        self.guid = guid;
+    } else {
+        self.guid = nil;
+    }
+}
 @end

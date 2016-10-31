@@ -108,27 +108,7 @@
 - (void)saveSpeciesHandler: (NSNotification *) notice{
     NSDictionary *selection = (NSDictionary *)[notice object];
     RecordForm *record = self.formController.form;
-    if(selection[@"name"] != [NSNull null]){
-        record.scientificName = selection[@"name"];
-    } else {
-        record.scientificName = nil;
-    }
-    
-    if(![selection[@"commonName"] isEqual:@""]){
-        record.commonName = selection[@"commonName"];
-        if(record.scientificName){
-            record.speciesDisplayName = [NSString stringWithFormat:@"%@ (%@)", record.scientificName, record.commonName];
-        }
-    } else {
-        record.commonName = nil;
-        record.speciesDisplayName = [NSString stringWithFormat:@"%@", record.scientificName];
-    }
-    
-    if(selection[@"guid"] != [NSNull null]){
-        record.guid = selection[@"guid"];
-    } else {
-        record.guid = nil;
-    }
+    [record setScientificName:selection[@"name"] commonName:selection[@"commonName"] guid:selection[@"guid"]];
     
     self.recordCell.detailTextLabel.text = record.speciesDisplayName;
 }

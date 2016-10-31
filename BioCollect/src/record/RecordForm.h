@@ -38,14 +38,12 @@
 @property (nonatomic, copy) NSString *photoContentType;
 @property (nonatomic, copy) NSString *photoFilename;
 
-
 @property (nonatomic, strong) NSDictionary *propertyKey;
+
 - (NSObject *) isValid;
-
 - (NSDictionary *) toDictionary;
-
 - (NSString *) toJSON;
-
 - (void) updateImageSettings: (NSMutableDictionary *) data;
 - (NSString *) getSubtitle;
+- (void)setScientificName:(NSString *)sn commonName:(NSString *)cn guid:(NSString *)guid;
 @end
