@@ -174,7 +174,8 @@
     
     //Tab bars
     tabBarController = [[UITabBarController alloc] init];
-    NSArray* controllers = [NSArray arrayWithObjects: ozHomeNC, aboutNC,contactNC, nil];
+    //NSArray* controllers = [NSArray arrayWithObjects: ozHomeNC, aboutNC,contactNC, nil];
+    NSArray* controllers = [NSArray arrayWithObjects: homeNC, recordsNC, myProjectsNC, myRecordsNC,contactNC, nil];
     tabBarController.viewControllers = controllers;
 
     [self.window setRootViewController:tabBarController];

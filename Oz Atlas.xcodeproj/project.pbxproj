@@ -97,7 +97,7 @@
 		E23AF50A1C8F8C48002501F3 /* HomeWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AF5091C8F8C48002501F3 /* HomeWebView.m */; };
 		E23AF50C1C8FAE59002501F3 /* HomeWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23AF50B1C8FAE59002501F3 /* HomeWebView.xib */; };
 		E23AF50F1C8FEEB7002501F3 /* ProjectActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AF50E1C8FEEB7002501F3 /* ProjectActivity.m */; };
-		E23AF5131C910F93002501F3 /* ProjectActivityJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AF5121C910F93002501F3 /* ProjectActivityJSON.m */; };
+		E23AF5131C910F93002501F3 /* ProjectActivitiesJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AF5121C910F93002501F3 /* ProjectActivitiesJSON.m */; };
 		E23AF5161C911C69002501F3 /* RecordsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AF5151C911C69002501F3 /* RecordsTableViewController.m */; };
 		E23AF5181C911E45002501F3 /* RecordsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23AF5171C911E45002501F3 /* RecordsTableViewController.xib */; };
 		E23AF5211C9187E3002501F3 /* RecordWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AF5201C9187E3002501F3 /* RecordWebView.m */; };
@@ -196,6 +196,7 @@
 		E2E56B2D1925CB7F007AC38C /* GACreateSiteModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E56B2B1925CB7F007AC38C /* GACreateSiteModalViewController.xib */; };
 		E2E56B2F1925D84E007AC38C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E56B2E1925D84E007AC38C /* MapKit.framework */; };
 		E2E8F744192245E60029574B /* loc1_nochange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E8F743192245E60029574B /* loc1_nochange@2x.png */; };
+		E2EF6E621E678A4F00279A55 /* RKDropdownAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6E611E678A4F00279A55 /* RKDropdownAlert.m */; };
 		E2F471C41C86827B00594DAB /* HomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F471C31C86827B00594DAB /* HomeTableViewController.xib */; };
 		E2F8E56619108A640093A3D3 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F8E55E19108A640093A3D3 /* Icon-40.png */; };
 		E2F8E56719108A640093A3D3 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F8E55F19108A640093A3D3 /* Icon-40@2x.png */; };
@@ -363,8 +364,8 @@
 		E23AF50B1C8FAE59002501F3 /* HomeWebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeWebView.xib; path = src/home/HomeWebView.xib; sourceTree = "<group>"; };
 		E23AF50D1C8FEE21002501F3 /* ProjectActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectActivity.h; path = src/model/ProjectActivity.h; sourceTree = "<group>"; };
 		E23AF50E1C8FEEB7002501F3 /* ProjectActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectActivity.m; path = src/model/ProjectActivity.m; sourceTree = "<group>"; };
-		E23AF5111C910F3E002501F3 /* ProjectActivityJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectActivityJSON.h; path = src/model/ProjectActivityJSON.h; sourceTree = "<group>"; };
-		E23AF5121C910F93002501F3 /* ProjectActivityJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectActivityJSON.m; path = src/model/ProjectActivityJSON.m; sourceTree = "<group>"; };
+		E23AF5111C910F3E002501F3 /* ProjectActivitiesJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectActivitiesJSON.h; path = src/model/ProjectActivitiesJSON.h; sourceTree = "<group>"; };
+		E23AF5121C910F93002501F3 /* ProjectActivitiesJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectActivitiesJSON.m; path = src/model/ProjectActivitiesJSON.m; sourceTree = "<group>"; };
 		E23AF5141C911C57002501F3 /* RecordsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordsTableViewController.h; path = src/home/RecordsTableViewController.h; sourceTree = "<group>"; };
 		E23AF5151C911C69002501F3 /* RecordsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordsTableViewController.m; path = src/home/RecordsTableViewController.m; sourceTree = "<group>"; };
 		E23AF5171C911E45002501F3 /* RecordsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecordsTableViewController.xib; path = src/home/RecordsTableViewController.xib; sourceTree = "<group>"; };
@@ -505,6 +506,8 @@
 		E2E56B2B1925CB7F007AC38C /* GACreateSiteModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GACreateSiteModalViewController.xib; path = src/model/GACreateSiteModalViewController.xib; sourceTree = "<group>"; };
 		E2E56B2E1925D84E007AC38C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E2E8F743192245E60029574B /* loc1_nochange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loc1_nochange@2x.png"; path = "src/images/loc1_nochange@2x.png"; sourceTree = "<group>"; };
+		E2EF6E601E678A4F00279A55 /* RKDropdownAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKDropdownAlert.h; sourceTree = "<group>"; };
+		E2EF6E611E678A4F00279A55 /* RKDropdownAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKDropdownAlert.m; sourceTree = "<group>"; };
 		E2F471C31C86827B00594DAB /* HomeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeTableViewController.xib; path = src/home/HomeTableViewController.xib; sourceTree = "<group>"; };
 		E2F8E55E19108A640093A3D3 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40.png"; path = "src/images/Icon-40.png"; sourceTree = "<group>"; };
 		E2F8E55F19108A640093A3D3 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40@2x.png"; path = "src/images/Icon-40@2x.png"; sourceTree = "<group>"; };
@@ -1137,8 +1140,8 @@
 				E27BDFB518F78221001EE2F8 /* GAProjectJSON.m */,
 				E2E56A7D1920857C007AC38C /* GASiteJSON.h */,
 				E2E56A7E1920857C007AC38C /* GASiteJSON.m */,
-				E23AF5111C910F3E002501F3 /* ProjectActivityJSON.h */,
-				E23AF5121C910F93002501F3 /* ProjectActivityJSON.m */,
+				E23AF5111C910F3E002501F3 /* ProjectActivitiesJSON.h */,
+				E23AF5121C910F93002501F3 /* ProjectActivitiesJSON.m */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -1146,6 +1149,7 @@
 		E2E56A8619209128007AC38C /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				E2EF6E5F1E678A4F00279A55 /* RKDropdownAlert */,
 				B87373DF1DB7021B0057027E /* FXForms */,
 				B87373B21DB6DFE90057027E /* SVWebViewController */,
 				B87373991DB085540057027E /* MGSpotyViewController */,
@@ -1168,6 +1172,16 @@
 				E29A353E19667675003D025D /* GAHelpVC.xib */,
 			);
 			name = Help;
+			sourceTree = "<group>";
+		};
+		E2EF6E5F1E678A4F00279A55 /* RKDropdownAlert */ = {
+			isa = PBXGroup;
+			children = (
+				E2EF6E601E678A4F00279A55 /* RKDropdownAlert.h */,
+				E2EF6E611E678A4F00279A55 /* RKDropdownAlert.m */,
+			);
+			name = RKDropdownAlert;
+			path = src/RKDropdownAlert;
 			sourceTree = "<group>";
 		};
 		E2F471C01C86816D00594DAB /* Home */ = {
@@ -1421,6 +1435,7 @@
 				E21CD1831CEAF8E10021536B /* JGActionSheet.m in Sources */,
 				E2B4BEEE1C896E270054F117 /* HomeCustomCell.m in Sources */,
 				B87373E91DB703280057027E /* RecordForm.m in Sources */,
+				E2EF6E621E678A4F00279A55 /* RKDropdownAlert.m in Sources */,
 				8709D1C81DB9926700E49C7E /* MapViewController.m in Sources */,
 				B87373A71DB085540057027E /* MGSpotyView.m in Sources */,
 				E27BDFD918F7AA07001EE2F8 /* GAActivitiesJSON.m in Sources */,
@@ -1438,7 +1453,7 @@
 				87B700121DC2E5520066C236 /* SyncTableViewController.m in Sources */,
 				B87373D81DB6DFE90057027E /* SVWebViewControllerActivityChrome.m in Sources */,
 				E2E3AA9D18F4D2940005BB9E /* GAAppDelegate.m in Sources */,
-				E23AF5131C910F93002501F3 /* ProjectActivityJSON.m in Sources */,
+				E23AF5131C910F93002501F3 /* ProjectActivitiesJSON.m in Sources */,
 				E2E3AAD718F4E65E0005BB9E /* GADetailActivitiesTableViewController.m in Sources */,
 				E23586E318FCFED600EE6D13 /* EasyJSWebView.m in Sources */,
 				E23AF5211C9187E3002501F3 /* RecordWebView.m in Sources */,

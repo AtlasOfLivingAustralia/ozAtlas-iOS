@@ -8,10 +8,14 @@
 
 #ifndef GASettingsConstant.h
 #define GASettingsConstant.h
+#define DEFAULT_TIMEOUT             10
 
 #define REST_SERVER @"https://fieldcapture-test.ala.org.au"
 #define ECODATA_SERVER @"https://ecodata-test.ala.org.au"
-#define BIOCOLLECT_SERVER @"https://biocollect-test.ala.org.au"
+//#define BIOCOLLECT_SERVER @"https://biocollect-test.ala.org.au"
+#define BIOCOLLECT_SERVER @"http://localhost:8087/biocollect"
+
+#define LIST_PROJECT_ACTIVITIES @"/ws/survey/list"
 #define AUTOCOMPLETE_URL @"http://bie.ala.org.au/ws/search.json?q="
 #define AUTH_SERVER  @"https://auth.ala.org.au"
 #define AUTH_REGISTER @"/userdetails/registration/createAccount"

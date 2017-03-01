@@ -12,34 +12,123 @@
 #import "MRProgressOverlayView.h"
 #import "GAAppDelegate.h"
 
+#import "GASettingsConstant.h"
+#import "GASettings.h"
+#import "ProjectActivity.h"
+
 @interface RecordsTableViewController ()
     @property (nonatomic, strong) GAAppDelegate *appDelegate;
+    @property (strong, nonatomic) JGActionSheet *menu;
+    @property (strong, nonatomic) JGActionSheetSection *surveyListMenu;
+    @property (strong, nonatomic) JGActionSheetSection *cancelGroup;
 @end
 
 @implementation RecordsTableViewController
 #define DEFAULT_MAX     20
 #define DEFAULT_OFFSET  0
 #define SEARCH_LENGTH   3
-@synthesize  records, appDelegate, bioProjectService, totalRecords, offset, loadingFinished, isSearching, query, spinner, myRecords, projectId;
+@synthesize  webViewController, records, appDelegate, bioProjectService, totalRecords, offset, loadingFinished, isSearching, query, spinner, myRecords, projectId, pActivties;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *) nibBundleOrNil {
     self.appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
     self.bioProjectService = self.appDelegate.bioProjectService;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self.menu = nil;
     if (self) {
         self.records = [[NSMutableArray alloc]init];
+        self.pActivties = [[NSMutableArray alloc] init];
         self.offset = DEFAULT_OFFSET;
         self.loadingFinished = TRUE;
         self.query = @"";
         self.isSearching = NO;
 
-        UIBarButtonItem *syncButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sync-25"] style:UIBarButtonItemStyleBordered
-                                                                      target:self action:@selector(resetAndDownloadProjects)];
-        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:syncButton,nil];
+        UIBarButtonItem *syncButton = [[UIBarButtonItem alloc]
+                                       initWithImage: [UIImage imageNamed:@"sync-25"]
+                                       style:UIBarButtonItemStyleBordered
+                                       target:self
+                                       action:@selector(resetAndDownloadProjects)];
+       
+        UIBarButtonItem *plusButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(selectActivity)];
+
+        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:plusButton, syncButton,nil];
         spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     }
     return self;
+}
+
+
+-(void) selectActivity
+{
+    // Load all project activityIds.
+    NSError *error;
+    [self.pActivties removeAllObjects];
+    [self.bioProjectService getProjectActivities:pActivties projectId: self.project.projectId error: &error];
+    if(error == nil && [pActivties count] > 0) {
+    
+        self.surveyListMenu = nil;
+        NSMutableArray *list = [[NSMutableArray alloc] init];
+        for (int i = 0; i <[pActivties count]; i++) {
+            ProjectActivity *pa = pActivties[i];
+            [list addObject:pa.name];
+        }
+        NSArray *arrayList = [NSArray arrayWithArray:list];
+        self.surveyListMenu = [JGActionSheetSection sectionWithTitle:nil message:@"Select Survey" buttonTitles:arrayList buttonStyle:JGActionSheetButtonStyleGreen];
+
+        self.cancelGroup = [JGActionSheetSection sectionWithTitle:nil
+                                                          message:nil
+                                                     buttonTitles:@[@"Cancel"]
+                                                      buttonStyle:JGActionSheetButtonStyleDefault];
+        [self.cancelGroup setButtonStyle:JGActionSheetButtonStyleDefault forButtonAtIndex:0];
+        
+        NSArray *sections = @[self.surveyListMenu,  self.cancelGroup];
+        self.menu = [JGActionSheet actionSheetWithSections: sections];
+        
+        //Assign delegate.
+         [self.menu setDelegate:self];
+        if([self.tableView isDescendantOfView:self.view]){
+            [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+            [self.menu showInView:self.tableView animated:YES];
+        } else {
+            [self.menu showInView:self.view animated:YES];
+        }
+
+    }
+}
+
+- (void)actionSheet:(JGActionSheet *)actionSheet pressedButtonAtIndexPath:(NSIndexPath *)indexPath {
+    
+    switch(indexPath.section) {
+        case 0:
+            if(indexPath.row >= 0) {
+                ProjectActivity *pa = self.pActivties[indexPath.row];
+                                                      
+                NSString *url = [[NSString alloc] initWithFormat:@"%@/bioActivity/mobileCreate/%@", BIOCOLLECT_SERVER, pa.projectActivityId];
+                NSMutableURLRequest *request = [self loadRequest: url];
+                self.webViewController = [[SVModalWebViewController alloc] initWithURLRequest: request];
+                self.webViewController.title = [[NSString alloc] initWithFormat:@"%@", pa.name];
+                self.webViewController.webViewDelegate = self;
+                
+                [self presentViewController: webViewController animated:YES completion: nil];
+            }
+            break;
+        case 1:
+        default:
+            break;
+    }
+    
+    [actionSheet dismissAnimated:YES];
+    self.menu = nil;
+}
+-(NSMutableURLRequest *) loadRequest: (NSString*) url{
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[GASettings getEmailAddress] forHTTPHeaderField:@"userName"];
+    [request setValue:[GASettings getAuthKey] forHTTPHeaderField:@"authKey"];
+    [request setTimeoutInterval: DEFAULT_TIMEOUT];
+    return request;
 }
 
 - (void)viewDidLoad {
@@ -285,4 +374,21 @@
     return YES;
 }
 
+// Webview Delegate
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    NSString *currentUrl = webView.request.URL.absoluteString;
+    if([currentUrl hasSuffix: @"#successfully-posted"]) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info"
+                                                        message:@"Successfully submitted."
+                                                       delegate:self
+                                              cancelButtonTitle:@"Dismiss"
+                                              otherButtonTitles:nil];
+        [alert show];
+
+        [self.webViewController dismissViewControllerAnimated:false completion:NULL];
+        [self resetAndDownloadProjects];
+    }
+}
+    
 @end
