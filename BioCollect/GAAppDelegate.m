@@ -63,9 +63,9 @@
     
     [self addSplitViewtoRoot];
     
-    [[UITabBar appearance] setTintColor: [UIColor colorWithRed:200.0/255.0 green:77.0/255.0 blue:47.0/255.0 alpha:1]];
+    //[[UITabBar appearance] setTintColor: [UIColor colorWithRed:200.0/255.0 green:77.0/255.0 blue:47.0/255.0 alpha:1]];
     
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:200.0/255.0 green:77.0/255.0 blue:47.0/255.0 alpha:1]];
+    //[[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:200.0/255.0 green:77.0/255.0 blue:47.0/255.0 alpha:1]];
 
     [[MRProgressOverlayView appearance] setTintColor:[UIColor colorWithRed:200.0/255.0 green:77.0/255.0 blue:47.0/255.0 alpha:1]];
     
@@ -117,6 +117,13 @@
     homeNC.navigationBar.topItem.title = @"Home";
     
 
+    // My projects
+    myProjectsVC = [[HomeTableViewController alloc] initWithNibNameForMyProjects:@"HomeTableViewController" bundle:nil];
+    UINavigationController *myProjectsNC = [[UINavigationController alloc] initWithRootViewController: myProjectsVC];
+    myProjectsNC.tabBarItem.title = @"My Projects";
+    myProjectsNC.tabBarItem.image = [UIImage imageNamed:@"brief_filled-25"];
+    myProjectsNC.navigationBar.topItem.title = @"My Projects";
+    
     // Records view
     recordsVC = [[RecordsTableViewController alloc] initWithNibName:@"RecordsTableViewController" bundle:nil];
     UINavigationController *recordsNC = [[UINavigationController alloc] initWithRootViewController: recordsVC];
@@ -124,13 +131,6 @@
     recordsNC.tabBarItem.image = [UIImage imageNamed:@"box_filled-25"];
     recordsNC.navigationBar.topItem.title = @"All Records";
     
-    // My projects
-    myProjectsVC = [[HomeTableViewController alloc] initWithNibNameForMyProjects:@"HomeTableViewController" bundle:nil];
-    UINavigationController *myProjectsNC = [[UINavigationController alloc] initWithRootViewController: myProjectsVC];
-    myProjectsNC.tabBarItem.title = @"My Projects";
-    myProjectsNC.tabBarItem.image = [UIImage imageNamed:@"brief_filled-25"];
-    myProjectsNC.navigationBar.topItem.title = @"My Projects";
-
     // My Records
     myRecordsVC = [[RecordsTableViewController alloc] initWithNibName:@"RecordsTableViewController" bundle:nil];
     myRecordsVC.myRecords = TRUE;

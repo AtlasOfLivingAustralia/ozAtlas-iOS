@@ -107,6 +107,7 @@
             activity.activityName = activitiesJSON.activityType;
             activity.description = ([activitiesJSON.description length])?(activitiesJSON.description):@"";
             activity.url = [[NSString alloc] initWithFormat:@"%@/bioActivity/index/%@?mobile=true",BIOCOLLECT_SERVER,activitiesJSON.activityId];
+            activity.editUrl = [[NSString alloc] initWithFormat:@"%@/bioActivity/mobileEdit/%@?mobile=true",BIOCOLLECT_SERVER,activitiesJSON.activityId];
             activity._id = -1;
             activity.activityOwnerName = activitiesJSON.activityOwnerName;
             activity.activityId = activitiesJSON.activityId;
