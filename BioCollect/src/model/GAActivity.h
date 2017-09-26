@@ -26,6 +26,7 @@
     NSString *projectId;
     NSString *description;
     NSString *url;
+    NSString *editUrl;
     NSString *progress;
     NSString *outputJSON;
     NSString *activityJSON;
@@ -42,12 +43,14 @@
     NSArray *records;
     
 }
+
 @property (nonatomic, assign) int _id;
 @property (nonatomic, strong) NSString * activityName;
 @property (nonatomic, strong) NSString * activityId;
 @property (nonatomic, strong) NSString * projectId;
 @property (nonatomic, strong) NSString * progress;
 @property (nonatomic, strong) NSString * url;
+@property (nonatomic, strong) NSString * editUrl;
 @property (nonatomic, strong) NSString * description;
 @property (nonatomic, strong) NSString * outputJSON;
 @property (nonatomic, strong) NSString * activityJSON;
@@ -68,4 +71,5 @@
 - (NSComparisonResult)compareByPlannedStartingDate:(GAActivity *)otherObject;
 - (NSComparisonResult)compareBySync:(GAActivity *)otherObject;
 - (NSComparisonResult)compareByDistance:(GAActivity *)otherObject;
+
 @end

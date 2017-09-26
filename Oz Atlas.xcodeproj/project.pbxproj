@@ -153,6 +153,199 @@
 		E2A4A4EE19663E29006CAC22 /* header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A4A4ED19663E29006CAC22 /* header@2x.png */; };
 		E2A4A4F819665009006CAC22 /* GAEULAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A4A4F619665009006CAC22 /* GAEULAViewController.m */; };
 		E2A4A4F919665009006CAC22 /* GAEULAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A4A4F719665009006CAC22 /* GAEULAViewController.xib */; };
+		E2AECEE21E73D3010035DF28 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373E41DB7027F0057027E /* RecordViewController.m */; };
+		E2AECEE31E73D3010035DF28 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E1E1CF43C4000000371 /* SDWebImageDecoder.m */; };
+		E2AECEE41E73D3010035DF28 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E271CF43C4100000371 /* SDWebImagePrefetcher.m */; };
+		E2AECEE51E73D3010035DF28 /* GAMasterProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E3AAC618F4E1FA0005BB9E /* GAMasterProjectTableViewController.m */; };
+		E2AECEE61E73D3010035DF28 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E311CF43C4100000371 /* UIImageView+HighlightedWebCache.m */; };
+		E2AECEE71E73D3010035DF28 /* MRMethodCopier.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825F21A0C666B00690383 /* MRMethodCopier.m */; };
+		E2AECEE81E73D3010035DF28 /* OzHomeVCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373B01DB08D560057027E /* OzHomeVCDataSource.m */; };
+		E2AECEE91E73D3010035DF28 /* GASqlLiteDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E23586D618FBB73D00EE6D13 /* GASqlLiteDatabase.m */; };
+		E2AECEEA1E73D3010035DF28 /* GALogin.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E3AAC018F4D9070005BB9E /* GALogin.m */; };
+		E2AECEEB1E73D3010035DF28 /* GAActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E3AADF18F514470005BB9E /* GAActivity.m */; };
+		E2AECEEC1E73D3010035DF28 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E2F1CF43C4100000371 /* UIImage+WebP.m */; };
+		E2AECEED1E73D3010035DF28 /* ProjectActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AF50E1C8FEEB7002501F3 /* ProjectActivity.m */; };
+		E2AECEEE1E73D3010035DF28 /* MRMessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825F01A0C666B00690383 /* MRMessageInterceptor.m */; };
+		E2AECEEF1E73D3010035DF28 /* MRIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825E31A0C666B00690383 /* MRIconView.m */; };
+		E2AECEF01E73D3010035DF28 /* MRBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825DA1A0C666B00690383 /* MRBlurView.m */; };
+		E2AECEF11E73D3010035DF28 /* GACreateSiteModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E56B2A1925CB7F007AC38C /* GACreateSiteModalViewController.m */; };
+		E2AECEF21E73D3010035DF28 /* SVWebViewControllerActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373CC1DB6DFE90057027E /* SVWebViewControllerActivitySafari.m */; };
+		E2AECEF31E73D3010035DF28 /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373BD1DB6DFE90057027E /* SVModalWebViewController.m */; };
+		E2AECEF41E73D3010035DF28 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E331CF43C4100000371 /* UIImageView+WebCache.m */; };
+		E2AECEF51E73D3010035DF28 /* GAAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E29A354519667925003D025D /* GAAboutVC.m */; };
+		E2AECEF61E73D3010035DF28 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E241CF43C4100000371 /* SDWebImageManager.m */; };
+		E2AECEF71E73D3010035DF28 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E181CF43C4000000371 /* NSData+ImageContentType.m */; };
+		E2AECEF81E73D3010035DF28 /* GARestCall.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D551DD18F952DF00EDD006 /* GARestCall.m */; };
+		E2AECEF91E73D3010035DF28 /* JGActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = E21CD1821CEAF8E10021536B /* JGActionSheet.m */; };
+		E2AECEFA1E73D3010035DF28 /* HomeCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B4BEED1C896E270054F117 /* HomeCustomCell.m */; };
+		E2AECEFB1E73D3010035DF28 /* RecordForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373E81DB703280057027E /* RecordForm.m */; };
+		E2AECEFC1E73D3010035DF28 /* RKDropdownAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6E611E678A4F00279A55 /* RKDropdownAlert.m */; };
+		E2AECEFD1E73D3010035DF28 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709D1C61DB9926700E49C7E /* MapViewController.m */; };
+		E2AECEFE1E73D3010035DF28 /* MGSpotyView.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373A01DB085540057027E /* MGSpotyView.m */; };
+		E2AECEFF1E73D3010035DF28 /* GAActivitiesJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E27BDFD818F7AA07001EE2F8 /* GAActivitiesJSON.m */; };
+		E2AECF001E73D3010035DF28 /* GASettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E27BDFD418F78D97001EE2F8 /* GASettings.m */; };
+		E2AECF011E73D3010035DF28 /* GASiteJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E56A7E1920857C007AC38C /* GASiteJSON.m */; };
+		E2AECF021E73D3010035DF28 /* SVWebViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373CF1DB6DFE90057027E /* SVWebViewControllerActivity.m */; };
+		E2AECF031E73D3010035DF28 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E161CF43C4000000371 /* MKAnnotationView+WebCache.m */; };
+		E2AECF041E73D3010035DF28 /* FXForms.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373E11DB7021B0057027E /* FXForms.m */; };
+		E2AECF051E73D3010035DF28 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B873739C1DB085540057027E /* UIImage+ImageEffects.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E2AECF061E73D3010035DF28 /* GAFormJSInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = E23586E618FCFF4900EE6D13 /* GAFormJSInterface.m */; };
+		E2AECF071E73D3010035DF28 /* HomeWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AF5091C8F8C48002501F3 /* HomeWebView.m */; };
+		E2AECF081E73D3010035DF28 /* MRStopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825EC1A0C666B00690383 /* MRStopButton.m */; };
+		E2AECF091E73D3010035DF28 /* MRProgressOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825E71A0C666B00690383 /* MRProgressOverlayView.m */; };
+		E2AECF0A1E73D3010035DF28 /* OzHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373AA1DB089110057027E /* OzHomeVC.m */; };
+		E2AECF0B1E73D3010035DF28 /* SyncTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B700101DC2E5520066C236 /* SyncTableViewController.m */; };
+		E2AECF0C1E73D3010035DF28 /* SVWebViewControllerActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373C61DB6DFE90057027E /* SVWebViewControllerActivityChrome.m */; };
+		E2AECF0D1E73D3010035DF28 /* GAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E3AA9C18F4D2940005BB9E /* GAAppDelegate.m */; };
+		E2AECF0E1E73D3010035DF28 /* ProjectActivitiesJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AF5121C910F93002501F3 /* ProjectActivitiesJSON.m */; };
+		E2AECF0F1E73D3010035DF28 /* GADetailActivitiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E3AAD518F4E65E0005BB9E /* GADetailActivitiesTableViewController.m */; };
+		E2AECF101E73D3010035DF28 /* EasyJSWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = E23586DE18FCFED600EE6D13 /* EasyJSWebView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E2AECF111E73D3010035DF28 /* RecordWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AF5201C9187E3002501F3 /* RecordWebView.m */; };
+		E2AECF121E73D3010035DF28 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E291CF43C4100000371 /* UIButton+WebCache.m */; };
+		E2AECF131E73D3010035DF28 /* MGSpotyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373A21DB085540057027E /* MGSpotyViewController.m */; };
+		E2AECF141E73D3010035DF28 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E1C1CF43C4000000371 /* SDWebImageCompat.m */; };
+		E2AECF151E73D3010035DF28 /* MRActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825DF1A0C666B00690383 /* MRActivityIndicatorView.m */; };
+		E2AECF161E73D3010035DF28 /* GAProjectJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E27BDFB518F78221001EE2F8 /* GAProjectJSON.m */; };
+		E2AECF171E73D3010035DF28 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709E9B51DB5A11700D04585 /* Record.m */; };
+		E2AECF181E73D3010035DF28 /* GADetailFormVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E24D527718F57662002A4F64 /* GADetailFormVIewController.m */; };
+		E2AECF191E73D3010035DF28 /* GAHelpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E29A353D19667675003D025D /* GAHelpVC.m */; };
+		E2AECF1A1E73D3010035DF28 /* MRWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825F51A0C666B00690383 /* MRWeakProxy.m */; };
+		E2AECF1B1E73D3010035DF28 /* GASite.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E56A7B192084D2007AC38C /* GASite.m */; };
+		E2AECF1C1E73D3010035DF28 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E201CF43C4100000371 /* SDWebImageDownloader.m */; };
+		E2AECF1D1E73D3010035DF28 /* MRNavigationBarProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825E51A0C666B00690383 /* MRNavigationBarProgressView.m */; };
+		E2AECF1E1E73D3010035DF28 /* OzHomeVCDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373AD1DB08CF90057027E /* OzHomeVCDelegate.m */; };
+		E2AECF1F1E73D3010035DF28 /* UIImageView+LBBlurredImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B873739E1DB085540057027E /* UIImageView+LBBlurredImage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E2AECF201E73D3010035DF28 /* easyjs-inject.js in Sources */ = {isa = PBXBuildFile; fileRef = E23586DA18FCFED600EE6D13 /* easyjs-inject.js */; };
+		E2AECF211E73D3010035DF28 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E2B1CF43C4100000371 /* UIImage+GIF.m */; };
+		E2AECF221E73D3010035DF28 /* ContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E24E0B271CE40402006ECE0E /* ContactVC.m */; };
+		E2AECF231E73D3010035DF28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E3AA9818F4D2940005BB9E /* main.m */; };
+		E2AECF241E73D3010035DF28 /* MRProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825E91A0C666B00690383 /* MRProgressView.m */; };
+		E2AECF251E73D3010035DF28 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E221CF43C4100000371 /* SDWebImageDownloaderOperation.m */; };
+		E2AECF261E73D3010035DF28 /* MRCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825E11A0C666B00690383 /* MRCircularProgressView.m */; };
+		E2AECF271E73D3010035DF28 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E2D1CF43C4100000371 /* UIImage+MultiFormat.m */; };
+		E2AECF281E73D3010035DF28 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E351CF43C4100000371 /* UIView+WebCacheOperation.m */; };
+		E2AECF291E73D3010035DF28 /* EasyJSDataFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = E23586DC18FCFED600EE6D13 /* EasyJSDataFunction.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E2AECF2A1E73D3010035DF28 /* SVWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B87373C01DB6DFE90057027E /* SVWebViewController.m */; };
+		E2AECF2B1E73D3010035DF28 /* UIImage+MRImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B83825DC1A0C666B00690383 /* UIImage+MRImageEffects.m */; };
+		E2AECF2C1E73D3010035DF28 /* GAEULAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A4A4F619665009006CAC22 /* GAEULAViewController.m */; };
+		E2AECF2D1E73D3010035DF28 /* RecordsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AF5151C911C69002501F3 /* RecordsTableViewController.m */; };
+		E2AECF2E1E73D3010035DF28 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20284961C87D59300E8203F /* HomeTableViewController.m */; };
+		E2AECF2F1E73D3010035DF28 /* GAProject.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E3AAE218F515410005BB9E /* GAProject.m */; };
+		E2AECF301E73D3010035DF28 /* GAProjectsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B89441FA18FA38F500BB5928 /* GAProjectsUtil.m */; };
+		E2AECF311E73D3010035DF28 /* SpeciesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 872EFB031DBF7DC1006EB9BF /* SpeciesCell.m */; };
+		E2AECF321E73D3010035DF28 /* BioProjectService.m in Sources */ = {isa = PBXBuildFile; fileRef = E20189881C8922DD0031435D /* BioProjectService.m */; };
+		E2AECF331E73D3010035DF28 /* EasyJSWebViewProxyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E23586E018FCFED600EE6D13 /* EasyJSWebViewProxyDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E2AECF341E73D3010035DF28 /* SpeciesSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8709E9AE1DB5A0FF00D04585 /* SpeciesSearchTableViewController.m */; };
+		E2AECF351E73D3010035DF28 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E2636E1A1CF43C4000000371 /* SDImageCache.m */; };
+		E2AECF371E73D3010035DF28 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E20189921C895EEC0031435D /* ImageIO.framework */; };
+		E2AECF381E73D3010035DF28 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E23586D118FBA5F700EE6D13 /* libsqlite3.0.dylib */; };
+		E2AECF391E73D3010035DF28 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E252EE6B193579C60005B101 /* SystemConfiguration.framework */; };
+		E2AECF3A1E73D3010035DF28 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E252EE69193579BE0005B101 /* CoreData.framework */; };
+		E2AECF3B1E73D3010035DF28 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E56B2E1925D84E007AC38C /* MapKit.framework */; };
+		E2AECF3C1E73D3010035DF28 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E56A931921F4D9007AC38C /* CoreLocation.framework */; };
+		E2AECF3D1E73D3010035DF28 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BFD2C71919C3BC0063DA78 /* Accelerate.framework */; };
+		E2AECF3E1E73D3010035DF28 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BFD2C51919C3AC0063DA78 /* QuartzCore.framework */; };
+		E2AECF3F1E73D3010035DF28 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E3AA8E18F4D2940005BB9E /* CoreGraphics.framework */; };
+		E2AECF401E73D3010035DF28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E3AA9018F4D2940005BB9E /* UIKit.framework */; };
+		E2AECF411E73D3010035DF28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E3AA8C18F4D2940005BB9E /* Foundation.framework */; };
+		E2AECF431E73D3010035DF28 /* RecordsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23AF5171C911E45002501F3 /* RecordsTableViewController.xib */; };
+		E2AECF441E73D3010035DF28 /* AboutiPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E20D1B551CDC145100A3607B /* AboutiPhoneView.xib */; };
+		E2AECF451E73D3010035DF28 /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B87373CA1DB6DFE90057027E /* SVWebViewControllerActivitySafari-iPad@2x.png */; };
+		E2AECF461E73D3010035DF28 /* help_filled-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22045C3192D7D0B00531116 /* help_filled-25@2x.png */; };
+		E2AECF471E73D3010035DF28 /* SpeciesSearchTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8709E9AF1DB5A0FF00D04585 /* SpeciesSearchTableViewController.xib */; };
+		E2AECF481E73D3010035DF28 /* finished@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2CCECFB190F82E6003655B7 /* finished@2x.png */; };
+		E2AECF491E73D3010035DF28 /* action-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22045CF192D9EEC00531116 /* action-25@2x.png */; };
+		E2AECF4A1E73D3010035DF28 /* ContactVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24E0B291CE40464006ECE0E /* ContactVC.xib */; };
+		E2AECF4B1E73D3010035DF28 /* loc1_changed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22045CD192D8F4800531116 /* loc1_changed@2x.png */; };
+		E2AECF4C1E73D3010035DF28 /* 512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = E211B0491CE18A3E00DBC1AF /* 512x512.png */; };
+		E2AECF4D1E73D3010035DF28 /* sync-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22045D0192D9EEC00531116 /* sync-25@2x.png */; };
+		E2AECF4E1E73D3010035DF28 /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B87373C41DB6DFE90057027E /* SVWebViewControllerActivityChrome-iPad@2x.png */; };
+		E2AECF4F1E73D3010035DF28 /* RecordWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23AF5221C918862002501F3 /* RecordWebView.xib */; };
+		E2AECF501E73D3010035DF28 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F8E56519108A640093A3D3 /* Icon-Small@2x.png */; };
+		E2AECF511E73D3010035DF28 /* brief_filled-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2636DD41CF2E57C00000371 /* brief_filled-25@2x.png */; };
+		E2AECF521E73D3010035DF28 /* GALogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E3AAC118F4D9070005BB9E /* GALogin.xib */; };
+		E2AECF531E73D3010035DF28 /* SVWebViewControllerActivitySafari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B87373CD1DB6DFE90057027E /* SVWebViewControllerActivitySafari@2x.png */; };
+		E2AECF541E73D3010035DF28 /* biocollect_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E20026361C926B430045C130 /* biocollect_background.png */; };
+		E2AECF551E73D3010035DF28 /* BioCollect-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E211B04B1CE18BC500DBC1AF /* BioCollect-logo.png */; };
+		E2AECF561E73D3010035DF28 /* BioCollect-text.png in Resources */ = {isa = PBXBuildFile; fileRef = E2B6274E1CE40F8800A89179 /* BioCollect-text.png */; };
+		E2AECF571E73D3010035DF28 /* menu-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E227E3A1192CD57D00E22DC7 /* menu-25@2x.png */; };
+		E2AECF581E73D3010035DF28 /* csiro-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E20026381C926F250045C130 /* csiro-logo.png */; };
+		E2AECF591E73D3010035DF28 /* briefcase_filled-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2636DD51CF2E57C00000371 /* briefcase_filled-25@2x.png */; };
+		E2AECF5A1E73D3010035DF28 /* heading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22045CB192D820500531116 /* heading@2x.png */; };
+		E2AECF5B1E73D3010035DF28 /* pad-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E241C67F196A3061002302D7 /* pad-1@2x.png */; };
+		E2AECF5C1E73D3010035DF28 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		E2AECF5D1E73D3010035DF28 /* GACreateSiteModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E56B2B1925CB7F007AC38C /* GACreateSiteModalViewController.xib */; };
+		E2AECF5E1E73D3010035DF28 /* changed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E56A951922E6D6007AC38C /* changed@2x.png */; };
+		E2AECF5F1E73D3010035DF28 /* css in Resources */ = {isa = PBXBuildFile; fileRef = E241C681196A33B6002302D7 /* css */; };
+		E2AECF601E73D3010035DF28 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = E20D1B591CDC72BA00A3607B /* background.png */; };
+		E2AECF611E73D3010035DF28 /* LoginiPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E29122101CDAD093005D9638 /* LoginiPhoneView.xib */; };
+		E2AECF621E73D3010035DF28 /* contact_filled-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2636DD61CF2E57C00000371 /* contact_filled-25@2x.png */; };
+		E2AECF631E73D3010035DF28 /* HomeWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23AF50B1C8FAE59002501F3 /* HomeWebView.xib */; };
+		E2AECF641E73D3010035DF28 /* nochange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E56A961922E6D6007AC38C /* nochange@2x.png */; };
+		E2AECF651E73D3010035DF28 /* GADetailActivitiesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E3AAD618F4E65E0005BB9E /* GADetailActivitiesTableViewController.xib */; };
+		E2AECF661E73D3010035DF28 /* SVWebViewControllerActivityChrome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B87373C71DB6DFE90057027E /* SVWebViewControllerActivityChrome@2x.png */; };
+		E2AECF671E73D3010035DF28 /* SVWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B87373BE1DB6DFE90057027E /* SVWebViewController.bundle */; };
+		E2AECF681E73D3010035DF28 /* ContactiPhoneVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21BCB7D1CEAA1A200FFFE5F /* ContactiPhoneVC.xib */; };
+		E2AECF691E73D3010035DF28 /* pad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22045C7192D7E5900531116 /* pad@2x.png */; };
+		E2AECF6A1E73D3010035DF28 /* started@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2CCECFD190F82E6003655B7 /* started@2x.png */; };
+		E2AECF6B1E73D3010035DF28 /* EULAiPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E25185FB1CD9E13F0068B4E0 /* EULAiPhoneViewController.xib */; };
+		E2AECF6C1E73D3010035DF28 /* SVWebViewControllerActivityChrome-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B87373C31DB6DFE90057027E /* SVWebViewControllerActivityChrome-iPad.png */; };
+		E2AECF6D1E73D3010035DF28 /* GreenArmy2.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F8E56E19108DA10093A3D3 /* GreenArmy2.png */; };
+		E2AECF6E1E73D3010035DF28 /* GAMasterProjectTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E3AADB18F4FAC90005BB9E /* GAMasterProjectTableViewController.xib */; };
+		E2AECF6F1E73D3010035DF28 /* GADetailFormVIewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24D527818F57662002A4F64 /* GADetailFormVIewController.xib */; };
+		E2AECF701E73D3010035DF28 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F8E56019108A640093A3D3 /* Icon-60.png */; };
+		E2AECF711E73D3010035DF28 /* site_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E227E398192CD0FD00E22DC7 /* site_map@2x.png */; };
+		E2AECF721E73D3010035DF28 /* img in Resources */ = {isa = PBXBuildFile; fileRef = E241C682196A33B6002302D7 /* img */; };
+		E2AECF731E73D3010035DF28 /* background~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E291221A1CDB3BEC005D9638 /* background~ipad.png */; };
+		E2AECF741E73D3010035DF28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2E3AA9518F4D2940005BB9E /* InfoPlist.strings */; };
+		E2AECF751E73D3010035DF28 /* table-place-holder.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E24AC11CED4DDF00F6D4CA /* table-place-holder.png */; };
+		E2AECF761E73D3010035DF28 /* home_filled-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2636DDC1CF2E68500000371 /* home_filled-25@2x.png */; };
+		E2AECF771E73D3010035DF28 /* js in Resources */ = {isa = PBXBuildFile; fileRef = E241C683196A33B6002302D7 /* js */; };
+		E2AECF781E73D3010035DF28 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F8E55E19108A640093A3D3 /* Icon-40.png */; };
+		E2AECF791E73D3010035DF28 /* edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6E631E6797F400279A55 /* edit@2x.png */; };
+		E2AECF7A1E73D3010035DF28 /* BioCollect-logo 2.png in Resources */ = {isa = PBXBuildFile; fileRef = E2BB4EF21C855A0F0075F8BF /* BioCollect-logo 2.png */; };
+		E2AECF7B1E73D3010035DF28 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2DCF1EC1CF68D8B008D438C /* Default-568h@2x.png */; };
+		E2AECF7C1E73D3010035DF28 /* LaunchScreen~ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E291220E1CDAC425005D9638 /* LaunchScreen~ipad.storyboard */; };
+		E2AECF7D1E73D3010035DF28 /* loc1_nochange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E8F743192245E60029574B /* loc1_nochange@2x.png */; };
+		E2AECF7E1E73D3010035DF28 /* geo_fence-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E227E3A3192CDA2F00E22DC7 /* geo_fence-25@2x.png */; };
+		E2AECF7F1E73D3010035DF28 /* info_filled-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22045C5192D7DA500531116 /* info_filled-25@2x.png */; };
+		E2AECF801E73D3010035DF28 /* about_filled-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2636DD21CF2E57C00000371 /* about_filled-25@2x.png */; };
+		E2AECF811E73D3010035DF28 /* header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A4A4ED19663E29006CAC22 /* header@2x.png */; };
+		E2AECF821E73D3010035DF28 /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = B87373B31DB6DFE90057027E /* SVWebViewController.strings */; };
+		E2AECF831E73D3010035DF28 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F8E56119108A640093A3D3 /* Icon-60@2x.png */; };
+		E2AECF841E73D3010035DF28 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = E241C684196A33B6002302D7 /* index.html */; };
+		E2AECF851E73D3010035DF28 /* ala_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A2FFCA1C8546F0008B63A8 /* ala_logo.png */; };
+		E2AECF861E73D3010035DF28 /* StaticWebPages in Resources */ = {isa = PBXBuildFile; fileRef = E2E56B2719259D0B007AC38C /* StaticWebPages */; };
+		E2AECF871E73D3010035DF28 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8709D1C71DB9926700E49C7E /* MapViewController.xib */; };
+		E2AECF881E73D3010035DF28 /* Icon-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = E20189E51C8966700031435D /* Icon-placeholder.png */; };
+		E2AECF891E73D3010035DF28 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = E2DCF1EB1CF68D8B008D438C /* Default-568h.png */; };
+		E2AECF8A1E73D3010035DF28 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F8E56219108A640093A3D3 /* Icon-76.png */; };
+		E2AECF8B1E73D3010035DF28 /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22045C9192D7EDD00531116 /* profile@2x.png */; };
+		E2AECF8C1E73D3010035DF28 /* lock_filled-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E227E39B192CD30D00E22DC7 /* lock_filled-25@2x.png */; };
+		E2AECF8D1E73D3010035DF28 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F8E56319108A640093A3D3 /* Icon-76@2x.png */; };
+		E2AECF8E1E73D3010035DF28 /* ajax_loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8705B92F1DC041770015E171 /* ajax_loader.gif */; };
+		E2AECF8F1E73D3010035DF28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E20D1B571CDC570800A3607B /* LaunchScreen.storyboard */; };
+		E2AECF901E73D3010035DF28 /* ala_logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A2FFCC1C8547A5008B63A8 /* ala_logo1.png */; };
+		E2AECF911E73D3010035DF28 /* SVWebViewControllerActivitySafari-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B87373C91DB6DFE90057027E /* SVWebViewControllerActivitySafari-iPad.png */; };
+		E2AECF921E73D3010035DF28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2E3AA9E18F4D2940005BB9E /* Images.xcassets */; };
+		E2AECF931E73D3010035DF28 /* GAHelpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E29A353E19667675003D025D /* GAHelpVC.xib */; };
+		E2AECF941E73D3010035DF28 /* briefcase_filled-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22045C1192D7C8F00531116 /* briefcase_filled-25@2x.png */; };
+		E2AECF951E73D3010035DF28 /* GAEULAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A4A4F719665009006CAC22 /* GAEULAViewController.xib */; };
+		E2AECF961E73D3010035DF28 /* GAAboutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E29A354619667925003D025D /* GAAboutVC.xib */; };
+		E2AECF971E73D3010035DF28 /* box_filled-25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2636DD31CF2E57C00000371 /* box_filled-25@2x.png */; };
+		E2AECF981E73D3010035DF28 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F8E56419108A640093A3D3 /* Icon-Small.png */; };
+		E2AECF991E73D3010035DF28 /* cancelled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E43394190FAE5700A3FAB2 /* cancelled@2x.png */; };
+		E2AECF9A1E73D3010035DF28 /* planned@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2CCECFC190F82E6003655B7 /* planned@2x.png */; };
+		E2AECF9B1E73D3010035DF28 /* BioCollect-logo 1.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A2FFD01C854EDD008B63A8 /* BioCollect-logo 1.png */; };
+		E2AECF9C1E73D3010035DF28 /* searchbar_bk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E29A35411966781C003D025D /* searchbar_bk@2x.png */; };
+		E2AECF9D1E73D3010035DF28 /* SyncTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B700111DC2E5520066C236 /* SyncTableViewController.xib */; };
+		E2AECF9E1E73D3010035DF28 /* HomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F471C31C86827B00594DAB /* HomeTableViewController.xib */; };
+		E2AECF9F1E73D3010035DF28 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21CD17E1CEAF7E80021536B /* Images-2.xcassets */; };
+		E2AECFA01E73D3010035DF28 /* BioCollect-text-small.png in Resources */ = {isa = PBXBuildFile; fileRef = E2B627501CE4119A00A89179 /* BioCollect-text-small.png */; };
+		E2AECFA11E73D3010035DF28 /* search_bk_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22045BF192C755A00531116 /* search_bk_red@2x.png */; };
+		E2AECFA21E73D3010035DF28 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F8E55F19108A640093A3D3 /* Icon-40@2x.png */; };
+		E2AECFA31E73D3010035DF28 /* Default-568.png in Resources */ = {isa = PBXBuildFile; fileRef = E2DCF1EF1CF6A19C008D438C /* Default-568.png */; };
+		E2AECFA41E73D3010035DF28 /* deferred@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2CCECFA190F82E6003655B7 /* deferred@2x.png */; };
 		E2B4BEEE1C896E270054F117 /* HomeCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B4BEED1C896E270054F117 /* HomeCustomCell.m */; };
 		E2B6274F1CE40F8800A89179 /* BioCollect-text.png in Resources */ = {isa = PBXBuildFile; fileRef = E2B6274E1CE40F8800A89179 /* BioCollect-text.png */; };
 		E2B627511CE4119A00A89179 /* BioCollect-text-small.png in Resources */ = {isa = PBXBuildFile; fileRef = E2B627501CE4119A00A89179 /* BioCollect-text-small.png */; };
@@ -197,6 +390,7 @@
 		E2E56B2F1925D84E007AC38C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E56B2E1925D84E007AC38C /* MapKit.framework */; };
 		E2E8F744192245E60029574B /* loc1_nochange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E8F743192245E60029574B /* loc1_nochange@2x.png */; };
 		E2EF6E621E678A4F00279A55 /* RKDropdownAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF6E611E678A4F00279A55 /* RKDropdownAlert.m */; };
+		E2EF6E641E6797F400279A55 /* edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2EF6E631E6797F400279A55 /* edit@2x.png */; };
 		E2F471C41C86827B00594DAB /* HomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F471C31C86827B00594DAB /* HomeTableViewController.xib */; };
 		E2F8E56619108A640093A3D3 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F8E55E19108A640093A3D3 /* Icon-40.png */; };
 		E2F8E56719108A640093A3D3 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F8E55F19108A640093A3D3 /* Icon-40@2x.png */; };
@@ -450,6 +644,8 @@
 		E2A4A4F519665009006CAC22 /* GAEULAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAEULAViewController.h; path = src/eula/GAEULAViewController.h; sourceTree = "<group>"; };
 		E2A4A4F619665009006CAC22 /* GAEULAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GAEULAViewController.m; path = src/eula/GAEULAViewController.m; sourceTree = "<group>"; };
 		E2A4A4F719665009006CAC22 /* GAEULAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GAEULAViewController.xib; path = src/eula/GAEULAViewController.xib; sourceTree = "<group>"; };
+		E2AECFA81E73D3010035DF28 /* BioCollect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BioCollect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2AECFA91E73D3010035DF28 /* Oz Atlas copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Oz Atlas copy-Info.plist"; path = "/Users/sat01a/All/sat01a_git/iosv2/ozAtlas/Oz Atlas copy-Info.plist"; sourceTree = "<absolute>"; };
 		E2B4BEEC1C896DFB0054F117 /* HomeCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeCustomCell.h; path = src/home/HomeCustomCell.h; sourceTree = "<group>"; };
 		E2B4BEED1C896E270054F117 /* HomeCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeCustomCell.m; path = src/home/HomeCustomCell.m; sourceTree = "<group>"; };
 		E2B6274E1CE40F8800A89179 /* BioCollect-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BioCollect-text.png"; path = "src/images/BioCollect-text.png"; sourceTree = "<group>"; };
@@ -508,6 +704,7 @@
 		E2E8F743192245E60029574B /* loc1_nochange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loc1_nochange@2x.png"; path = "src/images/loc1_nochange@2x.png"; sourceTree = "<group>"; };
 		E2EF6E601E678A4F00279A55 /* RKDropdownAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKDropdownAlert.h; sourceTree = "<group>"; };
 		E2EF6E611E678A4F00279A55 /* RKDropdownAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKDropdownAlert.m; sourceTree = "<group>"; };
+		E2EF6E631E6797F400279A55 /* edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "edit@2x.png"; path = "src/images/edit@2x.png"; sourceTree = "<group>"; };
 		E2F471C31C86827B00594DAB /* HomeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeTableViewController.xib; path = src/home/HomeTableViewController.xib; sourceTree = "<group>"; };
 		E2F8E55E19108A640093A3D3 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40.png"; path = "src/images/Icon-40.png"; sourceTree = "<group>"; };
 		E2F8E55F19108A640093A3D3 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40@2x.png"; path = "src/images/Icon-40@2x.png"; sourceTree = "<group>"; };
@@ -521,6 +718,24 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E2AECF361E73D3010035DF28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2AECF371E73D3010035DF28 /* ImageIO.framework in Frameworks */,
+				E2AECF381E73D3010035DF28 /* libsqlite3.0.dylib in Frameworks */,
+				E2AECF391E73D3010035DF28 /* SystemConfiguration.framework in Frameworks */,
+				E2AECF3A1E73D3010035DF28 /* CoreData.framework in Frameworks */,
+				E2AECF3B1E73D3010035DF28 /* MapKit.framework in Frameworks */,
+				E2AECF3C1E73D3010035DF28 /* CoreLocation.framework in Frameworks */,
+				E2AECF3D1E73D3010035DF28 /* Accelerate.framework in Frameworks */,
+				E2AECF3E1E73D3010035DF28 /* QuartzCore.framework in Frameworks */,
+				E2AECF3F1E73D3010035DF28 /* CoreGraphics.framework in Frameworks */,
+				E2AECF401E73D3010035DF28 /* UIKit.framework in Frameworks */,
+				E2AECF411E73D3010035DF28 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2E3AA8618F4D2940005BB9E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -787,6 +1002,7 @@
 		B8D551DF18F98B7800EDD006 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E2EF6E631E6797F400279A55 /* edit@2x.png */,
 				E2636DDC1CF2E68500000371 /* home_filled-25@2x.png */,
 				E2636DD21CF2E57C00000371 /* about_filled-25@2x.png */,
 				E2636DD31CF2E57C00000371 /* box_filled-25@2x.png */,
@@ -1015,6 +1231,7 @@
 				E2E3AAAB18F4D2940005BB9E /* BioCollectTests */,
 				E2E3AA8B18F4D2940005BB9E /* Frameworks */,
 				E2E3AA8A18F4D2940005BB9E /* Products */,
+				E2AECFA91E73D3010035DF28 /* Oz Atlas copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1023,6 +1240,7 @@
 			children = (
 				E2E3AA8918F4D2940005BB9E /* Oz Atlas.app */,
 				E2E3AAA418F4D2940005BB9E /* Oz Atlas.xctest */,
+				E2AECFA81E73D3010035DF28 /* BioCollect.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1208,6 +1426,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E2AECEE01E73D3010035DF28 /* BioCollect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2AECFA51E73D3010035DF28 /* Build configuration list for PBXNativeTarget "BioCollect" */;
+			buildPhases = (
+				E2AECEE11E73D3010035DF28 /* Sources */,
+				E2AECF361E73D3010035DF28 /* Frameworks */,
+				E2AECF421E73D3010035DF28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BioCollect;
+			productName = GreenArmy;
+			productReference = E2AECFA81E73D3010035DF28 /* BioCollect.app */;
+			productType = "com.apple.product-type.application";
+		};
 		E2E3AA8818F4D2940005BB9E /* Oz Atlas */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2E3AAB518F4D2940005BB9E /* Build configuration list for PBXNativeTarget "Oz Atlas" */;
@@ -1284,11 +1519,117 @@
 			targets = (
 				E2E3AA8818F4D2940005BB9E /* Oz Atlas */,
 				E2E3AAA318F4D2940005BB9E /* Oz AtlasTests */,
+				E2AECEE01E73D3010035DF28 /* BioCollect */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E2AECF421E73D3010035DF28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2AECF431E73D3010035DF28 /* RecordsTableViewController.xib in Resources */,
+				E2AECF441E73D3010035DF28 /* AboutiPhoneView.xib in Resources */,
+				E2AECF451E73D3010035DF28 /* SVWebViewControllerActivitySafari-iPad@2x.png in Resources */,
+				E2AECF461E73D3010035DF28 /* help_filled-25@2x.png in Resources */,
+				E2AECF471E73D3010035DF28 /* SpeciesSearchTableViewController.xib in Resources */,
+				E2AECF481E73D3010035DF28 /* finished@2x.png in Resources */,
+				E2AECF491E73D3010035DF28 /* action-25@2x.png in Resources */,
+				E2AECF4A1E73D3010035DF28 /* ContactVC.xib in Resources */,
+				E2AECF4B1E73D3010035DF28 /* loc1_changed@2x.png in Resources */,
+				E2AECF4C1E73D3010035DF28 /* 512x512.png in Resources */,
+				E2AECF4D1E73D3010035DF28 /* sync-25@2x.png in Resources */,
+				E2AECF4E1E73D3010035DF28 /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
+				E2AECF4F1E73D3010035DF28 /* RecordWebView.xib in Resources */,
+				E2AECF501E73D3010035DF28 /* Icon-Small@2x.png in Resources */,
+				E2AECF511E73D3010035DF28 /* brief_filled-25@2x.png in Resources */,
+				E2AECF521E73D3010035DF28 /* GALogin.xib in Resources */,
+				E2AECF531E73D3010035DF28 /* SVWebViewControllerActivitySafari@2x.png in Resources */,
+				E2AECF541E73D3010035DF28 /* biocollect_background.png in Resources */,
+				E2AECF551E73D3010035DF28 /* BioCollect-logo.png in Resources */,
+				E2AECF561E73D3010035DF28 /* BioCollect-text.png in Resources */,
+				E2AECF571E73D3010035DF28 /* menu-25@2x.png in Resources */,
+				E2AECF581E73D3010035DF28 /* csiro-logo.png in Resources */,
+				E2AECF591E73D3010035DF28 /* briefcase_filled-25@2x.png in Resources */,
+				E2AECF5A1E73D3010035DF28 /* heading@2x.png in Resources */,
+				E2AECF5B1E73D3010035DF28 /* pad-1@2x.png in Resources */,
+				E2AECF5C1E73D3010035DF28 /* (null) in Resources */,
+				E2AECF5D1E73D3010035DF28 /* GACreateSiteModalViewController.xib in Resources */,
+				E2AECF5E1E73D3010035DF28 /* changed@2x.png in Resources */,
+				E2AECF5F1E73D3010035DF28 /* css in Resources */,
+				E2AECF601E73D3010035DF28 /* background.png in Resources */,
+				E2AECF611E73D3010035DF28 /* LoginiPhoneView.xib in Resources */,
+				E2AECF621E73D3010035DF28 /* contact_filled-25@2x.png in Resources */,
+				E2AECF631E73D3010035DF28 /* HomeWebView.xib in Resources */,
+				E2AECF641E73D3010035DF28 /* nochange@2x.png in Resources */,
+				E2AECF651E73D3010035DF28 /* GADetailActivitiesTableViewController.xib in Resources */,
+				E2AECF661E73D3010035DF28 /* SVWebViewControllerActivityChrome@2x.png in Resources */,
+				E2AECF671E73D3010035DF28 /* SVWebViewController.bundle in Resources */,
+				E2AECF681E73D3010035DF28 /* ContactiPhoneVC.xib in Resources */,
+				E2AECF691E73D3010035DF28 /* pad@2x.png in Resources */,
+				E2AECF6A1E73D3010035DF28 /* started@2x.png in Resources */,
+				E2AECF6B1E73D3010035DF28 /* EULAiPhoneViewController.xib in Resources */,
+				E2AECF6C1E73D3010035DF28 /* SVWebViewControllerActivityChrome-iPad.png in Resources */,
+				E2AECF6D1E73D3010035DF28 /* GreenArmy2.png in Resources */,
+				E2AECF6E1E73D3010035DF28 /* GAMasterProjectTableViewController.xib in Resources */,
+				E2AECF6F1E73D3010035DF28 /* GADetailFormVIewController.xib in Resources */,
+				E2AECF701E73D3010035DF28 /* Icon-60.png in Resources */,
+				E2AECF711E73D3010035DF28 /* site_map@2x.png in Resources */,
+				E2AECF721E73D3010035DF28 /* img in Resources */,
+				E2AECF731E73D3010035DF28 /* background~ipad.png in Resources */,
+				E2AECF741E73D3010035DF28 /* InfoPlist.strings in Resources */,
+				E2AECF751E73D3010035DF28 /* table-place-holder.png in Resources */,
+				E2AECF761E73D3010035DF28 /* home_filled-25@2x.png in Resources */,
+				E2AECF771E73D3010035DF28 /* js in Resources */,
+				E2AECF781E73D3010035DF28 /* Icon-40.png in Resources */,
+				E2AECF791E73D3010035DF28 /* edit@2x.png in Resources */,
+				E2AECF7A1E73D3010035DF28 /* BioCollect-logo 2.png in Resources */,
+				E2AECF7B1E73D3010035DF28 /* Default-568h@2x.png in Resources */,
+				E2AECF7C1E73D3010035DF28 /* LaunchScreen~ipad.storyboard in Resources */,
+				E2AECF7D1E73D3010035DF28 /* loc1_nochange@2x.png in Resources */,
+				E2AECF7E1E73D3010035DF28 /* geo_fence-25@2x.png in Resources */,
+				E2AECF7F1E73D3010035DF28 /* info_filled-25@2x.png in Resources */,
+				E2AECF801E73D3010035DF28 /* about_filled-25@2x.png in Resources */,
+				E2AECF811E73D3010035DF28 /* header@2x.png in Resources */,
+				E2AECF821E73D3010035DF28 /* SVWebViewController.strings in Resources */,
+				E2AECF831E73D3010035DF28 /* Icon-60@2x.png in Resources */,
+				E2AECF841E73D3010035DF28 /* index.html in Resources */,
+				E2AECF851E73D3010035DF28 /* ala_logo.png in Resources */,
+				E2AECF861E73D3010035DF28 /* StaticWebPages in Resources */,
+				E2AECF871E73D3010035DF28 /* MapViewController.xib in Resources */,
+				E2AECF881E73D3010035DF28 /* Icon-placeholder.png in Resources */,
+				E2AECF891E73D3010035DF28 /* Default-568h.png in Resources */,
+				E2AECF8A1E73D3010035DF28 /* Icon-76.png in Resources */,
+				E2AECF8B1E73D3010035DF28 /* profile@2x.png in Resources */,
+				E2AECF8C1E73D3010035DF28 /* lock_filled-25@2x.png in Resources */,
+				E2AECF8D1E73D3010035DF28 /* Icon-76@2x.png in Resources */,
+				E2AECF8E1E73D3010035DF28 /* ajax_loader.gif in Resources */,
+				E2AECF8F1E73D3010035DF28 /* LaunchScreen.storyboard in Resources */,
+				E2AECF901E73D3010035DF28 /* ala_logo1.png in Resources */,
+				E2AECF911E73D3010035DF28 /* SVWebViewControllerActivitySafari-iPad.png in Resources */,
+				E2AECF921E73D3010035DF28 /* Images.xcassets in Resources */,
+				E2AECF931E73D3010035DF28 /* GAHelpVC.xib in Resources */,
+				E2AECF941E73D3010035DF28 /* briefcase_filled-25@2x.png in Resources */,
+				E2AECF951E73D3010035DF28 /* GAEULAViewController.xib in Resources */,
+				E2AECF961E73D3010035DF28 /* GAAboutVC.xib in Resources */,
+				E2AECF971E73D3010035DF28 /* box_filled-25@2x.png in Resources */,
+				E2AECF981E73D3010035DF28 /* Icon-Small.png in Resources */,
+				E2AECF991E73D3010035DF28 /* cancelled@2x.png in Resources */,
+				E2AECF9A1E73D3010035DF28 /* planned@2x.png in Resources */,
+				E2AECF9B1E73D3010035DF28 /* BioCollect-logo 1.png in Resources */,
+				E2AECF9C1E73D3010035DF28 /* searchbar_bk@2x.png in Resources */,
+				E2AECF9D1E73D3010035DF28 /* SyncTableViewController.xib in Resources */,
+				E2AECF9E1E73D3010035DF28 /* HomeTableViewController.xib in Resources */,
+				E2AECF9F1E73D3010035DF28 /* Images-2.xcassets in Resources */,
+				E2AECFA01E73D3010035DF28 /* BioCollect-text-small.png in Resources */,
+				E2AECFA11E73D3010035DF28 /* search_bk_red@2x.png in Resources */,
+				E2AECFA21E73D3010035DF28 /* Icon-40@2x.png in Resources */,
+				E2AECFA31E73D3010035DF28 /* Default-568.png in Resources */,
+				E2AECFA41E73D3010035DF28 /* deferred@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2E3AA8718F4D2940005BB9E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1347,6 +1688,7 @@
 				E2636DDD1CF2E68500000371 /* home_filled-25@2x.png in Resources */,
 				E241C687196A33B6002302D7 /* js in Resources */,
 				E2F8E56619108A640093A3D3 /* Icon-40.png in Resources */,
+				E2EF6E641E6797F400279A55 /* edit@2x.png in Resources */,
 				E2BB4EF31C855A0F0075F8BF /* BioCollect-logo 2.png in Resources */,
 				E2DCF1EE1CF68D8B008D438C /* Default-568h@2x.png in Resources */,
 				E291220F1CDAC425005D9638 /* LaunchScreen~ipad.storyboard in Resources */,
@@ -1405,6 +1747,97 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E2AECEE11E73D3010035DF28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2AECEE21E73D3010035DF28 /* RecordViewController.m in Sources */,
+				E2AECEE31E73D3010035DF28 /* SDWebImageDecoder.m in Sources */,
+				E2AECEE41E73D3010035DF28 /* SDWebImagePrefetcher.m in Sources */,
+				E2AECEE51E73D3010035DF28 /* GAMasterProjectTableViewController.m in Sources */,
+				E2AECEE61E73D3010035DF28 /* UIImageView+HighlightedWebCache.m in Sources */,
+				E2AECEE71E73D3010035DF28 /* MRMethodCopier.m in Sources */,
+				E2AECEE81E73D3010035DF28 /* OzHomeVCDataSource.m in Sources */,
+				E2AECEE91E73D3010035DF28 /* GASqlLiteDatabase.m in Sources */,
+				E2AECEEA1E73D3010035DF28 /* GALogin.m in Sources */,
+				E2AECEEB1E73D3010035DF28 /* GAActivity.m in Sources */,
+				E2AECEEC1E73D3010035DF28 /* UIImage+WebP.m in Sources */,
+				E2AECEED1E73D3010035DF28 /* ProjectActivity.m in Sources */,
+				E2AECEEE1E73D3010035DF28 /* MRMessageInterceptor.m in Sources */,
+				E2AECEEF1E73D3010035DF28 /* MRIconView.m in Sources */,
+				E2AECEF01E73D3010035DF28 /* MRBlurView.m in Sources */,
+				E2AECEF11E73D3010035DF28 /* GACreateSiteModalViewController.m in Sources */,
+				E2AECEF21E73D3010035DF28 /* SVWebViewControllerActivitySafari.m in Sources */,
+				E2AECEF31E73D3010035DF28 /* SVModalWebViewController.m in Sources */,
+				E2AECEF41E73D3010035DF28 /* UIImageView+WebCache.m in Sources */,
+				E2AECEF51E73D3010035DF28 /* GAAboutVC.m in Sources */,
+				E2AECEF61E73D3010035DF28 /* SDWebImageManager.m in Sources */,
+				E2AECEF71E73D3010035DF28 /* NSData+ImageContentType.m in Sources */,
+				E2AECEF81E73D3010035DF28 /* GARestCall.m in Sources */,
+				E2AECEF91E73D3010035DF28 /* JGActionSheet.m in Sources */,
+				E2AECEFA1E73D3010035DF28 /* HomeCustomCell.m in Sources */,
+				E2AECEFB1E73D3010035DF28 /* RecordForm.m in Sources */,
+				E2AECEFC1E73D3010035DF28 /* RKDropdownAlert.m in Sources */,
+				E2AECEFD1E73D3010035DF28 /* MapViewController.m in Sources */,
+				E2AECEFE1E73D3010035DF28 /* MGSpotyView.m in Sources */,
+				E2AECEFF1E73D3010035DF28 /* GAActivitiesJSON.m in Sources */,
+				E2AECF001E73D3010035DF28 /* GASettings.m in Sources */,
+				E2AECF011E73D3010035DF28 /* GASiteJSON.m in Sources */,
+				E2AECF021E73D3010035DF28 /* SVWebViewControllerActivity.m in Sources */,
+				E2AECF031E73D3010035DF28 /* MKAnnotationView+WebCache.m in Sources */,
+				E2AECF041E73D3010035DF28 /* FXForms.m in Sources */,
+				E2AECF051E73D3010035DF28 /* UIImage+ImageEffects.m in Sources */,
+				E2AECF061E73D3010035DF28 /* GAFormJSInterface.m in Sources */,
+				E2AECF071E73D3010035DF28 /* HomeWebView.m in Sources */,
+				E2AECF081E73D3010035DF28 /* MRStopButton.m in Sources */,
+				E2AECF091E73D3010035DF28 /* MRProgressOverlayView.m in Sources */,
+				E2AECF0A1E73D3010035DF28 /* OzHomeVC.m in Sources */,
+				E2AECF0B1E73D3010035DF28 /* SyncTableViewController.m in Sources */,
+				E2AECF0C1E73D3010035DF28 /* SVWebViewControllerActivityChrome.m in Sources */,
+				E2AECF0D1E73D3010035DF28 /* GAAppDelegate.m in Sources */,
+				E2AECF0E1E73D3010035DF28 /* ProjectActivitiesJSON.m in Sources */,
+				E2AECF0F1E73D3010035DF28 /* GADetailActivitiesTableViewController.m in Sources */,
+				E2AECF101E73D3010035DF28 /* EasyJSWebView.m in Sources */,
+				E2AECF111E73D3010035DF28 /* RecordWebView.m in Sources */,
+				E2AECF121E73D3010035DF28 /* UIButton+WebCache.m in Sources */,
+				E2AECF131E73D3010035DF28 /* MGSpotyViewController.m in Sources */,
+				E2AECF141E73D3010035DF28 /* SDWebImageCompat.m in Sources */,
+				E2AECF151E73D3010035DF28 /* MRActivityIndicatorView.m in Sources */,
+				E2AECF161E73D3010035DF28 /* GAProjectJSON.m in Sources */,
+				E2AECF171E73D3010035DF28 /* Record.m in Sources */,
+				E2AECF181E73D3010035DF28 /* GADetailFormVIewController.m in Sources */,
+				E2AECF191E73D3010035DF28 /* GAHelpVC.m in Sources */,
+				E2AECF1A1E73D3010035DF28 /* MRWeakProxy.m in Sources */,
+				E2AECF1B1E73D3010035DF28 /* GASite.m in Sources */,
+				E2AECF1C1E73D3010035DF28 /* SDWebImageDownloader.m in Sources */,
+				E2AECF1D1E73D3010035DF28 /* MRNavigationBarProgressView.m in Sources */,
+				E2AECF1E1E73D3010035DF28 /* OzHomeVCDelegate.m in Sources */,
+				E2AECF1F1E73D3010035DF28 /* UIImageView+LBBlurredImage.m in Sources */,
+				E2AECF201E73D3010035DF28 /* easyjs-inject.js in Sources */,
+				E2AECF211E73D3010035DF28 /* UIImage+GIF.m in Sources */,
+				E2AECF221E73D3010035DF28 /* ContactVC.m in Sources */,
+				E2AECF231E73D3010035DF28 /* main.m in Sources */,
+				E2AECF241E73D3010035DF28 /* MRProgressView.m in Sources */,
+				E2AECF251E73D3010035DF28 /* SDWebImageDownloaderOperation.m in Sources */,
+				E2AECF261E73D3010035DF28 /* MRCircularProgressView.m in Sources */,
+				E2AECF271E73D3010035DF28 /* UIImage+MultiFormat.m in Sources */,
+				E2AECF281E73D3010035DF28 /* UIView+WebCacheOperation.m in Sources */,
+				E2AECF291E73D3010035DF28 /* EasyJSDataFunction.m in Sources */,
+				E2AECF2A1E73D3010035DF28 /* SVWebViewController.m in Sources */,
+				E2AECF2B1E73D3010035DF28 /* UIImage+MRImageEffects.m in Sources */,
+				E2AECF2C1E73D3010035DF28 /* GAEULAViewController.m in Sources */,
+				E2AECF2D1E73D3010035DF28 /* RecordsTableViewController.m in Sources */,
+				E2AECF2E1E73D3010035DF28 /* HomeTableViewController.m in Sources */,
+				E2AECF2F1E73D3010035DF28 /* GAProject.m in Sources */,
+				E2AECF301E73D3010035DF28 /* GAProjectsUtil.m in Sources */,
+				E2AECF311E73D3010035DF28 /* SpeciesCell.m in Sources */,
+				E2AECF321E73D3010035DF28 /* BioProjectService.m in Sources */,
+				E2AECF331E73D3010035DF28 /* EasyJSWebViewProxyDelegate.m in Sources */,
+				E2AECF341E73D3010035DF28 /* SpeciesSearchTableViewController.m in Sources */,
+				E2AECF351E73D3010035DF28 /* SDImageCache.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2E3AA8518F4D2940005BB9E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1553,6 +1986,61 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E2AECFA61E73D3010035DF28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = BioCollect;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sathish Sathyamoorthy (VP6SGJQWPU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sathish Sathyamoorthy (VP6SGJQWPU)";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BioCollect/Oz Atlas-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=0",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Oz Atlas copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BioCollect/src/Framework",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = au.org.ala.biocollect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9a27d24a-07f5-44ec-809e-6fbae0531959";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E2AECFA71E73D3010035DF28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = BioCollect;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sathish Sathyamoorthy (VP6SGJQWPU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sathish Sathyamoorthy (VP6SGJQWPU)";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BioCollect/Oz Atlas-Prefix.pch";
+				INFOPLIST_FILE = "Oz Atlas copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BioCollect/src/Framework",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = au.org.ala.biocollect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9a27d24a-07f5-44ec-809e-6fbae0531959";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		E2E3AAB318F4D2940005BB9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1726,6 +2214,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E2AECFA51E73D3010035DF28 /* Build configuration list for PBXNativeTarget "BioCollect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2AECFA61E73D3010035DF28 /* Debug */,
+				E2AECFA71E73D3010035DF28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E2E3AA8418F4D2940005BB9E /* Build configuration list for PBXProject "Oz Atlas" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

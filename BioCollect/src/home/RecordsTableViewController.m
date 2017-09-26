@@ -15,6 +15,7 @@
 #import "GASettingsConstant.h"
 #import "GASettings.h"
 #import "ProjectActivity.h"
+#import "RKDropdownAlert.h"
 
 @interface RecordsTableViewController ()
     @property (nonatomic, strong) GAAppDelegate *appDelegate;
@@ -30,7 +31,7 @@
 @synthesize  webViewController, records, appDelegate, bioProjectService, totalRecords, offset, loadingFinished, isSearching, query, spinner, myRecords, projectId, pActivties;
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *) nibBundleOrNil {
+- (id)initWithNibNameAndUserActions:(NSString *)nibNameOrNil bundle:(NSBundle *) nibBundleOrNil {
     self.appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
     self.bioProjectService = self.appDelegate.bioProjectService;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -50,8 +51,36 @@
                                        action:@selector(resetAndDownloadProjects)];
        
         UIBarButtonItem *plusButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(selectActivity)];
+        NSArray *btns = [NSArray arrayWithObjects:plusButton, syncButton,nil];
+        btns = [NSArray arrayWithObjects:plusButton, syncButton,nil];
+        self.navigationItem.rightBarButtonItems = btns;
+        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    }
+    
+    return self;
+}
 
-        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:plusButton, syncButton,nil];
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *) nibBundleOrNil {
+    self.appDelegate = (GAAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.bioProjectService = self.appDelegate.bioProjectService;
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self.menu = nil;
+    if (self) {
+        self.records = [[NSMutableArray alloc]init];
+        self.pActivties = [[NSMutableArray alloc] init];
+        self.offset = DEFAULT_OFFSET;
+        self.loadingFinished = TRUE;
+        self.query = @"";
+        self.isSearching = NO;
+        
+        UIBarButtonItem *syncButton = [[UIBarButtonItem alloc]
+                                       initWithImage: [UIImage imageNamed:@"sync-25"]
+                                       style:UIBarButtonItemStyleBordered
+                                       target:self
+                                       action:@selector(resetAndDownloadProjects)];
+        
+        NSArray *btns = [NSArray arrayWithObjects:syncButton,nil];
+        self.navigationItem.rightBarButtonItems = btns;
         spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     }
     return self;
@@ -203,6 +232,18 @@
         
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:escapedUrlString]
                           placeholderImage:[UIImage imageNamed:@"table-place-holder.png"]];
+       
+        if(self.showUserActions) {
+            UIImage *image = [UIImage imageNamed:[[NSString alloc] initWithFormat:@"edit"]];
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            CGRect frame = CGRectMake(44.0, 44.0, image.size.width, image.size.height);
+            button.frame = frame;
+            self.selectedActivity = activity;
+            [button setBackgroundImage:image forState:UIControlStateNormal];
+            [button addTarget:self action:@selector(accessoryButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
+            button.backgroundColor = [UIColor clearColor];
+            cell.accessoryView = button;
+        }
     }
     
     return cell;
@@ -212,6 +253,20 @@
     // Return NO if you do not want the specified item to be editable.
     return NO;
 }
+
+-(void) accessoryButtonTapped:(id)sender event:(id)event{
+    // Open web view with
+    if(self.selectedActivity &&  self.selectedActivity.url){
+        NSString *url = [[NSString alloc] initWithFormat:@"%@",self.selectedActivity.editUrl];
+        NSMutableURLRequest *request = [self loadRequest: url];
+        self.webViewController = [[SVModalWebViewController alloc] initWithURLRequest: request];
+        self.webViewController.title = [[NSString alloc] initWithFormat:@"Edit"];
+        self.webViewController.webViewDelegate = self;
+        
+        [self presentViewController: webViewController animated:YES completion: nil];
+    }
+}
+
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if(self.tableView.contentOffset.y >= (self.tableView.contentSize.height - self.tableView.bounds.size.height)) {
@@ -378,14 +433,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     NSString *currentUrl = webView.request.URL.absoluteString;
     if([currentUrl hasSuffix: @"#successfully-posted"]) {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info"
-                                                        message:@"Successfully submitted."
-                                                       delegate:self
-                                              cancelButtonTitle:@"Dismiss"
-                                              otherButtonTitles:nil];
-        [alert show];
-
+        [RKDropdownAlert title:@"" message:@"Successfully posted." backgroundColor:[UIColor greenColor] textColor:[UIColor whiteColor] time:10];
         [self.webViewController dismissViewControllerAnimated:false completion:NULL];
         [self resetAndDownloadProjects];
     }
